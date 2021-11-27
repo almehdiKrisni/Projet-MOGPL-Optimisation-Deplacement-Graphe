@@ -1,5 +1,5 @@
 Nombre sommets 10
-Nombre arcs 14
+Nombre arcs 15
 a
 b
 c
@@ -21,6 +21,7 @@ l
 (f,i,5,1)
 (g,j,2,1)
 (g,k,6,1)
+(h,i,7,1)
 (h,k,7,1)
 (i,l,9,1)
 (i,l,8,1)

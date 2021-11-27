@@ -85,6 +85,41 @@ def acquisitionGraphe(nomFichier) :
 
     # On retourne le graphe
     return G
+
+
+#------------------------------------------------------------------------------------------------------
+
+# Méthode permettant d'afficher à l'écran un graphe non orienté et, éventuellement, un titre
+def showGraphe(graphe, titre = "G"):
+    """ graphe : un dictionnaire representant un graphe { sommet s : sommets adjacents à s}
+        titre : titre du graphe à afficher, 'G' par defaut
+    """
+    G = nx.DiGraph()
+    origin = 0
+
+    nbNodes = 0
+    for v1 in list(graphe.keys()) :
+        if (origin == 0) :
+            G.add_node(v1, pos=(1, 0))
+            origin = 1
+        else :
+            G.add_node(v1, pos = ((nbNodes % 3), - 1 - (nbNodes / 3)))
+            nbNodes += 1
+            
+
+    G.add_nodes_from(list(graphe.keys()))
+    for v1 in graphe.keys():
+        for v2 in graphe[v1] :
+            (s1, s2, _) = v2
+            G.add_edge(v1, s1, d = s2)
+
+    plt.title(titre)
+    pos = nx.get_node_attributes(G, 'pos')
+    edge_labels = nx.get_edge_attributes(G,'d')
+    nx.draw(G, pos, with_labels=True, node_size=500, font_size = 10, node_color="skyblue")
+    nx.draw_networkx_edge_labels(G, pos)
+
+    plt.show()
             
             
 #######################################################################################################
@@ -93,6 +128,6 @@ def acquisitionGraphe(nomFichier) :
 
 # Fonction de lecture
 grap = acquisitionGraphe("exempleGraphe.txt")
-print(grap)
+showGraphe(grap)
 
 
