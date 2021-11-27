@@ -27,58 +27,72 @@ import math
 def acquisitionGraphe(nomFichier) :
     # On crée le graphe G que nous allons retourner et d'autres variables
     G = dict()
-    nbSommets = 0, nbSommetsLus = 0
-    nbArcs = 0, nbArcsLus = 0
-    phase = 0
+    nbSommets = 0
+    nbSommetsLus = 0
+    nbArcs = 0
+    nbArcsLus = 0
+    phase = 0 # Permet de savoir si nous somme en phase de préparation ou de lecture
 
     # Lecture du fichier
     with open(nomFichier, 'r') as fichier :
         for ligne in fichier :
 
+            # Phase de préparation
+            if (phase == 0) :
             # Lecture du nombre de sommets
-            if ligne.startswith('Nombre sommets') :
-                e = ligne.strip().split()
-                if len(e) == 3 :
-                    (s1, s2, s3) = e
-                    nbSommets = s3
-                continue
+                if ligne.startswith('Nombre sommets') :
+                    e = ligne.strip().split()
+                    if len(e) == 3 :
+                        (s1, s2, s3) = e
+                        nbSommets = int(s3)
+                    else :
+                        print("Problème de format lors de la lecture du nombre de sommets.")
+                        return
 
-            # Lecture du nombre d'arcs
-            if ligne.startswith('Nombre arcs') :
-                e = ligne.strip().split()
-                if len(e) == 3 :
-                    (s1, s2, s3) = e
-                    nbArcs = s3
-                    phase = 1
-                continue
+                # Lecture du nombre d'arcs
+                if ligne.startswith('Nombre arcs') :
+                    e = ligne.strip().split()
+                    if len(e) == 3 :
+                        (s1, s2, s3) = e
+                        nbArcs = int(s3)
+                        phase = 1
+                    else :
+                        print("Problème de format lors de la lecture du nombre d'arcs.")
+                        return
 
-            # Lecture des sommets et des arcs
-            if phase == 1 :
+            # Phase de lecture des sommets et des arcs
+            else :
                 # Lecture d'un sommet
                 if (nbSommetsLus < nbSommets) :
                     e = ligne.strip().split()
                     if len(e) == 1 :
-                        (s) = e
-                        G[s] = []
+                        G[ligne.strip()] = []
                         nbSommetsLus += 1
                     else :
                         print("Problème de format lors de la lecture d'un sommet.")
-                        exit
+                        return
 
                 # Lecture d'un arc
                 elif (nbArcsLus < nbArcs) :
-                    e = ligne.strip().split()
+                    e = ligne.replace(',', ' ').strip('()\n').split()
                     if len(e) == 4 :
                         (s1, s2, s3, s4) = e
-                        G[s1].append((s2, s3, s4))
+                        G[s1].append((s2, int(s3), int(s4)))
                         nbArcsLus += 1
                     else :
-                        print("Problème de format lors de la lecture d'un sommet")
+                        print("Problème de format lors de la lecture d'un arc")
+                        return
+
+    # On retourne le graphe
+    return G
             
             
-            
+#######################################################################################################
+# TESTS
+#######################################################################################################
 
-
-
+# Fonction de lecture
+grap = acquisitionGraphe("exempleGraphe.txt")
+print(grap)
 
 
