@@ -20,6 +20,17 @@ import matplotlib.pyplot as plt
 import math
 
 #######################################################################################################
+# INFORMATIONS
+#######################################################################################################
+
+# Les graphes sont des dictionnaires dont :
+# - les clés sont des noms de sommets du graphe
+# - les valeurs situées dans dans le dictionnaire sont des listes d'arcs sortants du sommet représenté par la clé
+# - les arcs sont de la forme (s1, s2, dDD, cDT)
+# (s1 : sommet d'origine, s2 : sommet destination)
+# (dDD : la date de départ du vol, cDT : le nombre de jours pour effectuer le trajet)
+
+#######################################################################################################
 # OUTILS
 #######################################################################################################
 
@@ -89,8 +100,40 @@ def acquisitionGraphe(nomFichier) :
 
 #------------------------------------------------------------------------------------------------------
 
-# Méthode permettant d'afficher à l'écran un graphe non orienté et, éventuellement, un titre
+# Méthode permettant d'afficher à l'écran un graphe condensé repertorié dans le fichier source
 def showGraphe(graphe, titre = "G"):
+    """ graphe : un dictionnaire representant un graphe { sommet s : sommets adjacents à s}
+        titre : titre du graphe à afficher, 'G' par defaut
+    """
+    G = nx.DiGraph()
+    origin = 0
+
+    nbNodes = 0
+    for v1 in list(graphe.keys()) :
+        if (origin == 0) :
+            G.add_node(v1, pos=(1, 0))
+            origin = 1
+        else :
+            G.add_node(v1, pos = ((nbNodes % 3), - 1 - (nbNodes / 3)))
+            nbNodes += 1
+            
+
+    G.add_nodes_from(list(graphe.keys()))
+    for v1 in graphe.keys():
+        for v2 in graphe[v1] :
+            (s1, _, _) = v2
+            G.add_edge(v1, s1)
+
+    plt.title(titre)
+    pos = nx.get_node_attributes(G, 'pos')
+    nx.draw(G, pos, with_labels=True, node_size=500, font_size = 10, node_color="skyblue")
+
+    plt.show()
+
+#------------------------------------------------------------------------------------------------------
+
+# Méthode permettant d'afficher à l'écran un multigraphe orienté repertorié dans le fichier source avec les valeurs associées à chaque arc
+def showGrapheLabels(graphe, titre = "G"):
     """ graphe : un dictionnaire representant un graphe { sommet s : sommets adjacents à s}
         titre : titre du graphe à afficher, 'G' par defaut
     """
@@ -115,7 +158,6 @@ def showGraphe(graphe, titre = "G"):
 
     plt.title(titre)
     pos = nx.get_node_attributes(G, 'pos')
-    edge_labels = nx.get_edge_attributes(G,'d')
     nx.draw(G, pos, with_labels=True, node_size=500, font_size = 10, node_color="skyblue")
     nx.draw_networkx_edge_labels(G, pos)
 
@@ -129,5 +171,6 @@ def showGraphe(graphe, titre = "G"):
 # Fonction de lecture
 grap = acquisitionGraphe("exempleGraphe.txt")
 showGraphe(grap)
+showGrapheLabels(grap)
 
 
