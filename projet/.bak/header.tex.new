@@ -1,0 +1,101 @@
+%%%%%%%%%%%%%%%%%%
+% General config %
+%%%%%%%%%%%%%%%%%%
+
+\documentclass[fontsize=15pt]{article}
+\usepackage[margin=1.2in]{geometry}
+\usepackage[english]{babel}
+
+%%%%%%%%%%%%
+% Packages %
+%%%%%%%%%%%%
+
+% Math packages
+\usepackage{amsthm}
+\usepackage{amsmath,amssymb}
+\usepackage{amsfonts,mathtools}
+\usepackage{thmbox}
+
+% graphics packages
+\usepackage{pict2e,picture}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{subcaption}
+
+% custom environments
+\usepackage{comment}
+\usepackage{enumitem}
+\usepackage{epigraph}
+\usepackage{environ}
+
+% Miscellanious packages
+\usepackage{lipsum,mwe,abstract}
+\usepackage{multicol}
+\usepackage{refcount}
+\usepackage{hyperref}
+
+
+%%%%%%%%%%%%%%%%%%%
+% Custom Commands %
+%%%%%%%%%%%%%%%%%%%
+
+% covering relation
+\newcommand{\coveringA}{%
+  \mathrel{-\mkern-4mu}<%
+}
+\newcommand{\coveringB}{\mathrel{\text{$\vcenter{\hbox{\pictcoveringB}}$}}}
+\newcommand{\pictcoveringB}{%
+  \begin{picture}(1em,.5em)
+  \roundcap
+  \put(0,.25em){\line(1,0){.6em}}
+  \put(.6em,.25em){\line(3,1){.4em}}
+  \put(.6em,.25em){\line(3,-1){.4em}}
+  \end{picture}%
+}
+
+% custom theorem environments
+\newtheorem[M]{definition}{Definition}[section]
+\newtheorem[M]{theorem}{Theorem}[section]
+\newtheorem[M]{corollary}{Corollary}[theorem]
+\newtheorem[M]{lemma}{Lemma}[section]
+\newtheorem[M]{remark}{Remark}[section]
+\newtheorem[M]{example}{Example}[section]
+\newtheorem[M]{property}{Property}[section]
+\newtheorem[M]{prop}{Proposition}[section]
+\newtheorem[M]{notation}{Notation}[section]
+\newtheorem[M]{convention}{Convention}[section]
+\newtheorem[M]{interpretation}{Interpretation}[section]
+\newtheorem[M]{question}{Question}[section]
+\newtheorem[M]{note}{Note}[section]
+
+% abstract customization
+\renewenvironment{abstract}
+ {\small
+  \begin{center}
+  \bfseries \abstractname\vspace{-.5em}\vspace{0pt}
+  \end{center}
+  \list{}{
+    \setlength{\leftmargin}{20mm}
+    \setlength{\rightmargin}{\leftmargin}
+  }
+\item\relax}
+{\endlist}
+
+% special epigraph/acknowledgements
+\newenvironment{dedication}
+  {\clearpage           % we want a new page
+   \vspace*{\stretch{1}}% some space at the top
+   \itshape             % the text is in italics
+   \raggedleft          % flush to the right margin
+   \begin{minipage}{0.6\linewidth}
+     \parindent=12pt
+   }
+   {\end{minipage}
+   \par % end the paragraph
+   \vspace{\stretch{2}} % space at bottom is three times that at the top
+   \raggedleft
+   \textit{All Finite Lattices are Algebraic Lattices.}\\
+   \textit{-- G. Birkhoff}
+   \vspace{\stretch{1}}
+   \clearpage           % finish off the page
+ }

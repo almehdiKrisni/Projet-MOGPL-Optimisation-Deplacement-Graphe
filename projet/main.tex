@@ -1,0 +1,98 @@
+%%%%%%%%%%%%%%%%
+% Latex Header %
+%%%%%%%%%%%%%%%%
+
+\input{misc/header}
+
+
+%%%%%%%%%%%%%%
+% Title Page %
+%%%%%%%%%%%%%%
+
+\title{\Large main}
+\date{07/28/21}
+
+\begin{document}
+
+\input{misc/title_page}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Acknowledgements / Quote %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \pagenumbering{roman}
+% \input{misc/acknowledgements}
+
+
+%%%%%%%%%%%%
+% Abstract %
+%%%%%%%%%%%%
+
+% \input{misc/abstract}
+% \vfill
+
+
+%%%%%%%%%%%%%%%%%%%%%
+% Table of Contents %
+%%%%%%%%%%%%%%%%%%%%%
+
+% \vspace*{8cm}
+
+% \setcounter{tocdepth}{2}
+% \tableofcontents
+% \newpage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ========== Main Content ========== %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+% \vspace*{9.5cm}
+
+% Section 1: Introduction
+\input{sections/introduction}
+
+% Section 2: Préliminaires
+\input{sections/preliminaires}
+
+% Section 3: Algorithmes de plus court chemin dans des multigraphes orientés
+% pondérés par le temps
+\input{sections/algos}
+
+
+% Section 4: Conclusion
+\input{sections/conclusion}
+
+%%%%%%%%%%%%%%
+% References %
+%%%%%%%%%%%%%%
+
+% \addcontentsline{toc}{section}{References}
+% \bibliographystyle{acm}
+% \bibliography{misc/citations}
+% \newpage
+
+
+%%%%%%%%%%%
+% Annexes %
+%%%%%%%%%%%
+
+% \appendix
+% \setcounter{page}{1}
+% \pagenumbering{roman}
+
+% \addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
+
+% \section{Proofs}
+% \printProofs
+% \input{sections/appendix}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

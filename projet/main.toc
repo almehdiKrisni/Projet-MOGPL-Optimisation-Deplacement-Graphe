@@ -1,0 +1,31 @@
+\babel@toc {english}{}\relax 
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
+\contentsline {paragraph}{}{1}{section*.2}%
+\contentsline {paragraph}{}{1}{section*.3}%
+\contentsline {paragraph}{}{1}{section*.4}%
+\contentsline {subsection}{\numberline {1.1}Initial Goals}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Conduct and context of the internship}{2}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Preliminaries on Universal Algebra}{3}{section.2}%
+\contentsline {paragraph}{}{3}{section*.5}%
+\contentsline {subsection}{\numberline {2.1}Some notes on relations, ordered sets, abstract algebra and semilattices}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Morphisms, congruences and quotient algebra}{5}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Term algebra and free algebra}{7}{subsection.2.3}%
+\contentsline {section}{\numberline {3}Theoretical study of Algebraic Machine Learning}{9}{section.3}%
+\contentsline {paragraph}{}{9}{section*.9}%
+\contentsline {subsection}{\numberline {3.1}Semilattices for knowledge representation}{9}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Semilattice models and Free Algebra}{10}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Atomized semilattices and atomized semilattice models}{13}{subsection.3.3}%
+\contentsline {paragraph}{}{15}{section*.14}%
+\contentsline {subsection}{\numberline {3.4}Enforcing relations: full crossing of a duple in a model}{17}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Some notes on learning}{19}{subsection.3.5}%
+\contentsline {section}{\numberline {4}Full crossing implementation}{19}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Full crossing implementation using bitwise operations for 32 constants}{19}{subsection.4.1}%
+\contentsline {section}{\numberline {5}Discussion}{22}{section.5}%
+\contentsline {paragraph}{}{22}{section*.19}%
+\contentsline {section}{References}{22}{section*.19}%
+\setcounter {tocdepth}{1}
+\contentsline {section}{\numberline {A}Proofs}{22}{appendix.A}%
+\contentsline {section}{\numberline {B}Auxiliary Theorems / Definitions}{26}{appendix.B}%
+\contentsline {subsection}{\numberline {B.1}Hasse Diagram}{26}{subsection.B.1}%
+\contentsline {subsection}{\numberline {B.2}$\mathrm {IS}(K)$ class}{26}{subsection.B.2}%
+\contentsline {subsection}{\numberline {B.3}Atomization of the semilattice $\bm {M_1}$}{27}{subsection.B.3}%

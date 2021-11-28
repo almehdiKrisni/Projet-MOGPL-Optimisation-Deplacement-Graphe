@@ -1,0 +1,21 @@
+* Introduction
+
+** Introduction to Algebraic Machine Learning
+**
+
+* Preliminaries on Universal Algebra
+** Some notes on Ordered Sets and Abstract Algebra
+** Congruences, Quotient Algebra and Morphisms
+** Term Algebra and Free Algebra
+
+* A theoretical study of Algebraic Machine Learning
+** Semilattices and Free Algebra
+** Homomorphisms and Models
+** Atomized Semilattices
+** Full Crossing
+
+* A Paralel Implementation of Full Crossing on UPMEM Hardware
+** Implementing Full Crossing using bitwise operations
+** Paralelization on \protect\censor{UPMEM} Hardware
+
+* Discussion

@@ -1,0 +1,231 @@
+\documentclass[fontsize=20pt]{article}
+\usepackage{amsthm}
+\usepackage{amsmath,amssymb}
+\usepackage{float}
+\usepackage[svgnames]{xcolor}
+\RequirePackage[framemethod=default]{mdframed}
+% \newmdenv[skipabove=7pt,
+% skipbelow=7pt,
+% rightline=false,
+% leftline=true,
+% topline=false,
+% bottomline=false,
+% linecolor=Green,
+% backgroundcolor=Green!10,
+% innerleftmargin=5pt,
+% innerrightmargin=5pt,
+% innertopmargin=-2pt,
+% leftmargin=0cm,
+% rightmargin=0cm,
+% linewidth=2.5pt,
+% innerbottommargin=5pt]{dBox}
+% \theoremstyle{note}
+% \newenvironment{note}{\begin{dBox}\begin{noteT}}{\end{noteT}\end{dBox}}
+% \newtheorem{noteT}{Note}[section]
+
+\usepackage[margin=1.2in]{geometry}
+\usepackage{lipsum,mwe,abstract}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+% OUT OF DATE \usepackage{enumerate}
+\usepackage{multicol}
+
+\usepackage{fancyhdr} % Custom headers and footers
+%\pagestyle{fancyplain} % Makes all palabges in the document conform to the custom headers and footers
+%\fancyhead{}
+%\fancyfoot[C]{\thepage} % Page numbering for right footer
+\usepackage{lipsum}
+%\setlength\parindent{0pt}
+
+\usepackage{pict2e,picture}
+
+\newcommand{\coveringA}{%
+  \mathrel{-\mkern-4mu}<%
+}
+\newcommand{\coveringB}{\mathrel{\text{$\vcenter{\hbox{\pictcoveringB}}$}}}
+
+\newcommand{\pictcoveringB}{%
+  \begin{picture}(1em,.5em)
+  \roundcap
+  \put(0,.25em){\line(1,0){.6em}}
+  \put(.6em,.25em){\line(3,1){.4em}}
+  \put(.6em,.25em){\line(3,-1){.4em}}
+  \end{picture}%
+}
+
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools} % Math packages
+\usepackage{thmbox}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage{subcaption}
+\usepackage{comment}
+\usepackage{enumitem}
+\usepackage{cuted}
+\usepackage{sectsty} % Allows customizing section commands
+\usepackage[svgnames]{xcolor}
+\allsectionsfont{\normalfont \normalsize \scshape} % Section names in small caps and normal fonts
+
+\usepackage{epigraph}
+
+% \renewenvironment{abstract}
+% {\small
+%   \begin{center}
+%     \bfseries \abstractname\vspace{-.5em}\vspace{0pt}
+%   \end{center}
+%   \list{}{%
+%     \setlength{\leftmargin}{20mm}% <---------- CHANGE HERE
+%     \setlength{\rightmargin}{\leftmargin}%
+%   }%
+% \item\relax}
+% {\endlist}
+
+% \setlength\epigraphwidth{.8\textwidth}
+% \setlength\epigraphrule{0pt}
+
+
+
+% Math stuff
+
+\newtheorem[M]{definition}{Definition}[section]
+\newtheorem[M]{theorem}{Theorem}[section]
+\newtheorem[M]{corollary}{Corollary}[theorem]
+\newtheorem[M]{lemma}{Lemma}[section]
+\newtheorem[M]{remark}{Remark}[section]
+\newtheorem[M]{example}{Example}[section]
+\newtheorem[M]{property}{Property}[section]
+\newtheorem[M]{prop}{Proposition}[section]
+\newtheorem[M]{notation}{Notation}[section]
+\newtheorem[M]{convention}{Convention}[section]
+\newtheorem[M]{interpretation}{Interpretation}[section]
+\newtheorem[M]{question}{Question}[section]
+\newtheorem[M]{note}{Note}[section]
+
+\renewenvironment{abstract} % Change how the abstract look to remove margins
+ {\small
+  \begin{center}
+  \bfseries \abstractname\vspace{-.5em}\vspace{0pt}
+  \end{center}
+  \list{}{%
+    \setlength{\leftmargin}{0mm}
+    \setlength{\rightmargin}{\leftmargin}%
+  }
+  \item\relax}
+ {\endlist}
+
+\makeatletter
+\renewcommand{\maketitle}{\bgroup\setlength{\parindent}{0pt} % Change how the title looks like
+\begin{flushleft}
+  \textbf{\@title}
+  \@author \\
+  \@date
+\end{flushleft}\egroup
+}
+\makeatother
+
+% Quantified equation
+
+\usepackage{environ}
+
+\makeatletter
+\NewEnviron{quantifiedequation}[1]{% #1 is the quantifiers
+  \begin{equation}
+  \expandafter\make@quantifiedequation\expandafter{\BODY}{#1}
+  \end{equation}
+}
+\NewEnviron{quantifiedequation*}[1]{% #1 is the quantifiers
+  \begin{equation*}
+  \expandafter\make@quantifiedequation\expandafter{\BODY}{#1}
+  \end{equation*}
+}
+\newcommand{\make@quantifiedequation}[2]{%
+  \m@th % remove mathsurround
+  \sbox\z@{$\displaystyle#2$}% measure the quantifiers
+  \sbox\tw@{\let\label\@gobble$\displaystyle#1$}
+  \ifdim\dimexpr 1em+\wd\z@+0.5\wd\tw@+2em>0.5\displaywidth
+    % centering is not possible
+    #2\qquad#1
+  \else
+    \makebox[0pt][r]{%
+      \makebox[\dimexpr0.5\displaywidth-0.5\wd\tw@][l]{\quad\box\z@}%
+    }#1
+  \fi
+}
+\makeatother
+
+% doc rule
+\newcommand{\docrule}{\begin{center}\noindent\rule{0.75\linewidth}{0.5pt}\end{center}}
+
+% personal additions bar
+
+\usepackage{refcount}
+\usepackage{tikzpagenodes}
+
+\newcounter{tmp}
+\newcommand\tikzmark[1]{%
+  \tikz[overlay,remember picture] \node (#1) {};}
+
+\newcommand\StartRule{%
+  \stepcounter{tmp}%
+  \tikzmark{a}\label{a\thetmp}%
+  \ifnum\getpagerefnumber{a\thetmp}=\getpagerefnumber{b\thetmp} \else
+  \begin{tikzpicture}[overlay, remember picture]
+    \draw[ultra thick,Green]
+      ([xshift=-10pt,yshift=1.5ex]a-|current page text area.west) --  ([xshift=-10pt]current page text area.south west);
+  \end{tikzpicture}%
+  \fi%
+}
+
+\newcommand\EndRule{%
+\tikzmark{b}\label{b\thetmp}
+  \ifnum\getpagerefnumber{a\thetmp}=\getpagerefnumber{b\thetmp}
+  \begin{tikzpicture}[overlay, remember picture]
+    \draw [ultra thick,Green]
+      ([xshift=-10pt,yshift=1.5ex]a-|current page text area.west) -- ([xshift=-10pt]b-|current page text area.west);
+  \end{tikzpicture}%
+  \else
+  \begin{tikzpicture}[overlay, remember picture]
+    \draw [ultra thick,gray]
+      ([xshift=-10pt]current page text area.north west) -- ([xshift=-10pt]b-|current page text area.west);
+  \end{tikzpicture}%
+  \fi
+}
+
+\newcommand\LRule[1]{\StartRule#1\EndRule}
+
+
+\renewenvironment{abstract}
+ {\small
+  \begin{center}
+  \bfseries \abstractname\vspace{-.5em}\vspace{0pt}
+  \end{center}
+  \list{}{%
+    \setlength{\leftmargin}{20mm}% <---------- CHANGE HERE
+    \setlength{\rightmargin}{\leftmargin}%
+  }%
+  \item\relax}
+  {\endlist}
+
+\setlength\epigraphwidth{.8\textwidth}
+\setlength\epigraphrule{0pt}
+
+\newenvironment{dedication}
+  {\clearpage           % we want a new page
+   \vspace*{\stretch{1}}% some space at the top
+   \itshape             % the text is in italics
+   \raggedleft          % flush to the right margin
+   \begin{minipage}{0.6\linewidth}
+     \parindent=12pt
+   }
+   {\end{minipage}
+   \par % end the paragraph
+   \vspace{\stretch{2}} % space at bottom is three times that at the top
+   \raggedleft
+   \textit{All Finite Lattices are Algebraic Lattices.}\\
+   \textit{-- G. Birkhoff}
+   \vspace{\stretch{1}}
+   \clearpage           % finish off the page
+ }
+
+ \usepackage{hyperref}
