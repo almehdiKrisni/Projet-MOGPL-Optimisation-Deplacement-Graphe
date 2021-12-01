@@ -12,6 +12,7 @@
 #######################################################################################################
 
 import copy
+from functools import partialmethod
 import random
 import networkx as nx
 import matplotlib.pyplot as plt
@@ -31,6 +32,12 @@ from networkx.exception import NodeNotFound
 # - les arcs sont de la forme (s1, s2, dDD, cDT)
 # (s1 : sommet d'origine, s2 : sommet destination)
 # (dDD : la date de départ du vol, cDT : le nombre de jours pour effectuer le trajet)
+
+# Il existe une deuxième forme de graphe: les graphes pondérés
+# Ils sont sous la forme de 2 dictionnaires 
+# - le premier dont les clés sont les différents sommets du graphe et les valeurs associées
+# sont les listes représentant les arcs rentrants et les arcs sortants du sommet (tuple)
+# - le deuxième étant le dictionnaire contenant les arcs entre les différents sommets du graphe (le dictionnaire du graphe basique)
 
 #######################################################################################################
 # OUTILS
@@ -165,8 +172,68 @@ def showGrapheLabels(graphe, titre = "G"):
 
     plt.show()
 
+#-----------------------------------------------------------------------------------------------------
+
+    # Méthode permettant de transformer un graphe classique en graphe orienté pondéré par le temps
+def transformePondere(graphe, sortantUniquement = False) :
+    # On crée le nouveau graphe
+    G = dict()
+
+    # On crée dans un premier temps l'intégralité des sommets de transition sur le même sommet du graphe original
+    for i in list(graphe.keys()) : # i est un sommet
+        for j in graphe[i] : # j est de la forme (cible, jour du trajet, temps de trajet)
+
+            # On crée des variable représentant les sommet origine et cible afin de faciliter la compréhension
+            origin = (i,j[1])
+            target = (j[0], j[1] + j[2])
+
+            # On vérifie si le sommet d'origine existe dans le dictionnaire en tant que clé
+            if ((i,j[1]) not in G.keys()) :
+                G[(i,j[1])] = ([], []) # On crée les listes des arcs rentrants et des arcs sortants du sommet i
+            
+            # On vérifie également que le sommet cible existe dans le dictionnaire en tant que clé
+            if ((j[0], j[1] + j[2]) not in G.keys()) :
+                G[(j[0], j[1] + j[2])] = ([], [])
+
+            # On ajoute les valeurs dans les listes approriées
+            G[origin][1].append(target) # L'arc sortant de l'origine vers la cible
+            G[target][0].append(origin) # L'arc rentrant dans la cible depuis l'origine
+
+    # On ajoute les arcs de transition entre les sommets dont le temps actuel est différent (on les lie dans l'ordre chronologique)
+    for i in list(graphe.keys()) :
+        # On regroupe toutes les clés représentant ce sommet
+        sommets = []
+        for j in list(G.keys()) :
+            (s1, s2) = j
+            if (s1 == i) :
+                sommets.append(j)
+        
+        # On les trie de manière croissante sur les jours
+        sommets.sort(key=lambda tup: tup[1])
+
+        # On les lie de manière croissante (tant qu'il existe au moins 2 éléments à lier dans la liste)
+        i = 1
+        while (i < len(sommets)) :
+            origin = sommets[i - 1]
+            target = sommets[i]
+
+            # On ajoute les valeurs dans les listes approriées
+            G[origin][1].append(target) # L'arc sortant de l'origine vers la cible
+            G[target][0].append(origin) # L'arc rentrant dans la cible depuis l'origine
+            i += 1
+
+
+    # On retourne le nouveau graphe (en fonction du parametres)
+    if not(sortantUniquement) :
+        return G
+    else :
+        nG = dict()
+        for i in G.keys() :
+            nG[i] = G[i][1]
+        return nG
+
 #######################################################################################################
-# ALGORITHMES DE RECHERCHE DE CHEMIN
+# ALGORITHMES DE RECHERCHE DE CHEMIN SUR LES MULTIGRAPHES
 #######################################################################################################
 
 # Dans les algorithmes de recherche, on utilise des 'states' contenant :
@@ -180,11 +247,19 @@ def showGrapheLabels(graphe, titre = "G"):
 
 #------------------------------------------------------------------------------------------------------
 
-# Fonction permettant d'obtenir la racine d'une arborescence de state
+# Méthode permettant d'obtenir la racine d'une arborescence de state
 def fatherState(state) :
     while (state[2] != None) :
         state = state[2]
     return state
+
+# Méthode permettant d'obtenir la longueur d'une arborescence de state
+def pathLength(state) :
+    l = 0
+    while (state != None) :
+        l += 1
+        state = state[2] 
+    return l
 
 #------------------------------------------------------------------------------------------------------
 
@@ -353,6 +428,61 @@ def cheminPlusRapide(graphe, start, end) :
     # Sinon, on renvoie un message pour signaler qu'aucun chemin n'a pu être trouvé
     else :
         print("Aucun chemin n'a pu être trouvé dans le graphe entre " + str(start) + " et " + str(end) + ".")
+
+#------------------------------------------------------------------------------------------------------
+
+# Algorithme représentant la recherche du plus court chemin entre deux sommets d'un graphe
+def plusCourtChemin(graphe, start, end) :
+    # On crée le state initial et la pile
+    stateInit = (start, 1, None)
+    pile = []
+
+    # Variables de sauvegarde de meilleur chemin
+    bestChemin = None
+    shortestDistance = None
+
+    # On crée la pile contenant tous les noeuds accessibles depuis stateInit
+    for s in graphe[start] :
+        if (s[1] >= stateInit[1]) : # Si le vol associé à l'arc a lieu le jour-même où on se trouve dans le state courant ou plus tard
+            pile.append((s[0], s[1] + s[2], stateInit)) # s[1] + s[2] représente l'addition du jour où le vol a lieu plus le temps du trajet
+    
+    # On boucle sur la pile
+    while (len(pile) != 0) :
+        # On récupère le noeud en tête de liste et on le supprime de la liste
+        stateStudy = pile[0]
+        pile = pile[1:]
+
+        # On vérifie si l'état actuel correspond à l'état final
+        if (stateStudy[0] == end) :
+        
+            # On vérifie si le temps actuel est plus intéressant que le meilleur temps trouvé (ou si aucun n'a encore été trouvé)
+            if (shortestDistance == None) :
+                shortestDistance = pathLength(stateStudy) # Le meilleur temps
+                bestChemin = stateStudy # Le meilleur chemin (on le dépile en fin d'algorithme)
+
+            elif (shortestDistance > pathLength(stateStudy)) :
+                shortestDistance = pathLength(stateStudy)
+                bestChemin = stateStudy
+
+        # Sinon, on étudie les autres chemins possibles
+        else :
+            for s in graphe[stateStudy[0]] :
+                if (s[1] >= stateStudy[1]) :
+                    pile.append((s[0], s[1] + s[2], stateStudy))
+
+    # Fin de l'algorithme
+    # On vérifie si on a trouvé un meilleur chemin
+    if (bestChemin != None) :
+        # Si oui, on le retrace à l'envers puis on le retourne
+        chemin = []
+        while (bestChemin != None) :
+            chemin.append((bestChemin[0], bestChemin[1]))
+            bestChemin = bestChemin[2]
+        return chemin[::-1]
+
+    # Sinon, on renvoie un message pour signaler qu'aucun chemin n'a pu être trouvé
+    else :
+        print("Aucun chemin n'a pu être trouvé dans le graphe entre " + str(start) + " et " + str(end) + ".")
             
             
 #######################################################################################################
@@ -362,23 +492,31 @@ def cheminPlusRapide(graphe, start, end) :
 # Fonction de lecture
 grap = acquisitionGraphe("exempleGraphe.txt")
 
+# Fonction de transformation de graphe
+# G = transformePondere(grap, sortantUniquement=True)
+# for i in G.keys() :
+#     print(str(i) + " : " + str(G[i]))
+
 # Fonction d'affichage de graphe
-showGraphe(grap)
-showGrapheLabels(grap)
+# showGraphe(grap)
+# showGrapheLabels(grap)
 
-# Algorithme de chemin d'arrivée au plus tôt
-print(cheminArriveePlusTot(grap, 'a', 'k'))
-print(cheminArriveePlusTot(grap, 'c', 'k'))
-print(cheminArriveePlusTot(grap, 'g', 'h'))
+# # Algorithme de chemin d'arrivée au plus tôt
+# print(cheminArriveePlusTot(grap, 'a', 'k'))
+# print(cheminArriveePlusTot(grap, 'c', 'k'))
+# print(cheminArriveePlusTot(grap, 'g', 'h'))
 
-# Algorithme de chemin de départ au plus tard
-print(cheminArriveePlusTard(grap, 'a', 'k'))
-print(cheminArriveePlusTard(grap, 'b', 'l'))
-print(cheminArriveePlusTard(grap, 'c', 'f'))
+# # Algorithme de chemin de départ au plus tard
+# print(cheminArriveePlusTard(grap, 'a', 'k'))
+# print(cheminArriveePlusTard(grap, 'b', 'l'))
+# print(cheminArriveePlusTard(grap, 'c', 'f'))
 
-# Algorithme de chemin le plus rapide
-print(cheminPlusRapide(grap, 'a', 'k'))
-print(cheminPlusRapide(grap, 'c', 'l'))
-print(cheminPlusRapide(grap, 'h', 'j'))
+# # Algorithme de chemin le plus rapide
+# print(cheminPlusRapide(grap, 'a', 'k'))
+# print(cheminPlusRapide(grap, 'c', 'l'))
+# print(cheminPlusRapide(grap, 'h', 'j')
 
-
+# Algorithme de plus court chemin
+# print(plusCourtChemin(grap, 'a', 'l'))
+# print(plusCourtChemin(grap, 'c', 'l'))
+# print(plusCourtChemin(grap, 'h', 'j'))
