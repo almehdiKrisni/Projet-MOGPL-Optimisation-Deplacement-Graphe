@@ -13,6 +13,7 @@
 
 import copy
 from functools import partialmethod
+import numpy as np
 import random
 import networkx as nx
 import matplotlib.pyplot as plt
@@ -174,8 +175,8 @@ def showGrapheLabels(graphe, titre = "G"):
 
 #-----------------------------------------------------------------------------------------------------
 
-    # Méthode permettant de transformer un graphe classique en graphe orienté pondéré par le temps
-def transformePondere(graphe, sortantUniquement = False) :
+# Méthode permettant de transformer un graphe classique en graphe orienté pondéré par le temps
+def transformeGraphe(graphe, sortantUniquement = False) :
     # On crée le nouveau graphe
     G = dict()
 
@@ -232,8 +233,26 @@ def transformePondere(graphe, sortantUniquement = False) :
             nG[i] = G[i][1]
         return nG
 
+#------------------------------------------------------------------------------------------------------
+
+# Méthode permettant d'obtenir la racine d'une arborescence de state
+def fatherState(state) :
+    while (state[2] != None) :
+        state = state[2]
+    return state
+
+#------------------------------------------------------------------------------------------------------
+
+# Méthode permettant d'obtenir la longueur d'une arborescence de state
+def pathLength(state) :
+    l = 0
+    while (state != None) :
+        l += 1
+        state = state[2] 
+    return l
+
 #######################################################################################################
-# ALGORITHMES DE RECHERCHE DE CHEMIN SUR LES MULTIGRAPHES
+# ALGORITHMES DE RECHERCHE DE CHEMIN SUR LES MULTIGRAPHES (FONCTIONNE SUR LES GRAPHES DE BASE - QUESTION SUBSIDIAIRE)
 #######################################################################################################
 
 # Dans les algorithmes de recherche, on utilise des 'states' contenant :
@@ -247,24 +266,279 @@ def transformePondere(graphe, sortantUniquement = False) :
 
 #------------------------------------------------------------------------------------------------------
 
-# Méthode permettant d'obtenir la racine d'une arborescence de state
-def fatherState(state) :
-    while (state[2] != None) :
-        state = state[2]
-    return state
+# ALgorithme de recherche du chemin d'arrivée au plus tôt entre deux sommets d'un graphe transformé
+def cheminArriveeAuPlusTot(graphe, start, end) :
+    # On crée une pile allant contenir tous les départs possibles depuis le sommet 'start'
+    # On ajoute dans cette pile également tous les fils de ces départs (soit les sommets sur lesquels on peut se déplacer)
+    pile = []
+    
+    # On vérifie si on peut commencer depuis le premier jour de 'start'
+    if (start, 1) in list(graphe.keys()) :
+        for (j, k) in graphe[(start, 1)] :
+            pile.append((j, k, (start, 1, None))) # Le deuxième tuple représente le state du sommet 'start'
 
-# Méthode permettant d'obtenir la longueur d'une arborescence de state
-def pathLength(state) :
-    l = 0
-    while (state != None) :
-        l += 1
-        state = state[2] 
-    return l
+    # Sinon, on crée une nouvelle entrée dans le graphe
+    # On lie le noeud (start, 1) aux autres noeuds de la forme (start, X) du graphe
+    else :
+        listAcces = [(i, j) for (i, j) in list(graphe.keys()) if (i == start)]
+        graphe[(start, 1)] = listAcces
+
+        for (j, k) in graphe[(start, 1)] :
+            pile.append((j, k, (start, 1, None))) # Le deuxième tuple représente le state du sommet 'start'
+
+    # Variables de sauvegarde de meilleur chemin
+    bestChemin = None
+    bestTime = None
+
+    # On parcourt la file
+    while (pile) :
+        # On récupère la tête de pile et on la supprime de la liste
+        stateStudy = pile[0]
+        pile = pile[1:]
+
+        # On vérifie si l'état actuel correspond à l'état final
+        if (stateStudy[0] == end) :
+            # On vérifie si le temps actuel est plus intéressant que le meilleur temps trouvé (ou si aucun n'a encore été trouvé)
+            if (bestTime == None) :
+                bestTime = stateStudy[1] # Le meilleur temps
+                bestChemin = stateStudy # Le meilleur chemin (on le dépile en fin d'algorithme)
+
+            elif (bestTime > stateStudy[1]) :
+                bestTime = stateStudy[1]
+                bestChemin = stateStudy
+
+        # Sinon, on ajoute les nouvelles directions possibles dans la pile
+        else :
+            for (j, k) in graphe[(stateStudy[0], stateStudy[1])] :
+                pile.append((j, k, stateStudy))
+
+    # Fin de l'algorithme
+    # On vérifie si on a trouvé un meilleur chemin
+    if (bestChemin != None) :
+        # Si oui, on le retrace à l'envers puis on le retourne
+        chemin = []
+        while (bestChemin != None) :
+            chemin.append((bestChemin[0], bestChemin[1]))
+            bestChemin = bestChemin[2]
+        return chemin[::-1]
+
+    # Sinon, on renvoie un message pour signaler qu'aucun chemin n'a pu être trouvé
+    else :
+        print("Aucun chemin n'a pu être trouvé dans le graphe entre " + str(start) + " et " + str(end) + ".")
 
 #------------------------------------------------------------------------------------------------------
 
+# ALgorithme de recherche du chemin d'arrivée au plus tard entre deux sommets d'un graphe transformé
+def cheminDepartAuPlusTard(graphe, start, end) :
+    # On crée une pile allant contenir tous les départs possibles depuis le sommet 'start'
+    # On ajoute dans cette pile également tous les fils de ces départs (soit les sommets sur lesquels on peut se déplacer)
+    pile = []
+    
+    # On vérifie si on peut commencer depuis le premier jour de 'start'
+    if (start, 1) in list(graphe.keys()) :
+        for (j, k) in graphe[(start, 1)] :
+            pile.append((j, k, (start, 1, None))) # Le deuxième tuple représente le state du sommet 'start'
+
+    # Sinon, on crée une nouvelle entrée dans le graphe
+    # On lie le noeud (start, 1) aux autres noeuds de la forme (start, X) du graphe
+    else :
+        listAcces = [(i, j) if (i == start) else None for (i, j) in list(graphe.keys())]
+        print(listAcces)
+        graphe[(start, 1)] = listAcces
+
+        for (j, k) in graphe[(start, 1)] :
+            pile.append((j, k, (start, 1, None))) # Le deuxième tuple représente le state du sommet 'start'
+
+    # Variables de sauvegarde de meilleur chemin
+    bestChemin = None
+    lastDeparture = None
+
+    # On parcourt la file
+    while (pile) :
+        # On récupère la tête de pile et on la supprime de la liste
+        stateStudy = pile[0]
+        pile = pile[1:]
+
+        # On vérifie si l'état actuel correspond à l'état final
+        if (stateStudy[0] == end) :
+            # On récupère le jour de départ du chemin représenté par le noeud le plus récent dont la position est 'start' dans l'arboresence
+            s = stateStudy
+            while (s[0] != start) :
+                s = s[2]
+            startTime = s[1]
+
+            # On vérifie si le temps actuel est plus intéressant que le meilleur temps trouvé (ou si aucun n'a encore été trouvé)
+            if (lastDeparture == None) :
+                lastDeparture = startTime # Le meilleur temps
+                bestChemin = stateStudy # Le meilleur chemin (on le dépile en fin d'algorithme)
+
+            elif (lastDeparture < startTime) :
+                lastDeparture = startTime
+                bestChemin = stateStudy
+
+        # Sinon, on ajoute les nouvelles directions possibles dans la pile
+        else :
+            for (j, k) in graphe[(stateStudy[0], stateStudy[1])] :
+                pile.append((j, k, stateStudy))
+
+    # Fin de l'algorithme
+    # On vérifie si on a trouvé un meilleur chemin
+    if (bestChemin != None) :
+        # Si oui, on le retrace à l'envers puis on le retourne
+        chemin = []
+        while (bestChemin != None) :
+            chemin.append((bestChemin[0], bestChemin[1]))
+            bestChemin = bestChemin[2]
+        return chemin[::-1]
+
+    # Sinon, on renvoie un message pour signaler qu'aucun chemin n'a pu être trouvé
+    else :
+        print("Aucun chemin n'a pu être trouvé dans le graphe entre " + str(start) + " et " + str(end) + ".")
+
+#------------------------------------------------------------------------------------------------------
+
+# Algorithme de recherche du chemin d'arrivée au plus tard entre deux sommets d'un graphe transformé
+def cheminPlusRapide(graphe, start, end) :
+    # On crée une pile allant contenir tous les départs possibles depuis le sommet 'start'
+    # On ajoute dans cette pile également tous les fils de ces départs (soit les sommets sur lesquels on peut se déplacer)
+    pile = []
+    
+    # On vérifie si on peut commencer depuis le premier jour de 'start'
+    if (start, 1) in list(graphe.keys()) :
+        for (j, k) in graphe[(start, 1)] :
+            pile.append((j, k, (start, 1, None))) # Le deuxième tuple représente le state du sommet 'start'
+
+    # Sinon, on crée une nouvelle entrée dans le graphe
+    # On lie le noeud (start, 1) aux autres noeuds de la forme (start, X) du graphe
+    else :
+        listAcces = [(i, j) if (i == start) else None for (i, j) in list(graphe.keys())]
+        print(listAcces)
+        graphe[(start, 1)] = listAcces
+
+        for (j, k) in graphe[(start, 1)] :
+            pile.append((j, k, (start, 1, None))) # Le deuxième tuple représente le state du sommet 'start'
+
+    # Variables de sauvegarde de meilleur chemin
+    bestChemin = None
+    shortestTime = None
+
+    # On parcourt la file
+    while (pile) :
+        # On récupère la tête de pile et on la supprime de la liste
+        stateStudy = pile[0]
+        pile = pile[1:]
+
+        # On vérifie si l'état actuel correspond à l'état final
+        if (stateStudy[0] == end) :
+            # On récupère le temps écoulé depuis le départ
+            timeSpent = stateStudy[1] - fatherState(stateStudy)[1]
+
+            # On vérifie si le temps actuel est plus intéressant que le meilleur temps trouvé (ou si aucun n'a encore été trouvé)
+            if (shortestTime == None) :
+                shortestTime = timeSpent # Le meilleur temps
+                bestChemin = stateStudy # Le meilleur chemin (on le dépile en fin d'algorithme)
+
+            elif (shortestTime > timeSpent) :
+                shortestTime = timeSpent
+                bestChemin = stateStudy
+
+        # Sinon, on ajoute les nouvelles directions possibles dans la pile
+        else :
+            for (j, k) in graphe[(stateStudy[0], stateStudy[1])] :
+                pile.append((j, k, stateStudy))
+
+    # Fin de l'algorithme
+    # On vérifie si on a trouvé un meilleur chemin
+    if (bestChemin != None) :
+        # Si oui, on le retrace à l'envers puis on le retourne
+        chemin = []
+        while (bestChemin != None) :
+            chemin.append((bestChemin[0], bestChemin[1]))
+            bestChemin = bestChemin[2]
+        return chemin[::-1]
+
+    # Sinon, on renvoie un message pour signaler qu'aucun chemin n'a pu être trouvé
+    else :
+        print("Aucun chemin n'a pu être trouvé dans le graphe entre " + str(start) + " et " + str(end) + ".")
+
+#------------------------------------------------------------------------------------------------------
+
+# Algorithme de recherche du chemin d'arrivée au plus tard entre deux sommets d'un graphe transformé
+def cheminPlusCourt(graphe, start, end) :
+    # On crée une pile allant contenir tous les départs possibles depuis le sommet 'start'
+    # On ajoute dans cette pile également tous les fils de ces départs (soit les sommets sur lesquels on peut se déplacer)
+    pile = []
+
+    # On vérifie si on peut commencer depuis le premier jour de 'start'
+    if (start, 1) in list(graphe.keys()) :
+        for (j, k) in graphe[(start, 1)] :
+            pile.append((j, k, (start, 1, None))) # Le deuxième tuple représente le state du sommet 'start'
+
+    # Sinon, on crée une nouvelle entrée dans le graphe
+    # On lie le noeud (start, 1) aux autres noeuds de la forme (start, X) du graphe
+    else :
+        listAcces = [(i, j) if (i == start) else None for (i, j) in list(graphe.keys())]
+        print(listAcces)
+        graphe[(start, 1)] = listAcces
+
+        for (j, k) in graphe[(start, 1)] :
+            pile.append((j, k, (start, 1, None))) # Le deuxième tuple représente le state du sommet 'start'
+
+    # Variables de sauvegarde de meilleur chemin
+    bestChemin = None
+    fewestMoves = None
+
+    # On parcourt la file
+    while (pile) :
+        # On récupère la tête de pile et on la supprime de la liste
+        stateStudy = pile[0]
+        pile = pile[1:]
+
+        # On vérifie si l'état actuel correspond à l'état final
+        if (stateStudy[0] == end) :
+            # On récupère le nombre déplacements effectués
+            differentPlaces = [] # Les différents lieux par lesquels on est passé sur le chemin jusqu'à 'end'
+            s = stateStudy
+            while (s) :
+                differentPlaces.append(s[0])
+                s = s[2]
+            numberMoves = len(np.unique(np.asarray(differentPlaces)))
+
+            # On vérifie si le temps actuel est plus intéressant que le meilleur temps trouvé (ou si aucun n'a encore été trouvé)
+            if (fewestMoves == None) :
+                fewestMoves = numberMoves # Le meilleur temps
+                bestChemin = stateStudy # Le meilleur chemin (on le dépile en fin d'algorithme)
+
+            elif (fewestMoves > numberMoves) :
+                fewestMoves = numberMoves
+                bestChemin = stateStudy
+
+        # Sinon, on ajoute les nouvelles directions possibles dans la pile
+        else :
+            for (j, k) in graphe[(stateStudy[0], stateStudy[1])] :
+                pile.append((j, k, stateStudy))
+
+    # Fin de l'algorithme
+    # On vérifie si on a trouvé un meilleur chemin
+    if (bestChemin != None) :
+        # Si oui, on le retrace à l'envers puis on le retourne
+        chemin = []
+        while (bestChemin != None) :
+            chemin.append((bestChemin[0], bestChemin[1]))
+            bestChemin = bestChemin[2]
+        return chemin[::-1]
+
+    # Sinon, on renvoie un message pour signaler qu'aucun chemin n'a pu être trouvé
+    else :
+        print("Aucun chemin n'a pu être trouvé dans le graphe entre " + str(start) + " et " + str(end) + ".")
+
+
+#######################################################################################################
+# ALGORITHMES DE RECHERCHE DE CHEMIN SUR LES MULTIGRAPHES (FONCTIONNE SUR LES GRAPHES DE BASE - QUESTION SUBSIDIAIRE)
+#######################################################################################################
+
 # Algorithme de recherche de chemin d'arrivée au plus tôt entre deux sommets d'un graphe
-def cheminArriveePlusTot(graphe, start, end) :
+def cheminArriveePlusTotV2(graphe, start, end) :
     # On crée le state initial (voir les commentaires au-dessus pour plus de details)
     stateInit = (start, 1, None)
     pile = []
@@ -318,13 +592,13 @@ def cheminArriveePlusTot(graphe, start, end) :
 #------------------------------------------------------------------------------------------------------
 
 # Algorithme permettant de trouver le chemin de départ au plus tard entre deux sommets du graphe
-def cheminArriveePlusTard(graphe, start, end) :
+def cheminDepartPlusTardV2(graphe, start, end) :
     # On crée la pile (le stateInit n'est pas nécessaire dans cet algorithme, voir le remplissage de pile)
     pile = []
 
     # Variables de sauvegarde de meilleur chemin
     bestChemin = None
-    latestDepart = None
+    lastDeparture = None
 
     # On crée la pile contenant tous les noeuds accessibles depuis le stateInit avec les dates de départ
     # celles du date de départ des vols possibles depuis stateInit
@@ -344,12 +618,12 @@ def cheminArriveePlusTard(graphe, start, end) :
             startTime = fatherState(stateStudy)[1]
 
             # On vérifie si le temps actuel est plus intéressant que le meilleur temps trouvé (ou si aucun n'a encore été trouvé)
-            if (latestDepart == None) :
-                latestDepart = startTime # Le meilleur temps
+            if (lastDeparture == None) :
+                lastDeparture = startTime # Le meilleur temps
                 bestChemin = stateStudy # Le meilleur chemin (on le dépile en fin d'algorithme)
 
-            elif (latestDepart < startTime) :
-                latestDepart = startTime
+            elif (lastDeparture < startTime) :
+                lastDeparture = startTime
                 bestChemin = stateStudy
 
         # Sinon, on étudie les autres chemins possibles
@@ -375,7 +649,7 @@ def cheminArriveePlusTard(graphe, start, end) :
 #------------------------------------------------------------------------------------------------------
 
 # Algorithme représentant la recherche du chemin le plus rapide entre deux sommets d'un graphe
-def cheminPlusRapide(graphe, start, end) :
+def cheminPlusRapideV2(graphe, start, end) :
     # On crée la pile (le stateInit n'est pas nécessaire dans cet algorithme, voir le remplissage de pile)
     pile = []
 
@@ -397,7 +671,7 @@ def cheminPlusRapide(graphe, start, end) :
 
         # On vérifie si l'état actuel correspond à l'état final
         if (stateStudy[0] == end) :
-            # On récupère le temps de départ du chemin représenté par le noeud
+            # On récupère le temps écoulé depuis le départ
             timeSpent = stateStudy[1] - fatherState(stateStudy)[1]
 
             # On vérifie si le temps actuel est plus intéressant que le meilleur temps trouvé (ou si aucun n'a encore été trouvé)
@@ -432,7 +706,7 @@ def cheminPlusRapide(graphe, start, end) :
 #------------------------------------------------------------------------------------------------------
 
 # Algorithme représentant la recherche du plus court chemin entre deux sommets d'un graphe
-def plusCourtChemin(graphe, start, end) :
+def plusCourtCheminV2(graphe, start, end) :
     # On crée le state initial et la pile
     stateInit = (start, 1, None)
     pile = []
@@ -490,10 +764,10 @@ def plusCourtChemin(graphe, start, end) :
 #######################################################################################################
 
 # Fonction de lecture
-grap = acquisitionGraphe("exempleGraphe.txt")
+grap = acquisitionGraphe("Repertoire_Graphes/exempleGraphe.txt")
 
 # Fonction de transformation de graphe
-# G = transformePondere(grap, sortantUniquement=True)
+G = transformeGraphe(grap, sortantUniquement=True)
 # for i in G.keys() :
 #     print(str(i) + " : " + str(G[i]))
 
@@ -502,21 +776,21 @@ grap = acquisitionGraphe("exempleGraphe.txt")
 # showGrapheLabels(grap)
 
 # # Algorithme de chemin d'arrivée au plus tôt
-# print(cheminArriveePlusTot(grap, 'a', 'k'))
-# print(cheminArriveePlusTot(grap, 'c', 'k'))
-# print(cheminArriveePlusTot(grap, 'g', 'h'))
+# print(cheminArriveeAuPlusTot(G, 'a', 'k'))
+# print(cheminArriveeAuPlusTot(G, 'c', 'k'))
+# print(cheminArriveeAuPlusTot(G, 'g', 'h'))
 
 # # Algorithme de chemin de départ au plus tard
-# print(cheminArriveePlusTard(grap, 'a', 'k'))
-# print(cheminArriveePlusTard(grap, 'b', 'l'))
-# print(cheminArriveePlusTard(grap, 'c', 'f'))
+# print(cheminDepartAuPlusTard(G, 'a', 'k'))
+# print(cheminArriveeAuPlusTard(G, 'b', 'l'))
+# print(cheminArriveeAuPlusTard(G, 'c', 'f'))
 
 # # Algorithme de chemin le plus rapide
-# print(cheminPlusRapide(grap, 'a', 'k'))
-# print(cheminPlusRapide(grap, 'c', 'l'))
-# print(cheminPlusRapide(grap, 'h', 'j')
+# print(cheminPlusRapide(G, 'a', 'k'))
+# print(cheminPlusRapide(G, 'c', 'l'))
+# print(cheminPlusRapide(G, 'h', 'j')
 
 # Algorithme de plus court chemin
-# print(plusCourtChemin(grap, 'a', 'l'))
-# print(plusCourtChemin(grap, 'c', 'l'))
-# print(plusCourtChemin(grap, 'h', 'j'))
+# print(cheminPlusCourt(G, 'a', 'k'))
+# print(plusCourtChemin(G, 'c', 'l'))
+# print(plusCourtChemin(G, 'h', 'j'))
