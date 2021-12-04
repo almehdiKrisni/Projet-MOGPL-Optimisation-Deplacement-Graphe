@@ -3,9 +3,39 @@
 \label{sec:preliminaires}
 
 \begin{question}
-  En utilisant l'instance de la figure , montrer que les assertions suivantes
-  sont vraies.
+  En utilisant l'instance de la figure de gauche de l'Exemple 1 (dans l'énoncé)
+  ou une autre instance, montrer que les assertions suivantes sont vraies.
 \end{question}
+
+Par soucis de simplicité et pour être plus concis, une instance alternative est
+proposée. Considérons $G_{1}$, le multigraphe orienté pondéré orienté par le
+temps donné par le diagramme de la Figure \ref{fig:G1}:
+
+\begin{figure}[h!]
+  \centering
+  \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=4cm,
+    thick,main node/.style={circle,draw,font=\bfseries}]
+
+    \node[main node] (a) at (0,0) {$a$};
+    \node[main node] (b) at (0,-2) {$b$};
+    \node[main node] (c) at (0,-4) {$c$};
+    \node[main node] (d) at (3,-2) {$d$};
+    \node[main node] (e) at (3,-4) {$e$};
+
+    \path
+    (a) edge [bend left]  node {$1$} (b)
+    (a) edge [bend right] node {$3$} (b)
+    (b) edge [bend left]  node {$4$} (c)
+    (b) edge [bend right] node {$7$} (c)
+    (b) edge node {$2$} (d)
+    (b) edge node {$1$} (e)
+    (d) edge node {$4$} (e);
+  \end{tikzpicture}
+  \caption{Diagramme représentant le multigraphe pondéré orienté par le temps $G_{1}$}
+  \label{fig:G1}
+\end{figure}
+
+Le multigraphe $G_1$ sera utilisé pour justifier les assertions suivantes.
 
 \begin{assertion}
   Un sous-chemin préfixe d'un chemin d'arrivée au plus tôt peut ne pas
@@ -14,58 +44,48 @@
 
 
 \begin{reponse}
-  Considérons le multigraphe de l'Exemple 1. Les chemins réalisables de $a$ à
-  $k$ sont les suivants:
+  Considérons l'ensemble de chemins $\mathcal{P}(a,c,[0, \infty])$ dans le
+  multigraphe $G_{1}$, qui correspond à l'ensemble de tous les chemins
+  réalisables de $a$ à $c$ dans $G_{1}$:
 
   \begin{equation}
     \begin{align}
       \label{eq:1}
-      P_{a \rightarrow k} = \{ & P_1 = ((a,b,1,1), (b,g,3,1), (g,k,6,1)), \\
-                               & P_2 = ((a,b,1,1), (b,h,3,1), (h,k,7,1)), \\
-                               & P_3 = ((a,b,1,1), (b,g,3,1), (g,k,6,1)), \\
-                               & P_4 = ((a,b,2,1), (b,g,3,1), (g,k,6,1)), \\
-                               & P_5 = ((a,b,2,1), (b,h,3,1), (h,k,7,1)), \\
-                               & P_6 = ((a,b,2,1), (b,g,3,1), (g,k,6,1)), \\
-                               & P_7 = ((a,c,4,1), (c,h,6,1), (h,k,7,1)) \}.
+      \mathcal{P}(a,c,[0, \infty]) = \{ & P_1 = ((a,b,1,1), (b,c,4,1)), \\
+                                        & P_2 = ((a,b,1,1), (b,c,7,1)), \\
+                                        & P_3 = ((a,b,3,1), (b,c,4,1)), \\
+                                        & P_4 = ((a,b,3,1), (b,c,7,1)) \}.
     \end{align}
   \end{equation}
 
-  Considérons les dates de fin $fin(P_x)$ pour tout chemin
-  $P_x \in P_{a \rightarrow k}$:
+  Pour déterminer le(s) chemin(s) d'arrivée au plus tôt de $a$ à $c$ dans le
+  graphe $G_{1}$, soit un chemin $P$ tel que
+  $\mathrm{fin}(P) = \min(\{\mathrm{fin}(P'): P' \in \mathcal{P}(a,c,[0,
+  \infty]\})$, calculons les dates de fin pour tout
+  $P$ appartenant à $\mathcal{P}(a,c,[0, \infty])$:
 
   \begin{equation}
     \begin{align}
       \label{eq:2}
-      & fin(P_1) = 6 + 1 = 7, \\
-      & fin(P_2) = 7 + 1 = 8, \\
-      & fin(P_3) = 6 + 1 = 7, \\
-      & fin(P_4) = 6 + 1 = 7, \\
-      & fin(P_5) = 7 + 1 = 8, \\
-      & fin(P_6) = 6 + 1 = 7, \\
-      & fin(P_7) = 7 + 1 = 8.
+      & \mathrm{fin}(P_1) = 4 + 1 = 5, \\
+      & \mathrm{fin}(P_2) = 7 + 1 = 8, \\
+      & \mathrm{fin}(P_3) = 4 + 1 = 5, \\
+      & \mathrm{fin}(P_4) = 7 + 1 = 8.
     \end{align}
   \end{equation}
 
-  Les chemins d'arrivée au plus tôt
-  $$P_{\text{au plus tôt }(a \rightarrow k)} = \{P \in \mathcal{P}(a,k,[1,10]):
-  fin(P) = \min(\{fin(P^{'})): P^{'} \in \mathcal{P}(a,k,[1,10])\})\}$$ sont
-  donc les suivants:
+  Ainsi, $\min(\{5,8,5,8\}) = 5$ et les chemins d'arrivée au plus tôt sont $P_1$
+  et $P_3$.
 
+  $P_{3}' = ((a,b,3,1))$, un chemin de $a$ vers $b$, est un sous-chemin préfixe
+  (un sous-chemin partant du sommet de départ) de $P_{3}$. Cependant, il existe
+  un chemin $P_{a \rightarrow b} = ((a,b,1,1))$ tel que
   \begin{equation}
-    \label{eq:3}
-    P_{\text{au plus tôt }(a \rightarrow k)} = \{P_1, P_3, P_4, P_6\}
+    \mathrm{fin}(P_{3}') = 3 + 1 = 4 > \mathrm{fin}(P_{a \rightarrow b}) = 1 + 1
+    = 2 \text{,}
+  \label{eq:4}
   \end{equation}
-
-  Considérons le chemin $P_4$, un chemin d'arrivée au plus tôt.
-  $P_{4 (a \rightarrow b, \text{ jour 2})} = ((a,b,2,1))$ est un sous-chemin
-  préfixe (un sous-chemin partant du sommet de départ) de $P_4$, avec une date
-  de fin $fin(P_{4 (a \rightarrow b, \text{ jour 2})}) = 2 + 1 = 3$.
-
-  Cependant, $P_{(a \rightarrow b, \text{ jour 1})} = ((a,b,1,1))$ a une date de
-  fin $fin(P_{(a \rightarrow b, \text{ jour 1})}) = 1 + 1 = 2$, et
-  $fin(P_{4 (a \rightarrow b, \text{ jour 2})}) > fin(P_{(a \rightarrow b,
-    \text{ jour 1})})$ - donc $P_{4 (a \rightarrow b, \text{ jour 2})}$
-  n'est pas un chemin d'arrivée au plus tôt.
+  donc $P_{3}'$ n'est pas un chemin d'arrivée au plus tôt de $a$ à $b$.
 
   Ainsi, un sous-chemin préfixe d'un chemin d'arrivée au plus tôt peut ne pas
   être un chemin d'arrivée au plus tôt.
@@ -76,14 +96,89 @@
   chemin de départ au plus tard.
 \end{assertion}
 
+\begin{reponse}
+  Considérons de nouveau l'ensemble de chemins $\mathcal{P}(a,c,[0, \infty])$,
+  donné en Équation \ref{eq:1}.
+
+  Un chemin de départ au plus tard de $a$ à $c$, dans le multigraphe $G_1$,
+  correspond à un chemin $P$ tel que
+  $\mathrm{début}(P) = \max(\{\mathrm{début}(P'): P' \in
+  \mathcal{P}(a,c,[0, \infty]\})$. On observe facilement que
+  \begin{equation}
+    \mathrm{début}(P_1) = \mathrm{début}(P_2) = 1 < \mathrm{début}(P_3) =
+    \mathrm{début}(P_4) = 3 \text{,}
+  \end{equation}
+  donc les chemins de départ au plus tard entre $a$ et $c$ sont $P_3$ et $P_4$.
+
+  $P_{3}'' = ((b,c,4,1))$, un chemin de $b$ vers $c$, est un sous-chemin
+  postfixe (un sous-chemin partant du sommet final) de $P_3$. Cependant, il
+  existe un chemin $P_{b \rightarrow c} = ((b,c,7,1))$ tel que
+  \begin{equation}
+    \mathrm{début}(P_{3}'') = 3 < \mathrm{début}(P_{b \rightarrow c}) = 7
+    \label{eq:5}
+  \end{equation}
+  donc $P_{3}''$ n'est pas un chemin de départ au plus tard de $b$ à $c$.
+
+  Ainsi, un sous-chemin postfixe d'un chemin de départ au plus tard peut ne pas
+  être un chemin de départ au plus tard.
+\end{reponse}
+
 \begin{assertion}
   Un sous-chemin d'un chemin le plus rapide peut ne pas être un chemin le plus
   rapide.
+  \label{assert:rapide}
 \end{assertion}
+
+\begin{reponse}
+  Considérons les chemins de $a$ à $d$ dans $G_{1}$:
+  \begin{equation}
+    \mathcal{P}(a,d,[0, \infty]) = \{P_5 = ((a,b,1,1),(b,d,2,1),(d,e,4,1))\} \text{.}
+    \label{eq:6}
+  \end{equation}
+
+  Comme il n'existe qu'un seul chemin réalisable, c'est forcément un chemin le
+  plus rapide de $a$ à $d$, un chemin $P$ tel que
+  $\mathrm{durée}(P) = \min(\{\mathrm{durée}(P'): P' \in \mathcal{P}(a,d,[0,
+  \infty]) \})$.
+
+  $P_{5}' = ((b,d,2,1),(d,e,4,1))$, un chemin de $b$ à $e$, est un sous-chemin
+  de $P_5$. Cependant, il existe un chemin $P_{b \rightarrow e} = ((b,e,1,1))$
+  de $b$ vers $e$ tel que
+  \begin{equation}
+    \mathrm{durée}(P_{5}') = (4+1) - 1 = 4 > \mathrm{durée}(P_{b \rightarrow e}) = (1+1) - 1 = 1 \text{,}
+    \label{eq:3}
+  \end{equation}
+  donc $P_{5}'$ n'est pas un chemin le plus rapide de $b$ à $e$.
+
+  Ainsi, un sous-chemin d'un chemin le plus rapide peut ne pas être un chemin le
+  plus rapide.
+\end{reponse}
 
 \begin{assertion}
   Un sous-chemin d'un plus court chemin peut ne pas être un plus court chemin.
 \end{assertion}
+
+\begin{reponse}
+  Considérons de nouveau les chemins $\mathcal{P}(a,d,[0, \infty])$ de $a$ vers
+  $d$ donnés en Équation \ref{eq:6}.
+
+  De même, comme il n'existe qu'un seul chemin réalisable, $P_5$ est forcément
+  le chemin le plus court: un chemin $P$ tel que
+  $\mathrm{dist}(P) = \min(\{\mathrm{dist}(P'): P' \in \mathcal{P}(a,d,[0,
+  \infty]) \})$.
+
+  Considérons de nouveau les chemins $P_{5}''$ et $P_{b \rightarrow e}$ donnés
+  en Assertion \ref{assert:rapide}.
+  \begin{equation}
+    \mathrm{dist}(P_{5}') = 1 + 1 = 2 > \mathrm{dist}(P_{b \rightarrow e}) = 1 \text{,}
+    \label{eq:3}
+  \end{equation}
+  donc $P_{5}'$ n'est pas un chemin le plus court de $b$ à $e$.
+
+  Ainsi, un sous-chemin d'un chemin le plus court peut ne pas être un chemin le
+  plus court.
+
+\end{reponse}
 
 %%% Local Variables:
 %%% mode: latex

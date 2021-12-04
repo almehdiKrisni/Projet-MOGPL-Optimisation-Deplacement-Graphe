@@ -14,8 +14,13 @@
    (add-to-list 'LaTeX-verbatim-macros-with-delims-local "lstinline")
    (LaTeX-add-labels
     "sec:preliminaires"
+    "fig:G1"
     "eq:1"
     "eq:2"
+    "eq:4"
+    "eq:5"
+    "assert:rapide"
+    "eq:6"
     "eq:3"))
  :latex)
 

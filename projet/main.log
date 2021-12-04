@@ -1,25 +1,25 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2021.9.22)  28 NOV 2021 18:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2021.12.2)  4 DEC 2021 19:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
 **main.tex
 (./main.tex
-LaTeX2e <2021-06-01> patch level 1
-L3 programming layer <2021-08-27> (./misc/header.tex
+LaTeX2e <2021-11-15>
+L3 programming layer <2021-11-22> (./misc/header.tex
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2021/02/12 v1.4n Standard LaTeX document class
+Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2021/02/12 v1.4n Standard LaTeX file (size option)
+File: size10.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
 )
-\c@part=\count182
-\c@section=\count183
-\c@subsection=\count184
-\c@subsubsection=\count185
-\c@paragraph=\count186
-\c@subparagraph=\count187
-\c@figure=\count188
-\c@table=\count189
+\c@part=\count183
+\c@section=\count184
+\c@subsection=\count185
+\c@subsubsection=\count186
+\c@paragraph=\count187
+\c@subparagraph=\count188
+\c@figure=\count189
+\c@table=\count190
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
 \bibindent=\dimen138
@@ -37,9 +37,9 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 (/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2020/03/06 v1.0d TeX engine tests
 ))
-\Gm@cnth=\count190
-\Gm@cntv=\count191
-\c@Gm@tempcnt=\count192
+\Gm@cnth=\count191
+\Gm@cntv=\count192
+\c@Gm@tempcnt=\count193
 \Gm@bindingoffset=\dimen139
 \Gm@wd@mp=\dimen140
 \Gm@odd@mp=\dimen141
@@ -51,27 +51,23 @@ Package: iftex 2020/03/06 v1.0d TeX engine tests
 \Gm@dimlist=\toks17
 )
 (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2021/07/22 3.63 The Babel package
-
-(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
-File: babel.def 2021/07/22 3.63 Babel common definitions
-\babel@savecnt=\count193
+Package: babel 2021/11/08 3.66 The Babel package
+\babel@savecnt=\count194
 \U@D=\dimen147
 \l@unhyphenated=\language87
 
 (/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read2
-)
-\bbl@dirlevel=\count194
+\bbl@dirlevel=\count195
 
 (/usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf
 Language: english 2017/06/06 v3.3r English support from the babel system
 Package babel Info: Hyphen rules for 'canadian' set to \l@english
 (babel)             (\language0). Reported on input line 102.
 Package babel Info: Hyphen rules for 'australian' set to \l@ukenglish
-(babel)             (\language11). Reported on input line 105.
+(babel)             (\language5). Reported on input line 105.
 Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
-(babel)             (\language11). Reported on input line 108.
+(babel)             (\language5). Reported on input line 108.
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2020/05/29 v2.20.6
@@ -86,12 +82,12 @@ Package: amsthm 2020/05/29 v2.20.6
 \dth@everypar=\toks23
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2021/04/20 v2.17j AMS math features
+Package: amsmath 2021/10/15 v2.17l AMS math features
 \@mathmargin=\skip52
 
 For additional information on amsmath, use the `?' option.
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
-Package: amstext 2000/06/29 v2.01 AMS text
+Package: amstext 2021/08/26 v2.01 AMS text
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
@@ -103,15 +99,15 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen149
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
-Package: amsopn 2016/03/08 v2.02 operator names
+Package: amsopn 2021/08/26 v2.02 operator names
 )
-\inf@bad=\count195
+\inf@bad=\count196
 LaTeX Info: Redefining \frac on input line 234.
-\uproot@=\count196
-\leftroot@=\count197
+\uproot@=\count197
+\leftroot@=\count198
 LaTeX Info: Redefining \overline on input line 399.
-\classnum@=\count198
-\DOTSCASE@=\count199
+\classnum@=\count199
+\DOTSCASE@=\count266
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
@@ -120,15 +116,15 @@ LaTeX Info: Redefining \cdots on input line 620.
 \big@size=\dimen150
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count266
-\c@MaxMatrixCols=\count267
+\macc@depth=\count267
+\c@MaxMatrixCols=\count268
 \dotsspace@=\muskip16
-\c@parentequation=\count268
-\dspbrk@lvl=\count269
+\c@parentequation=\count269
+\dspbrk@lvl=\count270
 \tag@help=\toks25
-\row@=\count270
-\column@=\count271
-\maxfields@=\count272
+\row@=\count271
+\column@=\count272
+\maxfields@=\count273
 \andhelp@=\toks26
 \eqnshift@=\dimen151
 \alignsep@=\dimen152
@@ -140,8 +136,8 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
 \multlinegap=\skip53
 \multlinetaggap=\skip54
 \mathdisplay@stack=\toks28
-LaTeX Info: Redefining \[ on input line 2923.
-LaTeX Info: Redefining \] on input line 2924.
+LaTeX Info: Redefining \[ on input line 2938.
+LaTeX Info: Redefining \] on input line 2939.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
@@ -159,15 +155,15 @@ Package: mathtools 2021/04/12 v1.27 mathematical typesetting tools
 
 (/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count273
-\calc@Bcount=\count274
+\calc@Acount=\count274
+\calc@Bcount=\count275
 \calc@Adimen=\dimen157
 \calc@Bdimen=\dimen158
 \calc@Askip=\skip55
 \calc@Bskip=\skip56
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count275
+\calc@Ccount=\count276
 \calc@Cskip=\skip57
 )
 (/usr/share/texlive/texmf-dist/tex/latex/mathtools/mhsetup.sty
@@ -177,7 +173,7 @@ LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 130.
 LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 130.
 LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 130.
 LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 130.
-\g_MT_multlinerow_int=\count276
+\g_MT_multlinerow_int=\count277
 \l_MT_multwidth_dim=\dimen159
 \origjot=\skip58
 \l_MT_shortvdotswithinadjustabove_dim=\dimen160
@@ -204,7 +200,7 @@ Package: proof-at-the-end 2019/05/21 A package to move proofs in appendix
 
 (/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count277
+\etb@tempcnta=\count278
 )
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2021-06-07 v7.00m Hypertext links for LaTeX
@@ -245,8 +241,8 @@ Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
 )
 \@linkdim=\dimen167
-\Hy@linkcounter=\count278
-\Hy@pagecounter=\count279
+\Hy@linkcounter=\count279
+\Hy@pagecounter=\count280
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2021-06-07 v7.00m Hyperref: PDFDocEncoding definition (HO)
@@ -263,7 +259,7 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 (/usr/share/texlive/texmf-dist/tex/generic/etexcmds/etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count280
+\Hy@SavedSpaceFactor=\count281
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2021-06-07 v7.00m Hyperref: PDF Unicode definition (HO)
@@ -277,7 +273,7 @@ Package hyperref Info: Plain pages OFF on input line 4207.
 Package hyperref Info: Backreferencing OFF on input line 4212.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4445.
-\c@Hy@tempcnt=\count281
+\c@Hy@tempcnt=\count282
 
 (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip17
@@ -293,7 +289,7 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count282
+\Fld@menulength=\count283
 \Field@Width=\dimen169
 \Fld@charsize=\dimen170
 Package hyperref Info: Hyper figures OFF on input line 6076.
@@ -310,9 +306,9 @@ LaTeX Info: Redefining \pageref on input line 6150.
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count283
-\c@Item=\count284
-\c@Hfootnote=\count285
+\Hy@abspage=\count284
+\c@Item=\count285
+\c@Hfootnote=\count286
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
@@ -320,12 +316,12 @@ Package hyperref Info: Driver (autodetected): hpdftex.
 File: hpdftex.def 2021-06-07 v7.00m Hyperref driver for pdfTeX
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/atveryend-ltx.sty
-Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atvery packag
-e
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
+kage
 with kernel methods
 )
-\Fld@listcount=\count286
-\c@bookmark@seq@number=\count287
+\Fld@listcount=\count287
+\c@bookmark@seq@number=\count288
 
 (/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
@@ -341,7 +337,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 (/usr/share/texlive/texmf-dist/tex/latex/thmtools/thmtools.sty
 Package: thmtools 2020/08/01 v0.72
 \thmt@toks=\toks29
-\c@thmt@dummyctr=\count288
+\c@thmt@dummyctr=\count289
 
 (/usr/share/texlive/texmf-dist/tex/latex/thmtools/thm-patch.sty
 Package: thm-patch 2020/08/01 v0.72
@@ -384,17 +380,17 @@ ex
 \pgfkeys@tmptoks=\toks34
 ))) (/usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
 (/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2021-08-27 L3 programming layer (loader) 
+Package: expl3 2021-11-22 L3 programming layer (loader) 
 
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2021-08-04 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count289
+File: l3backend-pdftex.def 2021-10-18 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count290
 \l__pdf_internal_box=\box53
 ))
-Package: xparse 2021-08-27 L3 Experimental document command parser
+Package: xparse 2021-11-12 L3 Experimental document command parser
 )
 \appendwrite=\write3
-\c@counterAllProofEnd=\count290
+\c@counterAllProofEnd=\count291
 )
 (/usr/share/texlive/texmf-dist/tex/latex/pict2e/pict2e.sty
 Package: pict2e 2020/09/30 v0.4b Improved picture commands (HjG,RN,JT)
@@ -413,7 +409,7 @@ Package pict2e Info: Driver file for pict2e: p2e-pdftex.def on input line 114.
 File: p2e-pdftex.def 2016/02/05 v0.1u Driver-dependant file (RN,HjG,JT)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
-Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
 )
 \pIIe@GRAPH=\toks35
 \@arclen=\dimen171
@@ -430,7 +426,7 @@ Package: picture 2020-04-22 v1.6 Dimens for picture macros (HO)
 Package picture Info: Calculation method: calc.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2020/12/05 v1.2c Enhanced LaTeX Graphics (DPC,SPQR)
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
@@ -478,14 +474,14 @@ Package: pgfsys 2021/05/15 v3.1.9a (3.1.9a)
 \pgf@yd=\dimen192
 \w@pgf@writea=\write4
 \r@pgf@reada=\read3
-\c@pgf@counta=\count291
-\c@pgf@countb=\count292
-\c@pgf@countc=\count293
-\c@pgf@countd=\count294
+\c@pgf@counta=\count292
+\c@pgf@countb=\count293
+\c@pgf@countc=\count294
+\c@pgf@countd=\count295
 \t@pgf@toka=\toks37
 \t@pgf@tokb=\toks38
 \t@pgf@tokc=\toks39
-\pgf@sys@id@count=\count295
+\pgf@sys@id@count=\count296
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2021/05/15 v3.1.9a (3.1.9a)
@@ -502,28 +498,28 @@ File: pgfsys-common-pdf.def 2021/05/15 v3.1.9a (3.1.9a)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.
 tex
 File: pgfsyssoftpath.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfsyssoftpath@smallbuffer@items=\count296
-\pgfsyssoftpath@bigbuffer@items=\count297
+\pgfsyssoftpath@smallbuffer@items=\count297
+\pgfsyssoftpath@bigbuffer@items=\count298
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.
 tex
 File: pgfsysprotocol.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )) (/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
-Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+Package: xcolor 2021/10/31 v2.13 LaTeX color extensions (UK)
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package xcolor Info: Driver file: pdftex.def on input line 225.
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
-Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
-Package xcolor Info: Model `RGB' extended on input line 1364.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+Package xcolor Info: Driver file: pdftex.def on input line 227.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1352.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1356.
+Package xcolor Info: Model `RGB' extended on input line 1368.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1370.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1371.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1372.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1373.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1374.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1375.
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
 Package: pgfcore 2021/05/15 v3.1.9a (3.1.9a)
@@ -533,7 +529,7 @@ Package: pgfcore 2021/05/15 v3.1.9a (3.1.9a)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
 \pgfmath@dimen=\dimen193
-\pgfmath@count=\count298
+\pgfmath@count=\count299
 \pgfmath@box=\box55
 \pgfmath@toks=\toks40
 \pgfmath@stack@operand=\toks41
@@ -557,7 +553,7 @@ tex)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerari
 thmetics.code.tex)))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count299
+\c@pgfmathroundto@lastzeros=\count300
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.te
@@ -596,7 +592,7 @@ File: pgfcorescopes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgfpic=\box56
 \pgf@hbox=\box57
 \pgf@layerbox@main=\box58
-\pgf@picture@serial@count=\count300
+\pgf@picture@serial@count=\count301
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.c
 ode.tex
@@ -629,8 +625,8 @@ File: pgfcorearrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgf@max=\dimen273
-\pgf@sys@shading@range@num=\count301
-\pgf@shadingcount=\count302
+\pgf@sys@shading@range@num=\count302
+\pgf@shadingcount=\count303
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2021/05/15 v3.1.9a (3.1.9a)
@@ -688,7 +684,7 @@ Package: tikz 2021/05/15 v3.1.9a (3.1.9a)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers
 .code.tex
 File: pgflibraryplothandlers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@plot@mark@count=\count303
+\pgf@plot@mark@count=\count304
 \pgfplotmarksize=\dimen278
 )
 \tikz@lastx=\dimen279
@@ -703,18 +699,18 @@ File: pgflibraryplothandlers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \tikz@figbox@bg=\box62
 \tikz@tempbox=\box63
 \tikz@tempbox@bg=\box64
-\tikztreelevel=\count304
-\tikznumberofchildren=\count305
-\tikznumberofcurrentchild=\count306
-\tikz@fig@count=\count307
+\tikztreelevel=\count305
+\tikznumberofchildren=\count306
+\tikznumberofcurrentchild=\count307
+\tikz@fig@count=\count308
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfmatrixcurrentrow=\count308
-\pgfmatrixcurrentcolumn=\count309
-\pgf@matrix@numberofcolumns=\count310
+\pgfmatrixcurrentrow=\count309
+\pgfmatrixcurrentcolumn=\count310
+\pgf@matrix@numberofcolumns=\count311
 )
-\tikz@expandcount=\count311
+\tikz@expandcount=\count312
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibrarytopaths.code.tex
@@ -727,8 +723,8 @@ File: tikzlibrarypositioning.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/gra
 phs/tikzlibrarygraphs.code.tex
 File: tikzlibrarygraphs.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\tikz@lib@auto@number=\count312
-\tikz@qnode@count=\count313
+\tikz@lib@auto@number=\count313
+\tikz@qnode@count=\count314
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibrarycalc.code.tex
@@ -745,7 +741,7 @@ e.tex
 \pgfdecoratedinputsegmentcompleteddistance=\dimen289
 \pgfdecoratedinputsegmentremainingdistance=\dimen290
 \pgf@decorate@distancetomove=\dimen291
-\pgf@decorate@repeatstate=\count314
+\pgf@decorate@repeatstate=\count315
 \pgfdecorationsegmentamplitude=\dimen292
 \pgfdecorationsegmentlength=\dimen293
 )
@@ -859,24 +855,24 @@ Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
 \caption@hangindent=\dimen305
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count315
-\c@continuedfloat=\count316
+\c@caption@flags=\count316
+\c@continuedfloat=\count317
 Package caption Info: hyperref package is loaded.
 )
-\c@subfigure=\count317
-\c@subtable=\count318
+\c@subfigure=\count318
+\c@subtable=\count319
 )
 (/usr/share/texlive/texmf-dist/tex/latex/wrapfig/wrapfig.sty
 \wrapoverhang=\dimen306
 \WF@size=\dimen307
-\c@WF@wrappedlines=\count319
+\c@WF@wrappedlines=\count320
 \WF@box=\box86
 \WF@everypar=\toks45
 Package: wrapfig 2003/01/31  v 3.6
 )
 (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count320
+\c@float@type=\count321
 \float@exts=\toks46
 \float@box=\box87
 \@float@everytoks=\toks47
@@ -892,8 +888,8 @@ Package: enumitem 2019/06/20 v3.9 Customized lists
 \enit@outerparindent=\dimen308
 \enit@toks=\toks48
 \enit@inbox=\box89
-\enit@count@id=\count321
-\enitdp@description=\count322
+\enit@count@id=\count322
+\enitdp@description=\count323
 )
 (/usr/share/texlive/texmf-dist/tex/latex/epigraph/epigraph.sty
 Package: epigraph 2020/01/02 v1.5e typesetting epigraphs
@@ -913,23 +909,23 @@ Package: environ 2014/05/04 v0.3 A new way to define environments
 Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count323
+\lst@mode=\count324
 \lst@gtempboxa=\box90
 \lst@token=\toks49
-\lst@length=\count324
+\lst@length=\count325
 \lst@currlwidth=\dimen309
-\lst@column=\count325
-\lst@pos=\count326
+\lst@column=\count326
+\lst@pos=\count327
 \lst@lostspace=\dimen310
 \lst@width=\dimen311
-\lst@newlines=\count327
-\lst@lineno=\count328
+\lst@newlines=\count328
+\lst@lineno=\count329
 \lst@maxwidth=\dimen312
 
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
-\c@lstnumber=\count329
-\lst@skipnumbers=\count330
+\c@lstnumber=\count330
+\lst@skipnumbers=\count331
 \lst@framebox=\box91
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
@@ -939,12 +935,12 @@ Package: listings 2020/03/24 1.8d (Carsten Heinz)
 
 (/usr/share/texlive/texmf-dist/tex/latex/lipsum/lipsum.sty
 (/usr/share/texlive/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
-Package: l3keys2e 2021-08-27 LaTeX2e option processing using LaTeX3 keys
+Package: l3keys2e 2021-11-12 LaTeX2e option processing using LaTeX3 keys
 )
 Package: lipsum 2021-09-20 v2.7 150 paragraphs of Lorem Ipsum dummy text
-\g__lipsum_par_int=\count331
-\l__lipsum_a_int=\count332
-\l__lipsum_b_int=\count333
+\g__lipsum_par_int=\count332
+\l__lipsum_a_int=\count333
+\l__lipsum_b_int=\count334
 
 (/usr/share/texlive/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex))
 (/usr/share/texlive/texmf-dist/tex/latex/mwe/mwe.sty
@@ -956,24 +952,24 @@ Package: blindtext 2012/01/06 V2.0 blindtext-Package
 (/usr/share/texlive/texmf-dist/tex/latex/tools/xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 )
-\c@blindtext=\count334
-\c@Blindtext=\count335
-\c@blind@countparstart=\count336
-\blind@countxx=\count337
-\blindtext@numBlindtext=\count338
-\blind@countyy=\count339
-\c@blindlist=\count340
-\c@blindlistlevel=\count341
-\c@blindlist@level=\count342
-\blind@listitem=\count343
-\c@blind@listcount=\count344
-\c@blind@levelcount=\count345
-\blind@mathformula=\count346
-\blind@Mathformula=\count347
-\c@blind@randomcount=\count348
-\c@blind@randommax=\count349
-\c@blind@pangramcount=\count350
-\c@blind@pangrammax=\count351
+\c@blindtext=\count335
+\c@Blindtext=\count336
+\c@blind@countparstart=\count337
+\blind@countxx=\count338
+\blindtext@numBlindtext=\count339
+\blind@countyy=\count340
+\c@blindlist=\count341
+\c@blindlistlevel=\count342
+\c@blindlist@level=\count343
+\blind@listitem=\count344
+\c@blind@listcount=\count345
+\c@blind@levelcount=\count346
+\blind@mathformula=\count347
+\blind@Mathformula=\count348
+\c@blind@randomcount=\count349
+\c@blind@randommax=\count350
+\c@blind@pangramcount=\count351
+\c@blind@pangrammax=\count352
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/abstract/abstract.sty
 Package: abstract 2009/06/08 v1.2a configurable abstracts
@@ -984,15 +980,15 @@ Package: abstract 2009/06/08 v1.2a configurable abstracts
 \absparsep=\skip69
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
-Package: multicol 2019/12/09 v1.8y multicolumn formatting (FMi)
-\c@tracingmulticols=\count352
+Package: multicol 2021/10/28 v1.9b multicolumn formatting (FMi)
+\c@tracingmulticols=\count353
 \mult@box=\box92
 \multicol@leftmargin=\dimen313
-\c@unbalance=\count353
-\c@collectmore=\count354
-\doublecol@number=\count355
-\multicoltolerance=\count356
-\multicolpretolerance=\count357
+\c@unbalance=\count354
+\c@collectmore=\count355
+\doublecol@number=\count356
+\multicoltolerance=\count357
+\multicolpretolerance=\count358
 \full@width=\dimen314
 \page@free=\dimen315
 \premulticols=\dimen316
@@ -1004,8 +1000,8 @@ Package: multicol 2019/12/09 v1.8y multicolumn formatting (FMi)
 \maxbalancingoverflow=\dimen318
 \mult@rightbox=\box95
 \mult@grightbox=\box96
-\mult@gfirstbox=\box97
-\mult@firstbox=\box98
+\mult@firstbox=\box97
+\mult@gfirstbox=\box98
 \@tempa=\box99
 \@tempa=\box100
 \@tempa=\box101
@@ -1042,16 +1038,15 @@ Package: multicol 2019/12/09 v1.8y multicolumn formatting (FMi)
 \@tempa=\box132
 \@tempa=\box133
 \@tempa=\box134
-\@tempa=\box135
-\c@minrows=\count358
-\c@columnbadness=\count359
-\c@finalcolumnbadness=\count360
+\c@minrows=\count359
+\c@columnbadness=\count360
+\c@finalcolumnbadness=\count361
 \last@try=\dimen319
 \multicolovershoot=\dimen320
 \multicolundershoot=\dimen321
-\mult@nat@firstbox=\box136
-\colbreak@box=\box137
-\mc@col@check@num=\count361
+\mult@nat@firstbox=\box135
+\colbreak@box=\box136
+\mc@col@check@num=\count362
 )
 (/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
@@ -1084,12 +1079,16 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip80
 \bibsep=\skip81
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count362
+\c@NAT@ctr=\count363
 )
-\c@theorem=\count363
-\c@question=\count364
-\c@assertion=\count365
-) (./main.aux)
+\c@theorem=\count364
+\c@question=\count365
+\c@assertion=\count366
+) (./main.aux
+
+LaTeX Warning: Label `eq:3' multiply defined.
+
+)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
@@ -1152,7 +1151,7 @@ Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count366
+\c@section@level=\count367
 )
 LaTeX Info: Redefining \ref on input line 15.
 LaTeX Info: Redefining \pageref on input line 15.
@@ -1165,16 +1164,16 @@ LaTeX Info: Redefining \nameref on input line 15.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count367
+\scratchcounter=\count368
 \scratchdimen=\dimen322
-\scratchbox=\box138
-\nofMPsegments=\count368
-\nofMParguments=\count369
+\scratchbox=\box137
+\nofMPsegments=\count369
+\nofMParguments=\count370
 \everyMPshowfont=\toks50
-\MPscratchCnt=\count370
+\MPscratchCnt=\count371
 \MPscratchDim=\dimen323
-\MPnumerator=\count371
-\makeMPintoPDFobject=\count372
+\MPnumerator=\count372
+\makeMPintoPDFobject=\count373
 \everyMPtoPDFconversion=\toks51
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1190,7 +1189,7 @@ Package caption Info: float package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\c@lstlisting=\count373
+\c@lstlisting=\count374
 
 (./misc/title_page.tex
 <img/logo_sorbonne.png, id=23, 1792.7778pt x 730.8906pt>
@@ -1209,22 +1208,23 @@ LaTeX Font Warning: Font shape `OT1/cmr/bx/sc' undefined
  (./sections/introduction.tex) (./sections/preliminaires.tex
 Package hyperref Info: bookmark level for unknown question defaults to 0 on inp
 ut line 6.
-Package hyperref Info: bookmark level for unknown assertion defaults to 0 on in
-put line 11.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 17.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 11.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 17.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 11.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
+Package hyperref Info: bookmark level for unknown assertion defaults to 0 on in
+put line 41.
 
-./sections/preliminaires.tex:30: Package amsmath Error: Erroneous nesting of eq
+
+./sections/preliminaires.tex:58: Package amsmath Error: Erroneous nesting of eq
 uation structures;
 (amsmath)                trying to recover with `aligned'.
 
@@ -1232,13 +1232,13 @@ See the amsmath package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.30     \end{align}
+l.58     \end{align}
                     
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-./sections/preliminaires.tex:46: Package amsmath Error: Erroneous nesting of eq
+./sections/preliminaires.tex:74: Package amsmath Error: Erroneous nesting of eq
 uation structures;
 (amsmath)                trying to recover with `aligned'.
 
@@ -1246,7 +1246,7 @@ See the amsmath package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.46     \end{align}
+l.74     \end{align}
                     
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1255,23 +1255,171 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.86 \end{assertion}
-                     [1]) (./sections/algos.tex) (./sections/conclusion.tex)
-[2] (./main.aux)
+l.90   A
+        insi, un sous-chemin préfixe d'un chemin d'arrivée au plus tôt pe...
+[1]
+
+LaTeX Warning: Command \' invalid in math mode on input line 105.
+
+./sections/preliminaires.tex:105: Please use \mathaccent for accents in math mo
+de.
+\add@accent ... \let \ignorespaces \relax \accent 
+                                                  #1 #2\egroup \ifmmode \els...
+l.105   $\mathrm{début}
+                        (P) = \max(\{\mathrm{début}(P'): P' \in
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 105.
+
+./sections/preliminaires.tex:105: Please use \mathaccent for accents in math mo
+de.
+\add@accent ... \let \ignorespaces \relax \accent 
+                                                  #1 #2\egroup \ifmmode \els...
+l.105 ...athrm{début}(P) = \max(\{\mathrm{début}
+                                                  (P'): P' \in
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 108.
+
+./sections/preliminaires.tex:108: Please use \mathaccent for accents in math mo
+de.
+\add@accent ... \let \ignorespaces \relax \accent 
+                                                  #1 #2\egroup \ifmmode \els...
+l.108     \mathrm{début}
+                         (P_1) = \mathrm{début}(P_2) = 1 < \mathrm{début}(...
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 108.
+
+./sections/preliminaires.tex:108: Please use \mathaccent for accents in math mo
+de.
+\add@accent ... \let \ignorespaces \relax \accent 
+                                                  #1 #2\egroup \ifmmode \els...
+l.108     \mathrm{début}(P_1) = \mathrm{début}
+                                                (P_2) = 1 < \mathrm{début}(...
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 108.
+
+./sections/preliminaires.tex:108: Please use \mathaccent for accents in math mo
+de.
+\add@accent ... \let \ignorespaces \relax \accent 
+                                                  #1 #2\egroup \ifmmode \els...
+l.108 ...mathrm{début}(P_2) = 1 < \mathrm{début}
+                                                  (P_3) =
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 109.
+
+./sections/preliminaires.tex:109: Please use \mathaccent for accents in math mo
+de.
+\add@accent ... \let \ignorespaces \relax \accent 
+                                                  #1 #2\egroup \ifmmode \els...
+l.109     \mathrm{début}
+                         (P_4) = 3 \text{,}
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 117.
+
+./sections/preliminaires.tex:117: Please use \mathaccent for accents in math mo
+de.
+\add@accent ... \let \ignorespaces \relax \accent 
+                                                  #1 #2\egroup \ifmmode \els...
+l.117     \mathrm{début}
+                         (P_{3}'') = 3 < \mathrm{début}(P_{b \rightarrow c}...
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 117.
+
+./sections/preliminaires.tex:117: Please use \mathaccent for accents in math mo
+de.
+\add@accent ... \let \ignorespaces \relax \accent 
+                                                  #1 #2\egroup \ifmmode \els...
+l.117 ...rm{début}(P_{3}'') = 3 < \mathrm{début}
+                                                  (P_{b \rightarrow c}) = 7
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 141.
+
+./sections/preliminaires.tex:141: Please use \mathaccent for accents in math mo
+de.
+\add@accent ... \let \ignorespaces \relax \accent 
+                                                  #1 #2\egroup \ifmmode \els...
+l.141   $\mathrm{durée}
+                        (P) = \min(\{\mathrm{durée}(P'): P' \in \mathcal{P}...
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 141.
+
+./sections/preliminaires.tex:141: Please use \mathaccent for accents in math mo
+de.
+\add@accent ... \let \ignorespaces \relax \accent 
+                                                  #1 #2\egroup \ifmmode \els...
+l.141 ...athrm{durée}(P) = \min(\{\mathrm{durée}
+                                                  (P'): P' \in \mathcal{P}(a...
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 148.
+
+./sections/preliminaires.tex:148: Please use \mathaccent for accents in math mo
+de.
+\add@accent ... \let \ignorespaces \relax \accent 
+                                                  #1 #2\egroup \ifmmode \els...
+l.148     \mathrm{durée}
+                         (P_{5}') = (4+1) - 1 = 4 > \mathrm{durée}(P_{b \ri...
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 148.
+
+./sections/preliminaires.tex:148: Please use \mathaccent for accents in math mo
+de.
+\add@accent ... \let \ignorespaces \relax \accent 
+                                                  #1 #2\egroup \ifmmode \els...
+l.148 ...P_{5}') = (4+1) - 1 = 4 > \mathrm{durée}
+                                                  (P_{b \rightarrow e}) = (1...
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+) (./sections/algos.tex) (./sections/conclusion.tex) [2] [3] (./main.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 074F438482E995FA77119763BC4769E4;820.
  ) 
 Here is how much of TeX's memory you used:
- 31423 strings out of 478599
- 606314 string characters out of 5856635
- 1048551 words of memory out of 5000000
- 48663 multiletter control sequences out of 15000+600000
+ 32549 strings out of 478353
+ 645073 string characters out of 5850635
+ 1057560 words of memory out of 5000000
+ 50030 multiletter control sequences out of 15000+600000
  410346 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,7n,92p,552b,477s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 84i,10n,92p,552b,956s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/tex
@@ -1280,13 +1428,12 @@ exmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/font
 s/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/
 public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mti10.pfb>
-Output written on main.pdf (3 pages, 227632 bytes).
+/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmti10.pfb>
+Output written on main.pdf (4 pages, 222034 bytes).
 PDF statistics:
- 115 PDF objects out of 1000 (max. 8388607)
- 85 compressed objects within 1 object stream
- 20 named destinations out of 1000 (max. 500000)
+ 125 PDF objects out of 1000 (max. 8388607)
+ 96 compressed objects within 1 object stream
+ 27 named destinations out of 1000 (max. 500000)
  50 words of extra memory for PDF output out of 10000 (max. 10000000)
 
