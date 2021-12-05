@@ -14,7 +14,7 @@
 import copy
 from functools import partialmethod
 import numpy as np
-import random
+import random as rand
 import networkx as nx
 import matplotlib.pyplot as plt
 # import time
@@ -110,14 +110,14 @@ def generationMultigraphe(nbSommets, nb_arcs, duree):
     while nb_arcs > 0:
         # Choix alléatoire de sommet de depart et d'arrivée, avec le sommet de
         # depart différent du sommet d'arrivée
-        sommetDepart = randint(0, nbSommets - 1)
+        sommetDepart = rand.randint(0, nbSommets - 1)
         sommetArrivee = sommetDepart
         while sommetArrivee == sommetDepart:
-            sommetArrivee = randint(0, nbSommets -1)
+            sommetArrivee = rand.randint(0, nbSommets -1)
 
         # Choix alléatoire de la date de départ, dans la fenêtre des départs
         # possibles donnés par la variable duree
-        dateDepart = randint(1, duree - 1)
+        dateDepart = rand.randint(1, duree - 1)
 
         # Additionner l'arc déterminé par sommetDepart et sommetArrivee et
         # dateDepart

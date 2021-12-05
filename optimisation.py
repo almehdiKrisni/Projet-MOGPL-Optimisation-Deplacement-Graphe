@@ -58,8 +58,6 @@ def optPlusCourtChemin(graphe ,start, end) :
     b += [1]
     a += [cont1]
 
-
-
     # Contrainte 2 - Il n'y a qu'une seule et unique arête entrante sur le sommet d'arrivée
     # Il s'agit d'une contrainte de type A = B
     cont2 = [link[i][index[end]] for i in range(nbSommets)]
@@ -68,7 +66,8 @@ def optPlusCourtChemin(graphe ,start, end) :
     b += [1]
     a += [cont2]
 
-    # PROTOTYPE
+    # Contrainte 3 - Pour chaque sommet (en dehors du sommet d'entrée et du sommet de fin), si il y'a un arc entrant vers le sommet
+    # on doit forcément avoir un arc sortant du sommet
     cont3 = []
 
     for i in range(nbSommets) :
