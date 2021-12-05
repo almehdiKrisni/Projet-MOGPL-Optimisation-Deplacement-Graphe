@@ -90,6 +90,23 @@ def acquisitionGraphe(nomFichier) :
     # On retourne le graphe
     return G
 
+#------------------------------------------------------------------------------------------------------
+
+# Méthode permettant d'obtenir un graphe statique condensé à partir d'un graphe classique
+def transformeGrapheCondense(graphe) :
+    # On crée un nouveau dictionnaire et on crée une entrée pour chaque sommet du graphe
+    G = dict()
+    for s in list(graphe.keys()) :
+        G[s] = []
+
+    # On parcourt le graphe initial et on ajoute dans la liste de chaque sommet les sommets vers lesquels on peut se déplacer
+    for s in list(graphe.keys()) :
+        for (i, _, _) in graphe[s] :
+            if (i not in G[s]) :
+                G[s].append(i)
+
+    # On retourne le graphe
+    return G
 
 #------------------------------------------------------------------------------------------------------
 

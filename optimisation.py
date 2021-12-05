@@ -17,7 +17,9 @@ import algorithmesChemin
 import util as ut
 
 #######################################################################################################
-# METHODES
+# PROGRAMME D'OPTIMISATION
 #######################################################################################################
 
-# Méthode permettant de lire un graphe
+# Méthode permettant de réaliser l'optimisation du problème de plus court chemin
+def optPlusCourtChemin(graphe ,start, end) :
+    pass

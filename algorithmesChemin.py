@@ -556,6 +556,8 @@ def plusCourtCheminV2(graphe, start, end) :
 # Fonction de lecture
 grap = ut.acquisitionGraphe("Repertoire_Graphes/exempleGraphe.txt")
 
+print(ut.transformeGrapheCondense(grap))
+
 # Fonction de transformation de graphe
 G = ut.transformeGraphe(grap, sortantUniquement=True)
 # for i in G.keys() :
