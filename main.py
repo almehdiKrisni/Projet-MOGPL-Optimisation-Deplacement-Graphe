@@ -13,6 +13,7 @@
 
 import algorithmesChemin as ACH
 import optimisation as OPT
+import util as UT
 
 #######################################################################################################
 # PARTIE EXECUTABLE

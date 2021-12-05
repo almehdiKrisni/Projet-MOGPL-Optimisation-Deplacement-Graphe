@@ -13,3 +13,11 @@
 
 import numpy as np
 import gurobipy
+import algorithmesChemin
+import util as ut
+
+#######################################################################################################
+# METHODES
+#######################################################################################################
+
+# Méthode permettant de lire un graphe
