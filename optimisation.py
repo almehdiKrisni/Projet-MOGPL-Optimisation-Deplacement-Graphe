@@ -127,13 +127,3 @@ def optPlusCourtChemin(graphe ,start, end) :
 
     # On affiche la solution optimale
     print("Chemin le plus court trouvé :", [(v.varName, v.X) for v in m.getVars() if abs(v.X) > 1e-6])
-
-#######################################################################################################
-# PARTIE TEST
-#######################################################################################################
-
-"""
-g = ut.acquisitionGraphe("Repertoire_Graphes/exempleGraphe.txt")
-g = ut.transformeGrapheCondense(g)
-optPlusCourtChemin(g, 'a', 'k')
-"""
