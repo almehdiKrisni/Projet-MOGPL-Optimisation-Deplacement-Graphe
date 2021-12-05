@@ -14,12 +14,13 @@
 import copy
 from functools import partialmethod
 import numpy as np
-import random
+from random import *
 import networkx as nx
 import matplotlib.pyplot as plt
 # import time
 # import datetime
 import math
+
 
 from networkx.exception import NodeNotFound
 
