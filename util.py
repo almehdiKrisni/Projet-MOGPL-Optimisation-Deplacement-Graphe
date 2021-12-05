@@ -106,21 +106,20 @@ def generationMultigraphe(nbSommets, nb_arcs, duree):
                 "p","q","r","s","t","u","v","w","x","y","z"]
 
     # Création des sommets
-    sommets = []
+    sommets = []                # liste pour accéder au nom des sommets
     for i in range(nbSommets):
+        # Les sommets sont nommés par ordre alphabétique. Une lettre
+        # additionelle est utilisée pour chaque 26 sommets.
         nom = str()
         for j in range((i // 26) + 1):
             nom+=alphabet[i % 26]
+
+        # Création de noeuds dans Gn et G
         Gn.add_node(nom)
         G[nom]=[]
+
+        # Addition de nom dans sommets, pour pouvoir y accéder facilement
         sommets.append(nom)
-
-    print(sommets)
-
-    # # Création des sommets
-    # for i in range(nbSommets):
-    #     Gn.add_node(i)
-    #     G[i]=[]
 
     # Additionner des arcs jusqu'à ce qu'il y aient nb_arcs arcs
     while nb_arcs > 0:
