@@ -92,6 +92,55 @@ def acquisitionGraphe(nomFichier) :
 
 #------------------------------------------------------------------------------------------------------
 
+# Méthode permettant de créer un multigraphe orienté acyclique aléatoire, étant
+# donné un nombre d'arcs, de sommets et une duree maximale pour les departs des
+# vols
+def generationMultigraphe(nbSommets, nb_arcs, duree):
+    # Création d'un dictionnaire G, et d'un multigraphe orienté Gn au format
+    # nx.MultiDiGraph
+    G  = dict()
+    Gn = nx.MultiDiGraph()
+
+    # Création des sommets
+    for i in range(nbSommets):
+        Gn.add_node(i)
+        G[i]=[]
+
+    # Additionner des arcs jusqu'à ce qu'il y aient nb_arcs arcs
+    while nb_arcs > 0:
+        # Choix alléatoire de sommet de depart et d'arrivée, avec le sommet de
+        # depart différent du sommet d'arrivée
+        sommetDepart = randint(0, nbSommets - 1)
+        sommetArrivee = sommetDepart
+        while sommetArrivee == sommetDepart:
+            sommetArrivee = randint(0, nbSommets -1)
+
+        # Choix alléatoire de la date de départ, dans la fenêtre des départs
+        # possibles donnés par la variable duree
+        dateDepart = randint(1, duree - 1)
+
+        # Additionner l'arc déterminé par sommetDepart et sommetArrivee et
+        # dateDepart
+        Gn.add_edge(sommetDepart,sommetArrivee,dateDepart)
+
+        # Vérifier que le graphe est bien sans circuit
+        if list(nx.simple_cycles(Gn)):
+            # si non, ne pas considérer l'arc trouvé
+            Gn.remove_edge(sommetDepart, sommetArrivee, dateDepart)
+        else:
+            # si oui, continuer
+            nb_arcs -= 1
+
+    # Convertir le multigraphe au format nx.MultiDiGraphe, dans la
+    # représentation choisie avec un dictionnaire
+    for i in range(nbSommets):
+        for j in Gn.edges(i,keys=True):
+            G[i].append((j[1],j[2],1))
+
+    return G
+
+#------------------------------------------------------------------------------------------------------
+
 # Méthode permettant d'obtenir un graphe statique condensé à partir d'un graphe classique
 def transformeGrapheCondense(graphe) :
     # On crée un nouveau dictionnaire et on crée une entrée pour chaque sommet du graphe
@@ -126,7 +175,7 @@ def showGraphe(graphe, titre = "G"):
         else :
             G.add_node(v1, pos = ((nbNodes % 3), - 1 - (nbNodes / 3)))
             nbNodes += 1
-            
+
 
     G.add_nodes_from(list(graphe.keys()))
     for v1 in graphe.keys():
@@ -158,7 +207,7 @@ def showGrapheLabels(graphe, titre = "G"):
         else :
             G.add_node(v1, pos = ((nbNodes % 3), - 1 - (nbNodes / 3)))
             nbNodes += 1
-            
+
 
     G.add_nodes_from(list(graphe.keys()))
     for v1 in graphe.keys():
@@ -191,7 +240,7 @@ def transformeGraphe(graphe, sortantUniquement = False) :
             # On vérifie si le sommet d'origine existe dans le dictionnaire en tant que clé
             if ((i,j[1]) not in G.keys()) :
                 G[(i,j[1])] = ([], []) # On crée les listes des arcs rentrants et des arcs sortants du sommet i
-            
+
             # On vérifie également que le sommet cible existe dans le dictionnaire en tant que clé
             if ((j[0], j[1] + j[2]) not in G.keys()) :
                 G[(j[0], j[1] + j[2])] = ([], [])
@@ -208,7 +257,7 @@ def transformeGraphe(graphe, sortantUniquement = False) :
             (s1, s2) = j
             if (s1 == i) :
                 sommets.append(j)
-        
+
         # On les trie de manière croissante sur les jours
         sommets.sort(key=lambda tup: tup[1])
 
@@ -248,5 +297,5 @@ def pathLength(state) :
     l = 0
     while (state != None) :
         l += 1
-        state = state[2] 
+        state = state[2]
     return l
