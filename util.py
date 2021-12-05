@@ -101,10 +101,26 @@ def generationMultigraphe(nbSommets, nb_arcs, duree):
     G  = dict()
     Gn = nx.MultiDiGraph()
 
+    # Liste avec les lettres de l'alphabet, pour nommer les sommets
+    alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o",
+                "p","q","r","s","t","u","v","w","x","y","z"]
+
     # Création des sommets
+    sommets = []
     for i in range(nbSommets):
-        Gn.add_node(i)
-        G[i]=[]
+        nom = str()
+        for j in range((i // 26) + 1):
+            nom+=alphabet[i % 26]
+        Gn.add_node(nom)
+        G[nom]=[]
+        sommets.append(nom)
+
+    print(sommets)
+
+    # # Création des sommets
+    # for i in range(nbSommets):
+    #     Gn.add_node(i)
+    #     G[i]=[]
 
     # Additionner des arcs jusqu'à ce qu'il y aient nb_arcs arcs
     while nb_arcs > 0:
@@ -121,12 +137,12 @@ def generationMultigraphe(nbSommets, nb_arcs, duree):
 
         # Additionner l'arc déterminé par sommetDepart et sommetArrivee et
         # dateDepart
-        Gn.add_edge(sommetDepart,sommetArrivee,dateDepart)
+        Gn.add_edge(sommets[sommetDepart],sommets[sommetArrivee],dateDepart)
 
         # Vérifier que le graphe est bien sans circuit
         if list(nx.simple_cycles(Gn)):
             # si non, ne pas considérer l'arc trouvé
-            Gn.remove_edge(sommetDepart, sommetArrivee, dateDepart)
+            Gn.remove_edge(sommets[sommetDepart], sommets[sommetArrivee], dateDepart)
         else:
             # si oui, continuer
             nb_arcs -= 1
@@ -134,8 +150,8 @@ def generationMultigraphe(nbSommets, nb_arcs, duree):
     # Convertir le multigraphe au format nx.MultiDiGraphe, dans la
     # représentation choisie avec un dictionnaire
     for i in range(nbSommets):
-        for j in Gn.edges(i,keys=True):
-            G[i].append((j[1],j[2],1))
+        for j in Gn.edges(sommets[i],keys=True):
+            G[sommets[i]].append((j[1],j[2],1))
 
     return G
 
