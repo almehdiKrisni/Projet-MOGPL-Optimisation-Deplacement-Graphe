@@ -132,6 +132,8 @@ def optPlusCourtChemin(graphe ,start, end) :
 # PARTIE TEST
 #######################################################################################################
 
+"""
 g = ut.acquisitionGraphe("Repertoire_Graphes/exempleGraphe.txt")
 g = ut.transformeGrapheCondense(g)
 optPlusCourtChemin(g, 'a', 'k')
+"""

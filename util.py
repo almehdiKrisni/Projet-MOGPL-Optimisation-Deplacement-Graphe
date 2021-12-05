@@ -21,7 +21,6 @@ import matplotlib.pyplot as plt
 # import datetime
 import math
 
-
 from networkx.exception import NodeNotFound
 
 #######################################################################################################

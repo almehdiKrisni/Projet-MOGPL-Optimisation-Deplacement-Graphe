@@ -553,6 +553,7 @@ def plusCourtCheminV2(graphe, start, end) :
 # TESTS
 #######################################################################################################
 
+"""
 # Fonction de lecture
 grap = ut.acquisitionGraphe("Repertoire_Graphes/exempleGraphe.txt")
 
@@ -587,3 +588,4 @@ G = ut.transformeGraphe(grap, sortantUniquement=True)
 # print(cheminPlusCourt(G, 'a', 'k'))
 # print(plusCourtChemin(G, 'c', 'l'))
 # print(plusCourtChemin(G, 'h', 'j'))
+"""
