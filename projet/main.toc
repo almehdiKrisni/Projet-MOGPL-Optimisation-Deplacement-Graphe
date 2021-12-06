@@ -11,4 +11,4 @@
 \contentsline {subsection}{\numberline {3.7}Problème du plus court chemin en Programmation Linéaire}{8}{subsection.3.7}%
 \contentsline {subsection}{\numberline {3.8}Algorithmes sans transformation de graphe}{8}{subsection.3.8}%
 \contentsline {subsection}{\numberline {3.9}Tests de performance entre les différents algorithmes}{8}{subsection.3.9}%
-\contentsline {section}{\numberline {4}Conclusion}{8}{section.4}%
+\contentsline {section}{\numberline {4}Conclusion}{10}{section.4}%
