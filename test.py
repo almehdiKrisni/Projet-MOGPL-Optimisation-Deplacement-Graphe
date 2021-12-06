@@ -23,11 +23,11 @@ import time
 
 # Valeurs permettant d'effectuer ou non certaines séries de tests
 testUT = True
-testACH = False
+testACH = True
 testOPT = True
 
 # Parametre permettant de choisir si la sélection des sommets sera aléatoire ou non
-randomSelection = False
+randomSelection = True
 
 # Tests des méthodes de util.py
 if (testUT) :
@@ -35,10 +35,10 @@ if (testUT) :
     g1 = ut.generationMultigraphe(40,60,25)
 
     # Génération de graphe depuis un fichier texte
-    g2 = ut.acquisitionGraphe("Repertoire_Graphes/exempleGraphe.txt")
+    g2 = ut.acquisitionGraphe("Repertoire_Graphes/exempleGraphe3.txt")
 
     # Transformation d'un graphe en graphe transformé (utilisé pour les méthodes du fichier algorithmeChemin utilisant les graphes transformés)
-    g3 = ut.transformeGraphe(g1, sortantUniquement=True)
+    g3 = ut.transformeGraphe(g2, sortantUniquement=True)
     
 
 # Tests des méthodes de algorithmesChemin.py
@@ -84,7 +84,7 @@ if (testOPT) :
         end = list(oG.keys())[rand.randint(0, len(list(oG.keys())) - 1)]
     else :
         start = 'a'
-        end = 'j'
+        end = 'z'
 
     # On crée le graphe allant être utilisé
     G = ut.transformeGrapheOptimisation(oG, start)
