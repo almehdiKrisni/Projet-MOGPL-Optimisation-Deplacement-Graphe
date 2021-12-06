@@ -4,6 +4,8 @@
 Dans cette partie, les réponses aux questions 2 et 3 et du sujet sont données au
 fûr et à mesure de la présentation des algorithmes.
 
+Les algorithmes développés pour la question 4 sont mis en annexe à ce rapport.
+
 \begin{question}
   En utilisant comme base la transformation de $G$ à $\tilde{G}$, montrer
   comment calculer de manière efficace les 4 types de chemins minimaux.
@@ -11,6 +13,11 @@ fûr et à mesure de la présentation des algorithmes.
 
 \begin{question}
   Calculer la complexité de différents algorithmes proposés.
+\end{question}
+
+\begin{question}
+  Ecrire un programme qui prend en entrée un multigraphe $G$ sans circuit et
+  retourne les 4 types de chemins minimaux correspondants.
 \end{question}
 
 \subsection{Structure de données pour la représentation de multigraphes}
@@ -320,15 +327,21 @@ $\text{inverse}(res)$\;
 \end{algorithm}
 
 Cet algorithme a une complexité (au pire des cas) de
-$\mathcal{O}(|E_1| \log(|E_1|))$, ce qui pourrait être amélioré sans la fonction
+$\mathcal{O}(|E_2| \log(|E_2|))$, ce qui pourrait être amélioré sans la fonction
 \verb|fatherState|. Comme cette fonction n'est que appellée lorsqu'un chemin est
 réalisable est trouvé, dans la plupart des cas la complexité se rapproche plus
-de $\mathcal{O}(|E_1|)$.
+de $\mathcal{O}(|E_2|)$.
 
 \subsection{Problème du plus court chemin}
 \label{sec:plus-court}
 
-Pour le problème du plus court chemin, c'est plus compliqué.
+Pour le problème du plus court chemin, c'est plus compliqué. On aurait voulu
+implémanter une méthode de type Dijkstra, pour laquelle on aurait obtenu une
+complexité de $\mathcal{O}(|E_2| \log(|E_2|))$, mais on a pas eu le temps pour
+adapter notre structure de données pour fonctionner de cette facon.
+
+Ainsi, notre algorithme possède une compléxité de $\mathcal{O}(|E_2|^{2})$, ce
+qui provient de l'utilisation de deux boucles while imbriquées.
 
 Le pseudo-code pour cet algorithme est donné en Algorithme \ref{alg:plus-court}
 
@@ -350,14 +363,23 @@ $\text{state} \gets (\text{sommetDepart}, 1, None)$\;
   }
 }
 $\text{bestChemin} \gets \text{emtpy tuple}$\;
-$\text{bestTime} \gets \text{None}$\;
+$\text{fewestMoves} \gets \text{None}$\;
 \While{$\text{pile} \neq \emptyset$}{
   $\text{currentState} \gets \text{pile}[0]$\;
   $\text{pile} \gets \text{pile}[1:]$\;
 
-  \eIf{$\text{currentState} = \text{sommetArrivee}$ and ($\text{bestTime} > \text{currentState}[1]$ or $\text{bestTime} = \text{None}$)}{
+  \eIf{$\text{currentState} = \text{sommetArrivee}$}{
+    $\text{differentPlaces} \gets \text{liste vide}$\;
+    $\text{tempState} \gets currentState$\;
+    \While{$\text{tempState} \neq \emptyset$}{
+      $\text{differentPlaces} \gets \text{differentPlaces} + \text{tempState}[0]$\;
+      $\text{tempState} = \text{tempState}[2]$\;
+    }
+    $\text{numberMoves} = len(differentPlaces)$\;
+    \If{$\text{fewestMoves} < \text{numberMoves}$ or $\text{fewestMoves} = \text{None}$}{
       $\text{bestTime} \gets \text{currentState[1]}$\;
       $\text{bestChemin} \gets \text{currentState}$\;
+      }
     }{
       \ForEach{$(s_i,dDD_i)$ in sommets($\tilde{G}[(\text{currentState}[0],\text{currentState}[1])]$)}{
         $\text{pile} \gets (s_i,dDD_i, \text{currentState})$\;
@@ -374,20 +396,60 @@ $\text{inverse}(res)$\;
 \subsection{Problème du plus court chemin en Programmation Linéaire}
 \label{sec:plus-court-pl}
 
-On pose le programme linéaire suivant, équivalent à trouver le problème de plus
-court chemin:
+\begin{question}
+  Proposer un modélisation du problème de plus court chemin par programmation
+  linéaire et implémanter une méthode de recherche de chemin de Type IV en
+  faisant appel à Gurobi.
+\end{question}
 
+Pour résoudre le problème de plus court chemin par programmation linéaire, on
+doit d'abord choisir une représentation pour le graphe qui soit naturelle à
+utiliser dans un programme linéaire.
 
+On commence avec le graphe $\tilde{G}$. On représente le graphe par une matrice
+d'adjacence $C$ avec les poids des arcs entre les différents sommets.
+
+Les variables de décision $X$ correspondent à une autre matrice, binaire, qui
+indique si on considère où non l'arc à la position (i,j) dans le chemin allant
+du sommet de départ au sommet de destination.
+
+On introduit les contraintes suivantes:
+\begin{enumerate}
+\item Il n'y a qu'une seule et unique arrête sortante depuis le sommet de
+  départ.
+\item Il n'y a qu'une seule et unique arrête entrante sur le sommet d'arrivée.
+\item Pour chaque sommet (sauf celui de départ et d'arrivée), s'il existe un arc
+  entrant vers le sommet il faut forcément un arc sortant.
+\end{enumerate}
+
+La fonction objectif correspond à minimiser: $\sum \sum c_{i,j} \times x_{i,j}$,
+pour $c_{i,j} \in C$ et $x_{i,j} \in X$.
+
+La méthode \verb|optPlusCourtChemin()|, qui prend en argument un graphe modifié
+par la méthode \verb|transformeGrapheOptimisation()|, calcule un plus court
+chemin en résolvant un programme linéaire.
 
 \subsection{Algorithmes sans transformation de graphe}
 \label{sec:algos-sans-transfo}
 
-
-
-On a également réalisé des chemins
+Nous avons aussi développé des algorithmes qui n'utilisent pas la transformation
+de graphe. Ils correspondent aux versions V2 dans le fichier
+\verb|algorithmesChemin.py|. Ils sont bien commentés donc le rapport ne les
+abordera pas en détail.
 
 \subsection{Tests de performance entre les différents algorithmes}
 \label{sec:tests}
+
+\begin{question}
+  Effectuer des tests pour mesurer le temps d'exécution de votre algorithme par
+  rapport à la taille de l'entrée (nombre de sommets, nombre d'arcs, étiquettes
+  sur les sommets).
+\end{question}
+
+\begin{question}
+  Comparer les algorithmes implantés pour le calcul de chemins de type IV dans
+  les question 4 et 5.
+\end{question}
 
 %%% Local Variables:
 %%% mode: latex

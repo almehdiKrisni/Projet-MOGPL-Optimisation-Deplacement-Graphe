@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2021.12.2)  6 DEC 2021 19:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2021.12.2)  6 DEC 2021 22:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1457,18 +1457,18 @@ I'm changing \accent to \mathaccent here; wish me luck.
 ) (./sections/algos.tex [2]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 31.
+(hyperref)                removing `math shift' on input line 38.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\rightarrow' on input line 31.
+(hyperref)                removing `\rightarrow' on input line 38.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 31.
+(hyperref)                removing `math shift' on input line 38.
 
 
-./sections/algos.tex:69: Package amsmath Error: Erroneous nesting of equation s
+./sections/algos.tex:76: Package amsmath Error: Erroneous nesting of equation s
 tructures;
 (amsmath)                trying to recover with `aligned'.
 
@@ -1476,21 +1476,14 @@ See the amsmath package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.69 \end{align}
+l.76 \end{align}
                 
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
+[3] [4]
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[3]
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[4]
-
-./sections/algos.tex:204: Package amsmath Error: Erroneous nesting of equation 
+./sections/algos.tex:211: Package amsmath Error: Erroneous nesting of equation 
 structures;
 (amsmath)                trying to recover with `aligned'.
 
@@ -1498,12 +1491,16 @@ See the amsmath package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.204   \end{align}
+l.211   \end{align}
                    
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[5] [6] [7] [8]) (./sections/conclusion.tex) [9] (./main.aux)
+[5] [6] [7]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) (./sections/conclusion.tex) [8] [9] (./main.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1514,28 +1511,29 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 6DCDDB294DDC0D90D2FD74364B0563BF;3445.
  ) 
 Here is how much of TeX's memory you used:
- 33628 strings out of 478353
- 662812 string characters out of 5850635
- 1087278 words of memory out of 5000000
- 51041 multiletter control sequences out of 15000+600000
+ 33641 strings out of 478353
+ 663002 string characters out of 5850635
+ 1086278 words of memory out of 5000000
+ 51043 multiletter control sequences out of 15000+600000
  418626 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,20n,92p,552b,949s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmtt10.pfb>
-Output written on main.pdf (11 pages, 271576 bytes).
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10
+.pfb>
+Output written on main.pdf (11 pages, 286606 bytes).
 PDF statistics:
- 247 PDF objects out of 1000 (max. 8388607)
- 207 compressed objects within 3 object streams
- 65 named destinations out of 1000 (max. 500000)
+ 266 PDF objects out of 1000 (max. 8388607)
+ 224 compressed objects within 3 object streams
+ 76 named destinations out of 1000 (max. 500000)
  122 words of extra memory for PDF output out of 10000 (max. 10000000)
 
