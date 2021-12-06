@@ -357,5 +357,9 @@ def testExistanceChemin(graphe, start, end) :
         # On vérifie si l'état actuel correspond à l'état final
         if (stateStudy[0] == end) :
             return True
+        else :
+            for s in graphe[stateStudy[0]] :
+                if (s[1] >= stateStudy[1]) :
+                    pile.append((s[0], s[1] + s[2], stateStudy))
 
     return False
