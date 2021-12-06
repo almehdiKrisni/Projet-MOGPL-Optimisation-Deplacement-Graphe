@@ -17,7 +17,6 @@
     "misc/title_page"
     "sections/introduction"
     "sections/preliminaires"
-    "sections/algos"
-    "sections/conclusion"))
+    "sections/algos"))
  :latex)
 

@@ -6,9 +6,8 @@
 \contentsline {subsection}{\numberline {3.2}Transformation multigraphe $\rightarrow $ graphe}{3}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Problème du chemin d'arrivée au plus tôt}{4}{subsection.3.3}%
 \contentsline {subsection}{\numberline {3.4}Problème du chemin de départ au plus tard}{6}{subsection.3.4}%
-\contentsline {subsection}{\numberline {3.5}Problème du chemin le plus rapide}{7}{subsection.3.5}%
-\contentsline {subsection}{\numberline {3.6}Problème du plus court chemin}{8}{subsection.3.6}%
-\contentsline {subsection}{\numberline {3.7}Problème du plus court chemin en Programmation Linéaire}{8}{subsection.3.7}%
+\contentsline {subsection}{\numberline {3.5}Problème du chemin le plus rapide}{6}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Problème du plus court chemin}{6}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.7}Problème du plus court chemin en Programmation Linéaire}{6}{subsection.3.7}%
 \contentsline {subsection}{\numberline {3.8}Algorithmes sans transformation de graphe}{8}{subsection.3.8}%
-\contentsline {subsection}{\numberline {3.9}Tests de performance entre les différents algorithmes}{8}{subsection.3.9}%
-\contentsline {section}{\numberline {4}Conclusion}{10}{section.4}%
+\contentsline {subsection}{\numberline {3.9}Tests de performance entre les différents algorithmes}{10}{subsection.3.9}%
