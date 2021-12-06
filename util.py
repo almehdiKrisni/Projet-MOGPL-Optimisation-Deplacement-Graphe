@@ -177,7 +177,7 @@ def transformeGrapheOptimisation(graphe, start) :
             (s1, s2, s3) = i
 
             # On étudie si le sommet s1 est atteignable dans la disposition de s
-            if (s2 >= s[1]) : 
+            if (s2 >= s[1]) :
                 # Dans le cas où le vol est possible
                 # On ajoute le sommet dans la liste des destinations possibles depuis le sommet s[0] dans le nouveau dictionnaire
                 if (s1 not in G[s[0]]) :
@@ -331,3 +331,31 @@ def pathLength(state) :
         l += 1
         state = state[2]
     return l
+
+#------------------------------------------------------------------------------------------------------
+
+def testExistanceChemin(graphe, start, end) :
+    # On crée le state initial (voir les commentaires au-dessus pour plus de details)
+    stateInit = (start, 1, None)
+    pile = []
+
+    # Variables de sauvegarde de meilleur chemin
+    bestChemin = None
+    bestTime = None
+
+    # On crée la pile contenant tous les noeuds accessibles depuis stateInit
+    for s in graphe[start] :
+        if (s[1] >= stateInit[1]) : # Si le vol associé à l'arc a lieu le jour-même où on se trouve dans le state courant ou plus tard
+            pile.append((s[0], s[1] + s[2], stateInit)) # s[1] + s[2] représente l'addition du jour où le vol a lieu plus le temps du trajet
+
+    # On boucle sur la pile
+    while (len(pile) != 0) :
+        # On récupère le noeud en tête de liste et on le supprime de la liste
+        stateStudy = pile[0]
+        pile = pile[1:]
+
+        # On vérifie si l'état actuel correspond à l'état final
+        if (stateStudy[0] == end) :
+            return True
+
+    return False
