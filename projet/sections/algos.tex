@@ -1,7 +1,296 @@
-
 \section{Algorithmes de plus court chemin dans des multigraphes orientés pondérés par le temps}
 \label{sec:algos}
 
+Dans cette partie, les réponses aux questions 2 et 3 et du sujet sont données au
+fûr et à mesure de la présentation des algorithmes.
+
+\begin{question}
+  En utilisant comme base la transformation de $G$ à $\tilde{G}$, montrer
+  comment calculer de manière efficace les 4 types de chemins minimaux.
+\end{question}
+
+\begin{question}
+  Calculer la complexité de différents algorithmes proposés.
+\end{question}
+
+\subsection{Structure de données pour la représentation de multigraphes}
+
+Pour représenter des multigraphes (et des graphes classiques, également), on
+choisit de travailler avec des dictionnaires représentant des listes d'adjacence
+(dans ce cas, des listes de succésseurs). Ce choix est efficace vu que l'accès
+aux dictionnaires en python est d'une complexité de $\mathcal{O}(1)$, via
+l'utilisation fonctions de hashage gérées automatiquement par python.
+
+Pour un multigraphe $G$, les clés du dictionnaire correspondent aux sommets de
+$G$, et ses valeurs à la liste des arcs sortants pour chaque sommet. Comme un
+arc $(s_1,s_2,dDD,cDT)$ - où $s_1$ correspond au sommet de départ, $s_2$ au
+sommet de destination, $dDD$ la date de départ du vol, et $cDT$ la durée du vol
+- est forcément associé à un sommet de départ dans le dictionnaire (la clé), on
+ne garde que $(s_2,dDD,cDT)$.
+
+\subsection{Transformation multigraphe $\rightarrow$ graphe}
+\label{sec:transfo}
+
+Pour adapter des algorithmes standards à des multigraphes orientés pondérés par
+le temps (MOPLT), une technique est proposée dans le sujet pour tranformer un
+MOPLT en un graphe classique qui prend en compte le temps de manière explicite.
+
+On propose une approche légèrement différente à celle proposée dans le sujet. On
+calcule $\tilde{V}_{in}$ et $\tilde{V}_{out}$, et on crée une liste de
+d'adjacence. Cependant, on ne donne pas de poids aux arcs: avec une comparaison
+en $\mathcal{O}(1)$ on peut déterminer si deux noeuds sont les mêmes (et donc un
+poids de 0) où différents (un poids de 1).
+
+Pour le faire, on a implémenté une fonction \verb|transformeGraphe| qui prend en
+argument un multigraphe $G$ (représenté sous-forme d'un dictionnaire) et
+retourne le graphe $\tilde{G}$ (lui aussi sous forme de dictionnaire). Cette
+fois, les clés du dictionnaire représentant $\tilde{G}$ correspondent au tuple
+$(s_1,t_1)$ où $s_1 \in G$ et $t_1$ correspond à la valeur de $dDD$ dans un des
+arcs sortant de $s_1$. Les valeurs du dictionnaire de $\tilde{G}$ correspondent
+à deux listes de sommets $(s_2,t_2)$ et $(s_3,t_3)$ où $(s_2,t_2)$ correspond à
+un vol de $s_1$ à $s_2$ le jour $t_2$, et $(s_3,t_3)$ correspond à un vol de
+$s_3$ à $s_1$ le jour $t_3$.
+
+Pour que les algorithmes proposés dans les sections suivantes soient plus
+efficaces, on choisit également d'ordonner les dates des sommets sortants par
+ordre croissante.
+
+Le pseudo-code pour cette fonction est donné en Algorithme \ref{alg:transfo}.
+
+
+Pour calculer la complexité, on assume que $|V| < |E|$. Ainsi, la complexité
+temporelle de l'algorithme 1 est la suivante:
+
+\begin{equation}
+\begin{align}
+  \mathcal{O}(\text{Algorithme 1}) & = \mathcal{O}((|V| + |E|) + (|V| + (|V|+|E|) \log (|V| + |E|))) \\
+                                   & = \mathcal{O}(2(|V| + |E|) + (|V|+|E|)\log(|V|+|E|)) \\
+                                   & = \mathcal{O}((|V| + |E|)\log(|V|+|E|))\text{,}
+\end{align}
+\label{eq:8}
+\end{equation}
+et la complexité spatiale (la taille de $\tilde{G}$):
+
+\begin{equation}
+  \label{eq:9}
+  \mathcal{O}(\text{Algorithme 1}) = \mathcal{O}(|V| + |E|)
+\end{equation}
+
+\begin{algorithm}[h!]
+\caption{tranformeGraphe}\label{alg:transfo}
+\KwData{$G$ multigraphe orienté pondéré par le temps, sous forme de dictionnaire}
+\KwResult{$\tilde{G}$ graphe orienté, sous forme de dictionnaire}
+
+$\tilde{G} \gets \text{dictionnaire vide}$ \;
+
+\ForEach{$s_i$ in sommets($G$)}{
+
+  \ForEach{$(s_j,dDD,cDT)$ in arcs($G[s_i]$)}{
+
+    $\text{sommet\_courant} \gets (s_i, dDD)$\;
+    $\text{sommet\_suivant} \gets (s_j, dDD + cDT)$\;
+
+    % \eIf{$s_i = s_j$}{
+    %   $\text{poids} \gets 0$ \;
+    % }{
+    %   $\text{poids} \gets 1$ \;
+    % }
+
+    $\tilde{G}[\text{sommet\_courant}][1] \gets \tilde{G}[\text{sommet\_courant}][1] + (\text{sommet\_suivant})$\;
+    $\tilde{G}[\text{sommet\_suivant}][0] \gets \tilde{G}[\text{sommet\_suivant}][0] + (\text{sommet\_courant})$\;
+
+  }
+}
+
+\ForEach{$s_i$ in sommets($G$)}{
+  \ForEach{$(s_j, dDD_j)$ in sommets($\tilde{G}$)}{
+    $\text{sommets\_a\_ajouter} \gets \text{liste vide}$ \;
+    \If{$s_i = s_j$}{
+      $\text{sommets\_a\_ajouter} \gets \text{sommets\_a\_ajouter} + (s_j,dDD_j)$\;
+    }
+    $\text{sommets\_a\_ajouter} \gets \text{triage\_croissant}(\text{sommets\_a\_ajouter})$\;
+    $\text{idx\_sommet} \gets 1$\;
+    \While{$i < len(\text{sommets\_a\_ajouter})$}{
+      $\text{sommet\_courant} \gets \text{sommets\_a\_ajouter}[i - 1]$\;
+      $\text{sommet\_suivant} \gets \text{sommets\_a\_ajouter}[i]$\;
+
+      $\tilde{G}[\text{sommet\_courant}][1] \gets \tilde{G}[\text{sommet\_courant}][1] + \text{sommet\_suivant}$\;
+      $\tilde{G}[\text{sommet\_suivant}][0] \gets \tilde{G}[\text{sommet\_suivant}][0] + \text{sommet\_courant}$\;
+      $\text{idx\_sommet} \gets \text{idx\_sommet} + 1$\;
+    }
+
+  }
+}
+\end{algorithm}
+
+\subsection{Problème du chemin d'arrivée au plus tôt}
+\label{sec:plus-tot}
+
+Pour le problème du chemin d'arrivée au plus tôt, comme pour les deux problèmes
+suivants, on utilise une variante du BFS (Breadth-First Search) - c'est un
+algorithme efficace lorsqu'il s'agit de trouver un seul chemin (optimal) d'un
+point à un autre dans un graphe. Ce sera la méthode utilisée pour les 3 premiers
+problèmes.
+
+Vu que ce n'étais pas précisé, on a décidé de garder uniquement les chemins d'un
+point du graphe à un autre. Mais notre algorithme parcourt forcément tous les
+points, donc la complexité pour récupérer les chemins les plus court d'un point
+à tous les autres serait la même.
+
+L'idée de cet algorithme est de partir du sommet de départ dans $\tilde{G}$ et
+de faire tourner BFS.
+
+Pour calculer le chemin d'arrivée au plus tôt, on crée une pile contenant tous
+les successeurs du sommet de départ - et on ajoute progressivement les fils de
+ces sommets en vérifiant si on est au sommet de destination et en gardant le
+meilleur temps (indiqué directement dans le sommet de $\tilde{G}$). En plus de
+garder les successeurs, on considère aussi ce qu'on appelle un ``state'': c'est
+un tuple contenant le sommet courant, le jour actuel, et le père (le noeud
+précédent) de l'état. Pour récupérer le chemin optimal, on n'a qu'à dépiler.
+
+Le pseudo-code pour cet algorithme est donné en Algorithme \ref{alg:plus-tot}.
+
+\begin{algorithm}[h!]
+\caption{cheminArriveeAuPlusTot}\label{alg:plus-tot}
+\KwData{$\tilde{G}$ graphe orienté, sous forme de dictionnaire. sommetDepart, tuple. sommetArrivee, tuple.}
+\KwResult{$res$, liste de sommets de $\tilde{G}$ formant un chemin d'arrivée au plus tôt de sommetDepart à sommetArrivee.}
+
+$\text{pile} \gets \text{liste vide}$\;
+$res \gets \text{liste vide}$\;
+$\text{state} \gets (\text{sommetDepart}, 1, None)$\;
+\eIf{$(\text{sommetDepart},1)$ in sommets($\tilde{G}$)}{
+  \ForEach{$(s_i,dDD_i)$ in arcs($\tilde{G}[(\text{sommetDepart},1)]$)}{
+    $\text{pile} \gets \text{pile} + (s_i,dDD_i,state)$\;
+  }
+}{
+  \ForEach{$(s_i,dDD_i)$ in sommets($\tilde{G}$) if $s_i = \text{sommetDepart}$}{
+    $\text{pile} \gets \text{pile} + (s_i,dDD_i,state)$\;
+  }
+}
+$\text{bestChemin} \gets \text{emtpy tuple}$\;
+$\text{bestTime} \gets \text{None}$\;
+\While{$\text{pile} \neq \emptyset$}{
+  $\text{currentState} \gets \text{pile}[0]$\;
+  $\text{pile} \gets \text{pile}[1:]$\;
+
+  \eIf{$\text{currentState} = \text{sommetArrivee}$ and ($\text{bestTime} > \text{currentState}[1]$ or $\text{bestTime} = \text{None}$)}{
+      $\text{bestTime} \gets \text{currentState[1]}$\;
+      $\text{bestChemin} \gets \text{currentState}$\;
+    }{
+      \ForEach{$(s_i,dDD_i)$ in sommets($\tilde{G}[(\text{currentState}[0],\text{currentState}[1])]$)}{
+        $\text{pile} \gets (s_i,dDD_i, \text{currentState})$\;
+        }
+    }
+}
+\While{$\text{bestChemin} \neq \text{None}$}{
+  $res \gets (\text{bestChemin}[0], \text{bestChemin}[1])$\;
+  $\text{bestChemin} \gets \text{bestChemin}[2]$\;
+}
+$\text{inverse}(res)$\;
+\end{algorithm}
+
+
+Vu que l'on utilise la représentation $\tilde{G = (V_1,E_1)}$ du multigraphe
+$G = (V_2,E_2)$, juste un seul BFS est nécessaire pour trouver le chemin
+optimal. Supposons que $|V_2| < |E_2|$: ainsi, tant $|V_1|$ comme $|E_1|$ sont
+bornés par $\mathcal{O}(|E_2|)$. La complexité cet algorithme est donc:
+
+\begin{equation}
+  \label{eq:10}
+  \begin{align}
+    \mathcal{O}(\text{Algorithme 2}) & = \mathcal{O}(|V_1| + |E_1|) \\
+                                     & = \mathcal{O}(2 |E_{2}|) \\
+                                     & = \mathcal{O}(|E_{2}|)\text{.}
+  \end{align}
+\end{equation}
+
+L'algorithme proposé pour le problème de chemin d'arrivée au plus tôt est donc
+en temps linéaire après la transformation du graphe.
+
+\subsection{Problème du chemin de départ au plus tard}
+\label{sec:plus-tard}
+
+Pour le problème du chemin de départ au plus tard, on procède d'une manière
+similaire à celui de l'arrivée au plus tôt. L'idée est de partir du sommet de
+départ dans $\tilde{G}$ et de faire tourner BFS à l'envers. Le temps maximal
+trouvé correspond au chemin de départ au plus tard.
+
+Le pseudo-code pour cet algorithme est donné en Algorithme \ref{alg:plus-tard}.
+
+\begin{algorithm}[h!]
+\caption{cheminDepartAuPlusTard}\label{alg:plus-tard}
+\KwData{$\tilde{G}$ graphe orienté, sous forme de dictionnaire. sommetDepart, tuple. sommetArrivee, tuple.}
+\KwResult{$res$, liste de sommets de $\tilde{G}$ formant un chemin de départ au plus tard de sommetDepart à sommetArrivee.}
+
+$\text{pile} \gets \text{liste vide}$\;
+$res \gets \text{liste vide}$\;
+$\text{state} \gets (\text{sommetDepart}, 1, None)$\;
+\eIf{$(\text{sommetDepart},1)$ in sommets($\tilde{G}$)}{
+  \ForEach{$(s_i,dDD_i)$ in arcs($\tilde{G}[(\text{sommetDepart},1)]$)}{
+    $\text{pile} \gets \text{pile} + (s_i,dDD_i,state)$\;
+  }
+}{
+  \ForEach{$(s_i,dDD_i)$ in sommets($\tilde{G}$) if $s_i = \text{sommetDepart}$}{
+    $\text{pile} \gets \text{pile} + (s_i,dDD_i,state)$\;
+  }
+}
+$\text{bestChemin} \gets \text{emtpy tuple}$\;
+$\text{lastDeparture} \gets \text{None}$\;
+\While{$\text{pile} \neq \emptyset$}{
+  $\text{currentState} \gets \text{pile}[0]$\;
+  $\text{pile} \gets \text{pile}[1:]$\;
+
+  \eIf{$\text{currentState} = \text{sommetArrivee}$}{
+      \While{$\text{currentState}[0] \neq \text{sommetDepart}$}{
+        $\text{currentState} \gets \text{currentState}[2]$\;
+      }
+      $\text{startTime} \gets \text{currentState}[1]$\;
+
+      \If{$\text{lastDeparture} < \text{startTime}[1]$ or $\text{lastDeparture} = \text{None}$}{
+        $\text{lastDeparture} \gets \text{startTime}$\;
+        $\text{bestChemin} \gets \text{currentState}$\;
+      }
+    }{
+      \ForEach{$(s_i,dDD_i)$ in sommets($\tilde{G}[(\text{currentState}[0],\text{currentState}[1])]$)}{
+        $\text{pile} \gets (s_i,dDD_i, \text{currentState})$\;
+      }
+    }
+}
+\While{$\text{bestChemin} \neq \text{None}$}{
+  $res \gets (\text{bestChemin}[0], \text{bestChemin}[1])$\;
+  $\text{bestChemin} \gets \text{bestChemin}[2]$\;
+}
+$\text{inverse}(res)$\;
+\end{algorithm}
+
+Cet algorithme, comme le premier, est également en $\mathcal{O}(|E_2|)$.
+
+\subsection{Problème du chemin le plus rapide}
+\label{sec:plus-rapide}
+
+\subsection{Problème du plus court chemin}
+\label{sec:plus-court}
+
+\subsection{Problème du plus court chemin en Programmation Linéaire}
+\label{sec:plus-court-pl}
+
+\subsection{Algorithmes sans transformation de graphe}
+\label{sec:algos-sans-transfo}
+
+\subsubsection{Problème du chemin d'arrivée au plus tôt}
+\label{subsec:plus-tot}
+
+\subsubsection{Problème du chemin de départ au plus tard}
+\label{subsec:plus-tard}
+
+\subsubsection{Problème du chemin le plus rapide}
+\label{subsec:plus-rapide}
+
+\subsubsection{Problème du plus court chemin}
+\label{subsec:plus-court}
+
+\subsection{Tests de performance entre les différents algorithmes}
+\label{sec:tests}
 
 %%% Local Variables:
 %%% mode: latex

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2021.12.2)  4 DEC 2021 19:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2021.12.2)  6 DEC 2021 18:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -392,6 +392,61 @@ Package: xparse 2021-11-12 L3 Experimental document command parser
 \appendwrite=\write3
 \c@counterAllProofEnd=\count291
 )
+(/usr/share/texlive/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty
+Package: algorithm2e 2017/07/18 v5.2 algorithms environments
+\c@AlgoLine=\count292
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2020/11/24 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\algocf@hangindent=\skip60
+
+(/usr/share/texlive/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
+Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
+\c@checkoddpage=\count293
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/xspace.sty
+Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/relsize/relsize.sty
+Package: relsize 2013/03/29 ver 4.1
+)
+\skiptotal=\skip61
+\skiplinenumber=\skip62
+\skiprule=\skip63
+\skiphlne=\skip64
+\skiptext=\skip65
+\skiplength=\skip66
+\algomargin=\skip67
+\skipalgocfslide=\skip68
+\algowidth=\dimen171
+\inoutsize=\dimen172
+\inoutindent=\dimen173
+\interspacetitleruled=\dimen174
+\interspacealgoruled=\dimen175
+\interspacetitleboxruled=\dimen176
+\algocf@ruledwidth=\skip69
+\algocf@inoutbox=\box54
+\algocf@inputbox=\box55
+\AlCapSkip=\skip70
+\AlCapHSkip=\skip71
+\algoskipindent=\skip72
+\algocf@nlbox=\box56
+\algocf@hangingbox=\box57
+\algocf@untilbox=\box58
+\algocf@skipuntil=\skip73
+\algocf@capbox=\box59
+\algocf@lcaptionbox=\skip74
+\algoheightruledefault=\skip75
+\algoheightrule=\skip76
+\algotitleheightruledefault=\skip77
+\algotitleheightrule=\skip78
+\c@algocfline=\count294
+\c@algocfproc=\count295
+\c@algocf=\count296
+\algocf@algoframe=\box60
+\algocf@algobox=\box61
+)
 (/usr/share/texlive/texmf-dist/tex/latex/pict2e/pict2e.sty
 Package: pict2e 2020/09/30 v0.4b Improved picture commands (HjG,RN,JT)
 
@@ -412,14 +467,14 @@ File: p2e-pdftex.def 2016/02/05 v0.1u Driver-dependant file (RN,HjG,JT)
 Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
 )
 \pIIe@GRAPH=\toks35
-\@arclen=\dimen171
-\@arcrad=\dimen172
-\pIIe@tempdima=\dimen173
-\pIIe@tempdimb=\dimen174
-\pIIe@tempdimc=\dimen175
-\pIIe@tempdimd=\dimen176
-\pIIe@tempdime=\dimen177
-\pIIe@tempdimf=\dimen178
+\@arclen=\dimen177
+\@arcrad=\dimen178
+\pIIe@tempdima=\dimen179
+\pIIe@tempdimb=\dimen180
+\pIIe@tempdimc=\dimen181
+\pIIe@tempdimd=\dimen182
+\pIIe@tempdime=\dimen183
+\pIIe@tempdimf=\dimen184
 )
 (/usr/share/texlive/texmf-dist/tex/latex/picture/picture.sty
 Package: picture 2020-04-22 v1.6 Dimens for picture macros (HO)
@@ -436,20 +491,20 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 107.
 )
-\Gin@req@height=\dimen179
-\Gin@req@width=\dimen180
+\Gin@req@height=\dimen185
+\Gin@req@width=\dimen186
 )
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
 \pgfutil@everybye=\toks36
-\pgfutil@tempdima=\dimen181
-\pgfutil@tempdimb=\dimen182
+\pgfutil@tempdima=\dimen187
+\pgfutil@tempdimb=\dimen188
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-lists.t
 ex)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
-\pgfutil@abb=\box54
+\pgfutil@abb=\box62
 ) (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/pgf.revision.tex)
 Package: pgfrcs 2021/05/15 v3.1.9a (3.1.9a)
@@ -462,26 +517,26 @@ Package: pgf 2021/05/15 v3.1.9a (3.1.9a)
 Package: pgfsys 2021/05/15 v3.1.9a (3.1.9a)
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)
-\pgf@x=\dimen183
-\pgf@y=\dimen184
-\pgf@xa=\dimen185
-\pgf@ya=\dimen186
-\pgf@xb=\dimen187
-\pgf@yb=\dimen188
-\pgf@xc=\dimen189
-\pgf@yc=\dimen190
-\pgf@xd=\dimen191
-\pgf@yd=\dimen192
+\pgf@x=\dimen189
+\pgf@y=\dimen190
+\pgf@xa=\dimen191
+\pgf@ya=\dimen192
+\pgf@xb=\dimen193
+\pgf@yb=\dimen194
+\pgf@xc=\dimen195
+\pgf@yc=\dimen196
+\pgf@xd=\dimen197
+\pgf@yd=\dimen198
 \w@pgf@writea=\write4
 \r@pgf@reada=\read3
-\c@pgf@counta=\count292
-\c@pgf@countb=\count293
-\c@pgf@countc=\count294
-\c@pgf@countd=\count295
+\c@pgf@counta=\count297
+\c@pgf@countb=\count298
+\c@pgf@countc=\count299
+\c@pgf@countd=\count300
 \t@pgf@toka=\toks37
 \t@pgf@tokb=\toks38
 \t@pgf@tokc=\toks39
-\pgf@sys@id@count=\count296
+\pgf@sys@id@count=\count301
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2021/05/15 v3.1.9a (3.1.9a)
@@ -498,8 +553,8 @@ File: pgfsys-common-pdf.def 2021/05/15 v3.1.9a (3.1.9a)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.
 tex
 File: pgfsyssoftpath.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfsyssoftpath@smallbuffer@items=\count297
-\pgfsyssoftpath@bigbuffer@items=\count298
+\pgfsyssoftpath@smallbuffer@items=\count302
+\pgfsyssoftpath@bigbuffer@items=\count303
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.
 tex
@@ -528,9 +583,9 @@ Package: pgfcore 2021/05/15 v3.1.9a (3.1.9a)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
-\pgfmath@dimen=\dimen193
-\pgfmath@count=\count299
-\pgfmath@box=\box55
+\pgfmath@dimen=\dimen199
+\pgfmath@count=\count304
+\pgfmath@box=\box63
 \pgfmath@toks=\toks40
 \pgfmath@stack@operand=\toks41
 \pgfmath@stack@operation=\toks42
@@ -553,58 +608,58 @@ tex)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerari
 thmetics.code.tex)))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count300
+\c@pgfmathroundto@lastzeros=\count305
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.te
 x
 File: pgfcorepoints.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@picminx=\dimen194
-\pgf@picmaxx=\dimen195
-\pgf@picminy=\dimen196
-\pgf@picmaxy=\dimen197
-\pgf@pathminx=\dimen198
-\pgf@pathmaxx=\dimen199
-\pgf@pathminy=\dimen256
-\pgf@pathmaxy=\dimen257
-\pgf@xx=\dimen258
-\pgf@xy=\dimen259
-\pgf@yx=\dimen260
-\pgf@yy=\dimen261
-\pgf@zx=\dimen262
-\pgf@zy=\dimen263
+\pgf@picminx=\dimen256
+\pgf@picmaxx=\dimen257
+\pgf@picminy=\dimen258
+\pgf@picmaxy=\dimen259
+\pgf@pathminx=\dimen260
+\pgf@pathmaxx=\dimen261
+\pgf@pathminy=\dimen262
+\pgf@pathmaxy=\dimen263
+\pgf@xx=\dimen264
+\pgf@xy=\dimen265
+\pgf@yx=\dimen266
+\pgf@yy=\dimen267
+\pgf@zx=\dimen268
+\pgf@zy=\dimen269
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.
 code.tex
 File: pgfcorepathconstruct.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@path@lastx=\dimen264
-\pgf@path@lasty=\dimen265
+\pgf@path@lastx=\dimen270
+\pgf@path@lasty=\dimen271
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code
 .tex
 File: pgfcorepathusage.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@shorten@end@additional=\dimen266
-\pgf@shorten@start@additional=\dimen267
+\pgf@shorten@end@additional=\dimen272
+\pgf@shorten@start@additional=\dimen273
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.te
 x
 File: pgfcorescopes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfpic=\box56
-\pgf@hbox=\box57
-\pgf@layerbox@main=\box58
-\pgf@picture@serial@count=\count301
+\pgfpic=\box64
+\pgf@hbox=\box65
+\pgf@layerbox@main=\box66
+\pgf@picture@serial@count=\count306
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.c
 ode.tex
 File: pgfcoregraphicstate.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgflinewidth=\dimen268
+\pgflinewidth=\dimen274
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformation
 s.code.tex
 File: pgfcoretransformations.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@pt@x=\dimen269
-\pgf@pt@y=\dimen270
-\pgf@pt@temp=\dimen271
+\pgf@pt@x=\dimen275
+\pgf@pt@y=\dimen276
+\pgf@pt@temp=\dimen277
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
 File: pgfcorequick.code.tex 2021/05/15 v3.1.9a (3.1.9a)
@@ -620,13 +675,13 @@ File: pgfcorepathprocessing.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.te
 x
 File: pgfcorearrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfarrowsep=\dimen272
+\pgfarrowsep=\dimen278
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@max=\dimen273
-\pgf@sys@shading@range@num=\count302
-\pgf@shadingcount=\count303
+\pgf@max=\dimen279
+\pgf@sys@shading@range@num=\count307
+\pgf@shadingcount=\count308
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2021/05/15 v3.1.9a (3.1.9a)
@@ -634,7 +689,7 @@ File: pgfcoreimage.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.
 tex
 File: pgfcoreexternal.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfexternal@startupbox=\box59
+\pgfexternal@startupbox=\box67
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.te
 x
@@ -653,15 +708,15 @@ File: pgfcorerdf.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
 File: pgfmoduleshapes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfnodeparttextbox=\box60
+\pgfnodeparttextbox=\box68
 ) (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
 File: pgfmoduleplot.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65
 .sty
 Package: pgfcomp-version-0-65 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@nodesepstart=\dimen274
-\pgf@nodesepend=\dimen275
+\pgf@nodesepstart=\dimen280
+\pgf@nodesepend=\dimen281
 )
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18
 .sty
@@ -673,8 +728,8 @@ Package: pgfcomp-version-1-18 2021/05/15 v3.1.9a (3.1.9a)
 Package: pgffor 2021/05/15 v3.1.9a (3.1.9a)
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
-\pgffor@iter=\dimen276
-\pgffor@skip=\dimen277
+\pgffor@iter=\dimen282
+\pgffor@skip=\dimen283
 \pgffor@stack=\toks43
 \pgffor@toks=\toks44
 ))
@@ -684,33 +739,33 @@ Package: tikz 2021/05/15 v3.1.9a (3.1.9a)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers
 .code.tex
 File: pgflibraryplothandlers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@plot@mark@count=\count304
-\pgfplotmarksize=\dimen278
+\pgf@plot@mark@count=\count309
+\pgfplotmarksize=\dimen284
 )
-\tikz@lastx=\dimen279
-\tikz@lasty=\dimen280
-\tikz@lastxsaved=\dimen281
-\tikz@lastysaved=\dimen282
-\tikz@lastmovetox=\dimen283
-\tikz@lastmovetoy=\dimen284
-\tikzleveldistance=\dimen285
-\tikzsiblingdistance=\dimen286
-\tikz@figbox=\box61
-\tikz@figbox@bg=\box62
-\tikz@tempbox=\box63
-\tikz@tempbox@bg=\box64
-\tikztreelevel=\count305
-\tikznumberofchildren=\count306
-\tikznumberofcurrentchild=\count307
-\tikz@fig@count=\count308
+\tikz@lastx=\dimen285
+\tikz@lasty=\dimen286
+\tikz@lastxsaved=\dimen287
+\tikz@lastysaved=\dimen288
+\tikz@lastmovetox=\dimen289
+\tikz@lastmovetoy=\dimen290
+\tikzleveldistance=\dimen291
+\tikzsiblingdistance=\dimen292
+\tikz@figbox=\box69
+\tikz@figbox@bg=\box70
+\tikz@tempbox=\box71
+\tikz@tempbox@bg=\box72
+\tikztreelevel=\count310
+\tikznumberofchildren=\count311
+\tikznumberofcurrentchild=\count312
+\tikz@fig@count=\count313
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfmatrixcurrentrow=\count309
-\pgfmatrixcurrentcolumn=\count310
-\pgf@matrix@numberofcolumns=\count311
+\pgfmatrixcurrentrow=\count314
+\pgfmatrixcurrentcolumn=\count315
+\pgf@matrix@numberofcolumns=\count316
 )
-\tikz@expandcount=\count312
+\tikz@expandcount=\count317
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibrarytopaths.code.tex
@@ -723,8 +778,8 @@ File: tikzlibrarypositioning.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/gra
 phs/tikzlibrarygraphs.code.tex
 File: tikzlibrarygraphs.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\tikz@lib@auto@number=\count313
-\tikz@qnode@count=\count314
+\tikz@lib@auto@number=\count318
+\tikz@qnode@count=\count319
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibrarycalc.code.tex
@@ -736,16 +791,16 @@ zlibrarydecorations.pathmorphing.code.tex
 zlibrarydecorations.code.tex
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.cod
 e.tex
-\pgfdecoratedcompleteddistance=\dimen287
-\pgfdecoratedremainingdistance=\dimen288
-\pgfdecoratedinputsegmentcompleteddistance=\dimen289
-\pgfdecoratedinputsegmentremainingdistance=\dimen290
-\pgf@decorate@distancetomove=\dimen291
-\pgf@decorate@repeatstate=\count315
-\pgfdecorationsegmentamplitude=\dimen292
-\pgfdecorationsegmentlength=\dimen293
+\pgfdecoratedcompleteddistance=\dimen293
+\pgfdecoratedremainingdistance=\dimen294
+\pgfdecoratedinputsegmentcompleteddistance=\dimen295
+\pgfdecoratedinputsegmentremainingdistance=\dimen296
+\pgf@decorate@distancetomove=\dimen297
+\pgf@decorate@repeatstate=\count320
+\pgfdecorationsegmentamplitude=\dimen298
+\pgfdecorationsegmentlength=\dimen299
 )
-\tikz@lib@dec@box=\box65
+\tikz@lib@dec@box=\box73
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrary
 decorations.pathmorphing.code.tex))
@@ -796,34 +851,34 @@ File: tikzlibraryshapes.multipart.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
 s.multipart.code.tex
 File: pgflibraryshapes.multipart.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfnodepartlowerbox=\box66
-\pgfnodeparttwobox=\box67
-\pgfnodepartthreebox=\box68
-\pgfnodepartfourbox=\box69
-\pgfnodeparttwentybox=\box70
-\pgfnodepartnineteenbox=\box71
-\pgfnodeparteighteenbox=\box72
-\pgfnodepartseventeenbox=\box73
-\pgfnodepartsixteenbox=\box74
-\pgfnodepartfifteenbox=\box75
-\pgfnodepartfourteenbox=\box76
-\pgfnodepartthirteenbox=\box77
-\pgfnodeparttwelvebox=\box78
-\pgfnodepartelevenbox=\box79
-\pgfnodeparttenbox=\box80
-\pgfnodepartninebox=\box81
-\pgfnodeparteightbox=\box82
-\pgfnodepartsevenbox=\box83
-\pgfnodepartsixbox=\box84
-\pgfnodepartfivebox=\box85
+\pgfnodepartlowerbox=\box74
+\pgfnodeparttwobox=\box75
+\pgfnodepartthreebox=\box76
+\pgfnodepartfourbox=\box77
+\pgfnodeparttwentybox=\box78
+\pgfnodepartnineteenbox=\box79
+\pgfnodeparteighteenbox=\box80
+\pgfnodepartseventeenbox=\box81
+\pgfnodepartsixteenbox=\box82
+\pgfnodepartfifteenbox=\box83
+\pgfnodepartfourteenbox=\box84
+\pgfnodepartthirteenbox=\box85
+\pgfnodeparttwelvebox=\box86
+\pgfnodepartelevenbox=\box87
+\pgfnodeparttenbox=\box88
+\pgfnodepartninebox=\box89
+\pgfnodeparteightbox=\box90
+\pgfnodepartsevenbox=\box91
+\pgfnodepartsixbox=\box92
+\pgfnodepartfivebox=\box93
 )))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.
 code.tex
 File: pgflibraryarrows.meta.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfarrowinset=\dimen294
-\pgfarrowlength=\dimen295
-\pgfarrowwidth=\dimen296
-\pgfarrowlinewidth=\dimen297
+\pgfarrowinset=\dimen300
+\pgfarrowlength=\dimen301
+\pgfarrowwidth=\dimen302
+\pgfarrowlinewidth=\dimen303
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibraryarrows.code.tex
@@ -832,7 +887,7 @@ File: tikzlibraryarrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.code.
 tex
 File: pgflibraryarrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\arrowsize=\dimen298
+\arrowsize=\dimen304
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibraryfit.code.tex
@@ -846,37 +901,37 @@ Package: caption 2020/10/26 v3.5g Customizing captions (AR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
-\captionmargin=\dimen299
-\captionmargin@=\dimen300
-\captionwidth=\dimen301
-\caption@tempdima=\dimen302
-\caption@indent=\dimen303
-\caption@parindent=\dimen304
-\caption@hangindent=\dimen305
+\captionmargin=\dimen305
+\captionmargin@=\dimen306
+\captionwidth=\dimen307
+\caption@tempdima=\dimen308
+\caption@indent=\dimen309
+\caption@parindent=\dimen310
+\caption@hangindent=\dimen311
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count316
-\c@continuedfloat=\count317
+\c@caption@flags=\count321
+\c@continuedfloat=\count322
 Package caption Info: hyperref package is loaded.
 )
-\c@subfigure=\count318
-\c@subtable=\count319
+\c@subfigure=\count323
+\c@subtable=\count324
 )
 (/usr/share/texlive/texmf-dist/tex/latex/wrapfig/wrapfig.sty
-\wrapoverhang=\dimen306
-\WF@size=\dimen307
-\c@WF@wrappedlines=\count320
-\WF@box=\box86
+\wrapoverhang=\dimen312
+\WF@size=\dimen313
+\c@WF@wrappedlines=\count325
+\WF@box=\box94
 \WF@everypar=\toks45
 Package: wrapfig 2003/01/31  v 3.6
 )
 (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count321
+\c@float@type=\count326
 \float@exts=\toks46
-\float@box=\box87
+\float@box=\box95
 \@float@everytoks=\toks47
-\@floatcapt=\box88
+\@floatcapt=\box96
 )
 (/usr/share/texlive/texmf-dist/tex/latex/comment/comment.sty
 \CommentStream=\write5
@@ -884,12 +939,12 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 Excluding comment 'comment')
 (/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2019/06/20 v3.9 Customized lists
-\labelindent=\skip60
-\enit@outerparindent=\dimen308
+\labelindent=\skip79
+\enit@outerparindent=\dimen314
 \enit@toks=\toks48
-\enit@inbox=\box89
-\enit@count@id=\count322
-\enitdp@description=\count323
+\enit@inbox=\box97
+\enit@count@id=\count327
+\enitdp@description=\count328
 )
 (/usr/share/texlive/texmf-dist/tex/latex/epigraph/epigraph.sty
 Package: epigraph 2020/01/02 v1.5e typesetting epigraphs
@@ -897,10 +952,10 @@ Package: epigraph 2020/01/02 v1.5e typesetting epigraphs
 (/usr/share/texlive/texmf-dist/tex/latex/nextpage/nextpage.sty
 Package: nextpage 2009/09/03 v1.1a additional page commands
 )
-\beforeepigraphskip=\skip61
-\afterepigraphskip=\skip62
-\epigraphwidth=\skip63
-\epigraphrule=\skip64
+\beforeepigraphskip=\skip80
+\afterepigraphskip=\skip81
+\epigraphwidth=\skip82
+\epigraphrule=\skip83
 )
 (/usr/share/texlive/texmf-dist/tex/latex/environ/environ.sty
 Package: environ 2014/05/04 v0.3 A new way to define environments
@@ -909,24 +964,24 @@ Package: environ 2014/05/04 v0.3 A new way to define environments
 Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count324
-\lst@gtempboxa=\box90
+\lst@mode=\count329
+\lst@gtempboxa=\box98
 \lst@token=\toks49
-\lst@length=\count325
-\lst@currlwidth=\dimen309
-\lst@column=\count326
-\lst@pos=\count327
-\lst@lostspace=\dimen310
-\lst@width=\dimen311
-\lst@newlines=\count328
-\lst@lineno=\count329
-\lst@maxwidth=\dimen312
+\lst@length=\count330
+\lst@currlwidth=\dimen315
+\lst@column=\count331
+\lst@pos=\count332
+\lst@lostspace=\dimen316
+\lst@width=\dimen317
+\lst@newlines=\count333
+\lst@lineno=\count334
+\lst@maxwidth=\dimen318
 
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
-\c@lstnumber=\count330
-\lst@skipnumbers=\count331
-\lst@framebox=\box91
+\c@lstnumber=\count335
+\lst@skipnumbers=\count336
+\lst@framebox=\box99
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2020/03/24 1.8d listings configuration
@@ -938,9 +993,9 @@ Package: listings 2020/03/24 1.8d (Carsten Heinz)
 Package: l3keys2e 2021-11-12 LaTeX2e option processing using LaTeX3 keys
 )
 Package: lipsum 2021-09-20 v2.7 150 paragraphs of Lorem Ipsum dummy text
-\g__lipsum_par_int=\count332
-\l__lipsum_a_int=\count333
-\l__lipsum_b_int=\count334
+\g__lipsum_par_int=\count337
+\l__lipsum_a_int=\count338
+\l__lipsum_b_int=\count339
 
 (/usr/share/texlive/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex))
 (/usr/share/texlive/texmf-dist/tex/latex/mwe/mwe.sty
@@ -948,68 +1003,56 @@ Package: mwe 2018/03/30 v0.5 Package to support minimal working examples (MWE)
 
 (/usr/share/texlive/texmf-dist/tex/latex/blindtext/blindtext.sty
 Package: blindtext 2012/01/06 V2.0 blindtext-Package
-
-(/usr/share/texlive/texmf-dist/tex/latex/tools/xspace.sty
-Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
-)
-\c@blindtext=\count335
-\c@Blindtext=\count336
-\c@blind@countparstart=\count337
-\blind@countxx=\count338
-\blindtext@numBlindtext=\count339
-\blind@countyy=\count340
-\c@blindlist=\count341
-\c@blindlistlevel=\count342
-\c@blindlist@level=\count343
-\blind@listitem=\count344
-\c@blind@listcount=\count345
-\c@blind@levelcount=\count346
-\blind@mathformula=\count347
-\blind@Mathformula=\count348
-\c@blind@randomcount=\count349
-\c@blind@randommax=\count350
-\c@blind@pangramcount=\count351
-\c@blind@pangrammax=\count352
+\c@blindtext=\count340
+\c@Blindtext=\count341
+\c@blind@countparstart=\count342
+\blind@countxx=\count343
+\blindtext@numBlindtext=\count344
+\blind@countyy=\count345
+\c@blindlist=\count346
+\c@blindlistlevel=\count347
+\c@blindlist@level=\count348
+\blind@listitem=\count349
+\c@blind@listcount=\count350
+\c@blind@levelcount=\count351
+\blind@mathformula=\count352
+\blind@Mathformula=\count353
+\c@blind@randomcount=\count354
+\c@blind@randommax=\count355
+\c@blind@pangramcount=\count356
+\c@blind@pangrammax=\count357
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/abstract/abstract.sty
 Package: abstract 2009/06/08 v1.2a configurable abstracts
-\abstitleskip=\skip65
-\absleftindent=\skip66
-\absrightindent=\skip67
-\absparindent=\skip68
-\absparsep=\skip69
+\abstitleskip=\skip84
+\absleftindent=\skip85
+\absrightindent=\skip86
+\absparindent=\skip87
+\absparsep=\skip88
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
 Package: multicol 2021/10/28 v1.9b multicolumn formatting (FMi)
-\c@tracingmulticols=\count353
-\mult@box=\box92
-\multicol@leftmargin=\dimen313
-\c@unbalance=\count354
-\c@collectmore=\count355
-\doublecol@number=\count356
-\multicoltolerance=\count357
-\multicolpretolerance=\count358
-\full@width=\dimen314
-\page@free=\dimen315
-\premulticols=\dimen316
-\postmulticols=\dimen317
-\multicolsep=\skip70
-\multicolbaselineskip=\skip71
-\partial@page=\box93
-\last@line=\box94
-\maxbalancingoverflow=\dimen318
-\mult@rightbox=\box95
-\mult@grightbox=\box96
-\mult@firstbox=\box97
-\mult@gfirstbox=\box98
-\@tempa=\box99
-\@tempa=\box100
-\@tempa=\box101
-\@tempa=\box102
-\@tempa=\box103
-\@tempa=\box104
-\@tempa=\box105
-\@tempa=\box106
+\c@tracingmulticols=\count358
+\mult@box=\box100
+\multicol@leftmargin=\dimen319
+\c@unbalance=\count359
+\c@collectmore=\count360
+\doublecol@number=\count361
+\multicoltolerance=\count362
+\multicolpretolerance=\count363
+\full@width=\dimen320
+\page@free=\dimen321
+\premulticols=\dimen322
+\postmulticols=\dimen323
+\multicolsep=\skip89
+\multicolbaselineskip=\skip90
+\partial@page=\box101
+\last@line=\box102
+\maxbalancingoverflow=\dimen324
+\mult@rightbox=\box103
+\mult@grightbox=\box104
+\mult@firstbox=\box105
+\mult@gfirstbox=\box106
 \@tempa=\box107
 \@tempa=\box108
 \@tempa=\box109
@@ -1038,15 +1081,23 @@ Package: multicol 2021/10/28 v1.9b multicolumn formatting (FMi)
 \@tempa=\box132
 \@tempa=\box133
 \@tempa=\box134
-\c@minrows=\count359
-\c@columnbadness=\count360
-\c@finalcolumnbadness=\count361
-\last@try=\dimen319
-\multicolovershoot=\dimen320
-\multicolundershoot=\dimen321
-\mult@nat@firstbox=\box135
-\colbreak@box=\box136
-\mc@col@check@num=\count362
+\@tempa=\box135
+\@tempa=\box136
+\@tempa=\box137
+\@tempa=\box138
+\@tempa=\box139
+\@tempa=\box140
+\@tempa=\box141
+\@tempa=\box142
+\c@minrows=\count364
+\c@columnbadness=\count365
+\c@finalcolumnbadness=\count366
+\last@try=\dimen325
+\multicolovershoot=\dimen326
+\multicolundershoot=\dimen327
+\mult@nat@firstbox=\box143
+\colbreak@box=\box144
+\mc@col@check@num=\count367
 )
 (/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
@@ -1057,33 +1108,29 @@ nformation
 
 (/usr/share/texlive/texmf-dist/tex/latex/pbox/pbox.sty
 Package: pbox 2011/12/07 v1.2 Dynamic parboxes
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
-Package: ifthen 2020/11/24 v1.1c Standard LaTeX ifthen package (DPC)
-)
-\pb@xlen=\skip72
+\pb@xlen=\skip91
 )
 (/usr/share/texlive/texmf-dist/tex/latex/ifnextok/ifnextok.sty
 Package: ifnextok 2011/06/27 v0.3 test next token (UL)
 )
-\censorruledepth=\skip73
-\censorruleheight=\skip74
-\periodrlap=\skip75
-\afterperiodlap=\skip76
-\lletterlap=\skip77
-\rletterlap=\skip78
-\afterspacelap=\skip79
+\censorruledepth=\skip92
+\censorruleheight=\skip93
+\periodrlap=\skip94
+\afterperiodlap=\skip95
+\lletterlap=\skip96
+\rletterlap=\skip97
+\afterspacelap=\skip98
 )
 (/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip80
-\bibsep=\skip81
+\bibhang=\skip99
+\bibsep=\skip100
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count363
+\c@NAT@ctr=\count368
 )
-\c@theorem=\count364
-\c@question=\count365
-\c@assertion=\count366
+\c@theorem=\count369
+\c@question=\count370
+\c@assertion=\count371
 ) (./main.aux
 
 LaTeX Warning: Label `eq:3' multiply defined.
@@ -1151,7 +1198,7 @@ Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count367
+\c@section@level=\count372
 )
 LaTeX Info: Redefining \ref on input line 15.
 LaTeX Info: Redefining \pageref on input line 15.
@@ -1164,16 +1211,16 @@ LaTeX Info: Redefining \nameref on input line 15.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count368
-\scratchdimen=\dimen322
-\scratchbox=\box137
-\nofMPsegments=\count369
-\nofMParguments=\count370
+\scratchcounter=\count373
+\scratchdimen=\dimen328
+\scratchbox=\box145
+\nofMPsegments=\count374
+\nofMParguments=\count375
 \everyMPshowfont=\toks50
-\MPscratchCnt=\count371
-\MPscratchDim=\dimen323
-\MPnumerator=\count372
-\makeMPintoPDFobject=\count373
+\MPscratchCnt=\count376
+\MPscratchDim=\dimen329
+\MPnumerator=\count377
+\makeMPintoPDFobject=\count378
 \everyMPtoPDFconversion=\toks51
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1189,10 +1236,10 @@ Package caption Info: float package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\c@lstlisting=\count374
+\c@lstlisting=\count379
 
 (./misc/title_page.tex
-<img/logo_sorbonne.png, id=23, 1792.7778pt x 730.8906pt>
+<img/logo_sorbonne.png, id=75, 1792.7778pt x 730.8906pt>
 File: img/logo_sorbonne.png Graphic file (type png)
 <use img/logo_sorbonne.png>
 Package pdftex.def Info: img/logo_sorbonne.png  used on input line 8.
@@ -1221,10 +1268,10 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 11.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 Package hyperref Info: bookmark level for unknown assertion defaults to 0 on in
-put line 41.
+put line 44.
 
 
-./sections/preliminaires.tex:58: Package amsmath Error: Erroneous nesting of eq
+./sections/preliminaires.tex:61: Package amsmath Error: Erroneous nesting of eq
 uation structures;
 (amsmath)                trying to recover with `aligned'.
 
@@ -1232,13 +1279,13 @@ See the amsmath package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.58     \end{align}
-                    
+l.61   \end{align}
+                  \label{eq:1}
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-./sections/preliminaires.tex:74: Package amsmath Error: Erroneous nesting of eq
+./sections/preliminaires.tex:78: Package amsmath Error: Erroneous nesting of eq
 uation structures;
 (amsmath)                trying to recover with `aligned'.
 
@@ -1246,8 +1293,8 @@ See the amsmath package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.74     \end{align}
-                    
+l.78   \end{align}
+                  
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
@@ -1255,154 +1302,202 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.90   A
-        insi, un sous-chemin préfixe d'un chemin d'arrivée au plus tôt pe...
-[1]
+l.93   \end{equation}
+                      [1]
 
-LaTeX Warning: Command \' invalid in math mode on input line 105.
+LaTeX Warning: Command \' invalid in math mode on input line 111.
 
-./sections/preliminaires.tex:105: Please use \mathaccent for accents in math mo
+./sections/preliminaires.tex:111: Please use \mathaccent for accents in math mo
 de.
 \add@accent ... \let \ignorespaces \relax \accent 
                                                   #1 #2\egroup \ifmmode \els...
-l.105   $\mathrm{début}
+l.111   $\mathrm{début}
                         (P) = \max(\{\mathrm{début}(P'): P' \in
 I'm changing \accent to \mathaccent here; wish me luck.
 (Accents are not the same in formulas as they are in text.)
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 105.
+LaTeX Warning: Command \' invalid in math mode on input line 111.
 
-./sections/preliminaires.tex:105: Please use \mathaccent for accents in math mo
+./sections/preliminaires.tex:111: Please use \mathaccent for accents in math mo
 de.
 \add@accent ... \let \ignorespaces \relax \accent 
                                                   #1 #2\egroup \ifmmode \els...
-l.105 ...athrm{début}(P) = \max(\{\mathrm{début}
+l.111 ...athrm{début}(P) = \max(\{\mathrm{début}
                                                   (P'): P' \in
 I'm changing \accent to \mathaccent here; wish me luck.
 (Accents are not the same in formulas as they are in text.)
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 108.
+LaTeX Warning: Command \' invalid in math mode on input line 114.
 
-./sections/preliminaires.tex:108: Please use \mathaccent for accents in math mo
+./sections/preliminaires.tex:114: Please use \mathaccent for accents in math mo
 de.
 \add@accent ... \let \ignorespaces \relax \accent 
                                                   #1 #2\egroup \ifmmode \els...
-l.108     \mathrm{début}
+l.114     \mathrm{début}
                          (P_1) = \mathrm{début}(P_2) = 1 < \mathrm{début}(...
 I'm changing \accent to \mathaccent here; wish me luck.
 (Accents are not the same in formulas as they are in text.)
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 108.
+LaTeX Warning: Command \' invalid in math mode on input line 114.
 
-./sections/preliminaires.tex:108: Please use \mathaccent for accents in math mo
+./sections/preliminaires.tex:114: Please use \mathaccent for accents in math mo
 de.
 \add@accent ... \let \ignorespaces \relax \accent 
                                                   #1 #2\egroup \ifmmode \els...
-l.108     \mathrm{début}(P_1) = \mathrm{début}
+l.114     \mathrm{début}(P_1) = \mathrm{début}
                                                 (P_2) = 1 < \mathrm{début}(...
 I'm changing \accent to \mathaccent here; wish me luck.
 (Accents are not the same in formulas as they are in text.)
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 108.
+LaTeX Warning: Command \' invalid in math mode on input line 114.
 
-./sections/preliminaires.tex:108: Please use \mathaccent for accents in math mo
+./sections/preliminaires.tex:114: Please use \mathaccent for accents in math mo
 de.
 \add@accent ... \let \ignorespaces \relax \accent 
                                                   #1 #2\egroup \ifmmode \els...
-l.108 ...mathrm{début}(P_2) = 1 < \mathrm{début}
+l.114 ...mathrm{début}(P_2) = 1 < \mathrm{début}
                                                   (P_3) =
 I'm changing \accent to \mathaccent here; wish me luck.
 (Accents are not the same in formulas as they are in text.)
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 109.
+LaTeX Warning: Command \' invalid in math mode on input line 115.
 
-./sections/preliminaires.tex:109: Please use \mathaccent for accents in math mo
+./sections/preliminaires.tex:115: Please use \mathaccent for accents in math mo
 de.
 \add@accent ... \let \ignorespaces \relax \accent 
                                                   #1 #2\egroup \ifmmode \els...
-l.109     \mathrm{début}
+l.115     \mathrm{début}
                          (P_4) = 3 \text{,}
 I'm changing \accent to \mathaccent here; wish me luck.
 (Accents are not the same in formulas as they are in text.)
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 117.
+LaTeX Warning: Command \' invalid in math mode on input line 123.
 
-./sections/preliminaires.tex:117: Please use \mathaccent for accents in math mo
+./sections/preliminaires.tex:123: Please use \mathaccent for accents in math mo
 de.
 \add@accent ... \let \ignorespaces \relax \accent 
                                                   #1 #2\egroup \ifmmode \els...
-l.117     \mathrm{début}
+l.123     \mathrm{début}
                          (P_{3}'') = 3 < \mathrm{début}(P_{b \rightarrow c}...
 I'm changing \accent to \mathaccent here; wish me luck.
 (Accents are not the same in formulas as they are in text.)
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 117.
+LaTeX Warning: Command \' invalid in math mode on input line 123.
 
-./sections/preliminaires.tex:117: Please use \mathaccent for accents in math mo
+./sections/preliminaires.tex:123: Please use \mathaccent for accents in math mo
 de.
 \add@accent ... \let \ignorespaces \relax \accent 
                                                   #1 #2\egroup \ifmmode \els...
-l.117 ...rm{début}(P_{3}'') = 3 < \mathrm{début}
+l.123 ...rm{début}(P_{3}'') = 3 < \mathrm{début}
                                                   (P_{b \rightarrow c}) = 7
 I'm changing \accent to \mathaccent here; wish me luck.
 (Accents are not the same in formulas as they are in text.)
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 141.
+LaTeX Warning: Command \' invalid in math mode on input line 146.
 
-./sections/preliminaires.tex:141: Please use \mathaccent for accents in math mo
+./sections/preliminaires.tex:146: Please use \mathaccent for accents in math mo
 de.
 \add@accent ... \let \ignorespaces \relax \accent 
                                                   #1 #2\egroup \ifmmode \els...
-l.141   $\mathrm{durée}
+l.146   $\mathrm{durée}
                         (P) = \min(\{\mathrm{durée}(P'): P' \in \mathcal{P}...
 I'm changing \accent to \mathaccent here; wish me luck.
 (Accents are not the same in formulas as they are in text.)
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 141.
+LaTeX Warning: Command \' invalid in math mode on input line 146.
 
-./sections/preliminaires.tex:141: Please use \mathaccent for accents in math mo
+./sections/preliminaires.tex:146: Please use \mathaccent for accents in math mo
 de.
 \add@accent ... \let \ignorespaces \relax \accent 
                                                   #1 #2\egroup \ifmmode \els...
-l.141 ...athrm{durée}(P) = \min(\{\mathrm{durée}
+l.146 ...athrm{durée}(P) = \min(\{\mathrm{durée}
                                                   (P'): P' \in \mathcal{P}(a...
 I'm changing \accent to \mathaccent here; wish me luck.
 (Accents are not the same in formulas as they are in text.)
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 148.
+LaTeX Warning: Command \' invalid in math mode on input line 153.
 
-./sections/preliminaires.tex:148: Please use \mathaccent for accents in math mo
+./sections/preliminaires.tex:153: Please use \mathaccent for accents in math mo
 de.
 \add@accent ... \let \ignorespaces \relax \accent 
                                                   #1 #2\egroup \ifmmode \els...
-l.148     \mathrm{durée}
+l.153     \mathrm{durée}
                          (P_{5}') = (4+1) - 1 = 4 > \mathrm{durée}(P_{b \ri...
 I'm changing \accent to \mathaccent here; wish me luck.
 (Accents are not the same in formulas as they are in text.)
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 148.
+LaTeX Warning: Command \' invalid in math mode on input line 153.
 
-./sections/preliminaires.tex:148: Please use \mathaccent for accents in math mo
+./sections/preliminaires.tex:153: Please use \mathaccent for accents in math mo
 de.
 \add@accent ... \let \ignorespaces \relax \accent 
                                                   #1 #2\egroup \ifmmode \els...
-l.148 ...P_{5}') = (4+1) - 1 = 4 > \mathrm{durée}
+l.153 ...P_{5}') = (4+1) - 1 = 4 > \mathrm{durée}
                                                   (P_{b \rightarrow e}) = (1...
 I'm changing \accent to \mathaccent here; wish me luck.
 (Accents are not the same in formulas as they are in text.)
 
-) (./sections/algos.tex) (./sections/conclusion.tex) [2] [3] (./main.aux)
+) (./sections/algos.tex [2]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 31.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\rightarrow' on input line 31.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 31.
+
+
+./sections/algos.tex:69: Package amsmath Error: Erroneous nesting of equation s
+tructures;
+(amsmath)                trying to recover with `aligned'.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.69 \end{align}
+                
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[3]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[4]
+
+./sections/algos.tex:204: Package amsmath Error: Erroneous nesting of equation 
+structures;
+(amsmath)                trying to recover with `aligned'.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.204   \end{align}
+                   
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[5] [6]) (./sections/conclusion.tex) [7] (./main.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1410,16 +1505,16 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 074F438482E995FA77119763BC4769E4;820.
+(rerunfilecheck)             Checksum: 02424239AA5BEBF9E90967525EA041C2;4519.
  ) 
 Here is how much of TeX's memory you used:
- 32549 strings out of 478353
- 645073 string characters out of 5850635
- 1057560 words of memory out of 5000000
- 50030 multiletter control sequences out of 15000+600000
- 410346 words of font info for 52 fonts, out of 8000000 for 9000
+ 33623 strings out of 478353
+ 662863 string characters out of 5850635
+ 1087469 words of memory out of 5000000
+ 51044 multiletter control sequences out of 15000+600000
+ 418626 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,10n,92p,552b,956s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 84i,20n,92p,552b,949s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/tex
@@ -1429,11 +1524,12 @@ st/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/font
 s/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/
 public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmti10.pfb>
-Output written on main.pdf (4 pages, 222034 bytes).
+ts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmtt10.pfb>
+Output written on main.pdf (8 pages, 264079 bytes).
 PDF statistics:
- 125 PDF objects out of 1000 (max. 8388607)
- 96 compressed objects within 1 object stream
- 27 named destinations out of 1000 (max. 500000)
- 50 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 227 PDF objects out of 1000 (max. 8388607)
+ 191 compressed objects within 2 object streams
+ 60 named destinations out of 1000 (max. 500000)
+ 154 words of extra memory for PDF output out of 10000 (max. 10000000)
 

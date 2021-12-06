@@ -8,8 +8,8 @@
 \end{question}
 
 Par soucis de simplicité et pour être plus concis, une instance alternative est
-proposée. Considérons $G_{1}$, le multigraphe orienté pondéré orienté par le
-temps donné par le diagramme de la Figure \ref{fig:G1}:
+proposée. Considérons $G_{1} = (V_1,E_1)$, le multigraphe orienté pondéré par le
+temps donné par le diagramme de la Figure \ref{fig:G1}.
 
 \begin{figure}[h!]
   \centering
@@ -31,11 +31,14 @@ temps donné par le diagramme de la Figure \ref{fig:G1}:
     (b) edge node {$1$} (e)
     (d) edge node {$4$} (e);
   \end{tikzpicture}
-  \caption{Diagramme représentant le multigraphe pondéré orienté par le temps $G_{1}$}
+  \caption{Diagramme représentant le multigraphe orienté pondéré par le temps
+    $G_{1}$}
   \label{fig:G1}
 \end{figure}
 
-Le multigraphe $G_1$ sera utilisé pour justifier les assertions suivantes.
+Comme dans l'énoncé, $G_1$ représente un réseau de transport aérien où chaque
+arrête est un vol. On suppose que la durée de chaque vol est de $1$ jour (i.e.\
+$\forall e_i \in E_1, e_i = (u_i, v_i, t_i, 1)$).
 
 \begin{assertion}
   Un sous-chemin préfixe d'un chemin d'arrivée au plus tôt peut ne pas
@@ -48,15 +51,17 @@ Le multigraphe $G_1$ sera utilisé pour justifier les assertions suivantes.
   multigraphe $G_{1}$, qui correspond à l'ensemble de tous les chemins
   réalisables de $a$ à $c$ dans $G_{1}$:
 
+
   \begin{equation}
-    \begin{align}
-      \label{eq:1}
-      \mathcal{P}(a,c,[0, \infty]) = \{ & P_1 = ((a,b,1,1), (b,c,4,1)), \\
-                                        & P_2 = ((a,b,1,1), (b,c,7,1)), \\
-                                        & P_3 = ((a,b,3,1), (b,c,4,1)), \\
-                                        & P_4 = ((a,b,3,1), (b,c,7,1)) \}.
-    \end{align}
-  \end{equation}
+  \begin{align}
+    \mathcal{P}(a,c,[0, \infty]) = \{ & P_1 = ((a,b,1,1), (b,c,4,1)), \\
+                                      & P_2 = ((a,b,1,1), (b,c,7,1)), \\
+                                      & P_3 = ((a,b,3,1), (b,c,4,1)), \\
+                                      & P_4 = ((a,b,3,1), (b,c,7,1)) \}.
+  \end{align}\label{eq:1}
+\end{equation}
+
+
 
   Pour déterminer le(s) chemin(s) d'arrivée au plus tôt de $a$ à $c$ dans le
   graphe $G_{1}$, soit un chemin $P$ tel que
@@ -65,14 +70,15 @@ Le multigraphe $G_1$ sera utilisé pour justifier les assertions suivantes.
   $P$ appartenant à $\mathcal{P}(a,c,[0, \infty])$:
 
   \begin{equation}
-    \begin{align}
-      \label{eq:2}
-      & \mathrm{fin}(P_1) = 4 + 1 = 5, \\
-      & \mathrm{fin}(P_2) = 7 + 1 = 8, \\
-      & \mathrm{fin}(P_3) = 4 + 1 = 5, \\
-      & \mathrm{fin}(P_4) = 7 + 1 = 8.
-    \end{align}
-  \end{equation}
+  \begin{align}
+    & \mathrm{fin}(P_1) = 4 + 1 = 5, \\
+    & \mathrm{fin}(P_2) = 7 + 1 = 8, \\
+    & \mathrm{fin}(P_3) = 4 + 1 = 5, \\
+    & \mathrm{fin}(P_4) = 7 + 1 = 8.
+  \end{align}
+  \label{eq:2}
+\end{equation}
+
 
   Ainsi, $\min(\{5,8,5,8\}) = 5$ et les chemins d'arrivée au plus tôt sont $P_1$
   et $P_3$.
@@ -83,7 +89,7 @@ Le multigraphe $G_1$ sera utilisé pour justifier les assertions suivantes.
   \begin{equation}
     \mathrm{fin}(P_{3}') = 3 + 1 = 4 > \mathrm{fin}(P_{a \rightarrow b}) = 1 + 1
     = 2 \text{,}
-  \label{eq:4}
+    \label{eq:4}
   \end{equation}
   donc $P_{3}'$ n'est pas un chemin d'arrivée au plus tôt de $a$ à $b$.
 
@@ -125,8 +131,7 @@ Le multigraphe $G_1$ sera utilisé pour justifier les assertions suivantes.
 
 \begin{assertion}
   Un sous-chemin d'un chemin le plus rapide peut ne pas être un chemin le plus
-  rapide.
-  \label{assert:rapide}
+  rapide.\label{assert:rapide}
 \end{assertion}
 
 \begin{reponse}
@@ -179,6 +184,8 @@ Le multigraphe $G_1$ sera utilisé pour justifier les assertions suivantes.
   plus court.
 
 \end{reponse}
+
+\vfill
 
 %%% Local Variables:
 %%% mode: latex
