@@ -23,8 +23,9 @@ import time
 
 # Valeurs permettant d'effectuer ou non certaines séries de tests
 testUT = True
-testACH = False
+testACH = True
 testOPT = False
+testComp = False
 
 # Parametre permettant de choisir si la sélection des sommets sera aléatoire ou non
 randomSelection = False
@@ -39,7 +40,10 @@ if (testUT) :
 
     # Transformation d'un graphe en graphe transformé (utilisé pour les méthodes du fichier algorithmeChemin utilisant les graphes transformés)
     g3 = ut.transformeGraphe(g2, sortantUniquement=True)
-    
+
+#######################################################################################################
+# TEST DE CALCUL DES CHEMINS AVEC LES ALGORITHMES
+#######################################################################################################    
 
 # Tests des méthodes de algorithmesChemin.py
 if (testACH) :
@@ -74,6 +78,10 @@ if (testACH) :
     # Algorithme de plus court chemin
     print("Graphe transformé - Le plus court chemin entre", start, "et", end, "est :", ach.cheminPlusCourt(G, start, end), "\n")
 
+#######################################################################################################
+# TEST DE CALCUL DES CHEMINS AVEC L'OPTIMISATION
+#######################################################################################################
+
 # Tests des méthodes de optimisation.py
 if (testOPT) :
     oG = g2 # Graphe d'origine que nous allant transformer pour obtenir un graphe utilisable dans l'optimisation
@@ -102,68 +110,70 @@ if (testOPT) :
 # COMPARAISONS D'ALGORITHMES
 #######################################################################################################
 
-# On récupère le graphe venant d'un fichier du répertoire Répertoires_Graphes ou on le crée de manière aléatoire
-# g6 = ut.generationMultigraphe(20, 30, 15)
-g6 = ut.acquisitionGraphe("Repertoire_Graphes/exempleGraphe.txt")
+# On vérifie si on effectue ou non les tests de comparaison
+if (testComp) :
+    # On récupère le graphe venant d'un fichier du répertoire Répertoires_Graphes ou on le crée de manière aléatoire
+    # g6 = ut.generationMultigraphe(20, 30, 15)
+    g6 = ut.acquisitionGraphe("Repertoire_Graphes/exempleGraphe.txt")
 
-# On prépare le graphe allant être utilisé par l'algorithme
-algG = ut.transformeGraphe(g6, sortantUniquement=True)
+    # On prépare le graphe allant être utilisé par l'algorithme
+    algG = ut.transformeGraphe(g6, sortantUniquement=True)
 
-# On réalise une série de calculs de n chemins et on sauvegarde le temps de calcul pour l'algorithme Type4 et l'optimisation
-nTest = 3
-optTime = []
-optPath = []
-algTime = []
-algPath = []
+    # On réalise une série de calculs de n chemins et on sauvegarde le temps de calcul pour l'algorithme Type4 et l'optimisation
+    nTest = 3
+    optTime = []
+    optPath = []
+    algTime = []
+    algPath = []
 
-# Variable de sauvegarde des chemins et du temps
-execTime = 0
-pathStudied = []
+    # Variable de sauvegarde des chemins et du temps
+    execTime = 0
+    pathStudied = []
 
-# On effectue la série de tests
-for i in range(nTest) :
-    # On choisit 2 sommets du graphe au hasard avec la condition qu'il existe un chemin entre eux
-    start = list(g6.keys())[rand.randint(0, len(list(g6.keys())) - 1)]
-    end = list(g6.keys())[rand.randint(0, len(list(g6.keys())) - 1)]
-
-    while (ut.testExistanceChemin(g6, start, end) == False) :
+    # On effectue la série de tests
+    for i in range(nTest) :
+        # On choisit 2 sommets du graphe au hasard avec la condition qu'il existe un chemin entre eux
         start = list(g6.keys())[rand.randint(0, len(list(g6.keys())) - 1)]
         end = list(g6.keys())[rand.randint(0, len(list(g6.keys())) - 1)]
 
-    # On ajoute le chemin à la liste
-    pathStudied.append("Chemin de " + str(start) + " à " + str(end))
+        while (ut.testExistanceChemin(g6, start, end) == False) :
+            start = list(g6.keys())[rand.randint(0, len(list(g6.keys())) - 1)]
+            end = list(g6.keys())[rand.randint(0, len(list(g6.keys())) - 1)]
 
-    # On calcule le temps d'exécution pour l'algorithme
-    execTime = time.time()
-    res = ach.cheminPlusCourt(algG, start, end)
-    execTime = time.time() - execTime
+        # On ajoute le chemin à la liste
+        pathStudied.append("Chemin de " + str(start) + " à " + str(end))
 
-    # On sauvegarde les résultats
-    algPath.append(res)
-    algTime.append(execTime)
+        # On calcule le temps d'exécution pour l'algorithme
+        execTime = time.time()
+        res = ach.cheminPlusCourt(algG, start, end)
+        execTime = time.time() - execTime
 
-    # On prépare le graphe allant être utilisé par la résolution par optimisation
-    optG = ut.transformeGrapheOptimisation(g6, start)
+        # On sauvegarde les résultats
+        algPath.append(res)
+        algTime.append(execTime)
 
-    # On calcule le temps d'exécution
-    execTime = time.time()
-    res = opt.PlusCourtChemin(optG, start, end, printInfos=False)
-    execTime = time.time() - execTime
+        # On prépare le graphe allant être utilisé par la résolution par optimisation
+        optG = ut.transformeGrapheOptimisation(g6, start)
 
-    # On sauvegarde les résultats
-    optPath.append(res)
-    optTime.append(execTime)
+        # On calcule le temps d'exécution
+        execTime = time.time()
+        res = opt.PlusCourtChemin(optG, start, end, printInfos=False)
+        execTime = time.time() - execTime
 
-# On affiche les résultats
-# On affiche tous les résultats de l'algorithme
-print("Résultats de l'algorithme :")
-print("Chemin recherché\t\tTemps d'exécution\t\tSolution")
-for i in range(nTest) :
-    print(pathStudied[i], "\t\t", "{:.6f}".format(algTime[i]), "\t\t", algPath[i])
-print("\n")
+        # On sauvegarde les résultats
+        optPath.append(res)
+        optTime.append(execTime)
 
-# On affiche les résultats pour l'optimisation
-print("Résultats de l'optimisation :")
-print("Chemin recherché\t\tTemps d'exécution\t\tSolution")
-for i in range(nTest) :
-    print(pathStudied[i], "\t\t", "{:.6f}".format(optTime[i]), "\t\t", optPath[i])
+    # On affiche les résultats
+    # On affiche tous les résultats de l'algorithme
+    print("Résultats de l'algorithme :")
+    print("Chemin recherché\t\tTemps d'exécution\t\tSolution")
+    for i in range(nTest) :
+        print(pathStudied[i], "\t\t", "{:.6f}".format(algTime[i]), "\t\t", algPath[i])
+    print("\n")
+
+    # On affiche les résultats pour l'optimisation
+    print("Résultats de l'optimisation :")
+    print("Chemin recherché\t\tTemps d'exécution\t\tSolution")
+    for i in range(nTest) :
+        print(pathStudied[i], "\t\t", "{:.6f}".format(optTime[i]), "\t\t", optPath[i])
