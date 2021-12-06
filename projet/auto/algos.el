@@ -24,6 +24,7 @@
     "sec:plus-tard"
     "alg:plus-tard"
     "sec:plus-rapide"
+    "alg:plus-rapide"
     "sec:plus-court"
     "sec:plus-court-pl"
     "sec:algos-sans-transfo"
