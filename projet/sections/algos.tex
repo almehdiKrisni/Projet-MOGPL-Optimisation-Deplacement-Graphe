@@ -268,6 +268,59 @@ Cet algorithme, comme le premier, est également en $\mathcal{O}(|E_2|)$.
 \subsection{Problème du chemin le plus rapide}
 \label{sec:plus-rapide}
 
+Pour le problème du chemin le plus rapide, on procède encore une fois de manière
+similaire aux deux derniers algorithmes. Cette fois, on considère la différence
+entre le temps du sommet d'arrivée et le temps du sommet de départ. Une
+différence est que l'on utilise une fonction \verb|fatherState()| qui récupère
+le state précédent dans le chemin actuel.
+
+Le pseudo-code pour cet algorithme est donné en Algorithme
+\ref{alg:plus-rapide}.
+
+\begin{algorithm}[h!]
+\caption{CheminPlusRapide}\label{alg:plus-rapide}
+\KwData{$\tilde{G}$ graphe orienté, sous forme de dictionnaire. sommetDepart, tuple. sommetArrivee, tuple.}
+\KwResult{$res$, liste de sommets de $\tilde{G}$ formant un chemin d'arrivée au plus tôt de sommetDepart à sommetArrivee.}
+
+$\text{pile} \gets \text{liste vide}$\;
+$res \gets \text{liste vide}$\;
+$\text{state} \gets (\text{sommetDepart}, 1, None)$\;
+\eIf{$(\text{sommetDepart},1)$ in sommets($\tilde{G}$)}{
+  \ForEach{$(s_i,dDD_i)$ in arcs($\tilde{G}[(\text{sommetDepart},1)]$)}{
+    $\text{pile} \gets \text{pile} + (s_i,dDD_i,state)$\;
+  }
+}{
+  \ForEach{$(s_i,dDD_i)$ in sommets($\tilde{G}$) if $s_i = \text{sommetDepart}$}{
+    $\text{pile} \gets \text{pile} + (s_i,dDD_i,state)$\;
+  }
+}
+$\text{bestChemin} \gets \text{emtpy tuple}$\;
+$\text{shortestTime} \gets \text{None}$\;
+\While{$\text{pile} \neq \emptyset$}{
+  $\text{currentState} \gets \text{pile}[0]$\;
+  $\text{pile} \gets \text{pile}[1:]$\;
+
+  \eIf{$\text{currentState} = \text{sommetArrivee}$}{
+    $\text{timeSpent} \gets currentState[1] - fatherState(currentState)[1]$\;
+    \If{$\text{shortestTime} > \text{timeSpent}$ or $\text{shortestTime} = \text{None}$}{
+      $\text{shortestTime} \gets \text{timeSpent}$\;
+      $\text{bestChemin} \gets \text{currentState}$\;
+    }
+    }{
+      \ForEach{$(s_i,dDD_i)$ in sommets($\tilde{G}[(\text{currentState}[0],\text{currentState}[1])]$)}{
+        $\text{pile} \gets (s_i,dDD_i, \text{currentState})$\;
+        }
+    }
+}
+\While{$\text{bestChemin} \neq \text{None}$}{
+  $res \gets (\text{bestChemin}[0], \text{bestChemin}[1])$\;
+  $\text{bestChemin} \gets \text{bestChemin}[2]$\;
+}
+$\text{inverse}(res)$\;
+\end{algorithm}
+
+Cet algorithme a une complexité de
+
 \subsection{Problème du plus court chemin}
 \label{sec:plus-court}
 
