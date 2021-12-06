@@ -125,5 +125,10 @@ def optPlusCourtChemin(graphe ,start, end) :
     # On effectue la résolution
     m.optimize()
 
-    # On affiche la solution optimale
-    print("Chemin le plus court trouvé :", [(v.varName, v.X) for v in m.getVars() if abs(v.X) > 1e-6])
+    # On affiche la solution optimale si le modèle est réalisable
+    if (m.status == GRB.INFEASIBLE) :
+        print("Aucun chemin n'a pu être trouvé dans le graphe entre " + str(start) + " et " + str(end) + ".")
+        return 0
+    else :
+        print("Chemin le plus court trouvé entre", start, "et", end, "est :", [(v.varName, v.X) for v in m.getVars() if abs(v.X) > 1e-6])
+        return 1
