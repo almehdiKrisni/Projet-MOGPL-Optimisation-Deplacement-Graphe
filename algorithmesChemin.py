@@ -36,7 +36,7 @@ from networkx.exception import NodeNotFound
 # (dDD : la date de départ du vol, cDT : le nombre de jours pour effectuer le trajet)
 
 # Il existe une deuxième forme de graphe: les graphes pondérés
-# Ils sont sous la forme de 2 dictionnaires 
+# Ils sont sous la forme de 2 dictionnaires
 # - le premier dont les clés sont les différents sommets du graphe et les valeurs associées
 # sont les listes représentant les arcs rentrants et les arcs sortants du sommet (tuple)
 # - le deuxième étant le dictionnaire contenant les arcs entre les différents sommets du graphe (le dictionnaire du graphe basique)
@@ -61,7 +61,7 @@ def cheminArriveeAuPlusTot(graphe, start, end) :
     # On crée une pile allant contenir tous les départs possibles depuis le sommet 'start'
     # On ajoute dans cette pile également tous les fils de ces départs (soit les sommets sur lesquels on peut se déplacer)
     pile = []
-    
+
     # On vérifie si on peut commencer depuis le premier jour de 'start'
     if (start, 1) in list(graphe.keys()) :
         for (j, k) in graphe[(start, 1)] :
@@ -123,7 +123,7 @@ def cheminDepartAuPlusTard(graphe, start, end) :
     # On crée une pile allant contenir tous les départs possibles depuis le sommet 'start'
     # On ajoute dans cette pile également tous les fils de ces départs (soit les sommets sur lesquels on peut se déplacer)
     pile = []
-    
+
     # On vérifie si on peut commencer depuis le premier jour de 'start'
     if (start, 1) in list(graphe.keys()) :
         for (j, k) in graphe[(start, 1)] :
@@ -192,7 +192,7 @@ def cheminPlusRapide(graphe, start, end) :
     # On crée une pile allant contenir tous les départs possibles depuis le sommet 'start'
     # On ajoute dans cette pile également tous les fils de ces départs (soit les sommets sur lesquels on peut se déplacer)
     pile = []
-    
+
     # On vérifie si on peut commencer depuis le premier jour de 'start'
     if (start, 1) in list(graphe.keys()) :
         for (j, k) in graphe[(start, 1)] :
@@ -322,13 +322,12 @@ def cheminPlusCourt(graphe, start, end) :
     else :
         print("Aucun chemin n'a pu être trouvé dans le graphe entre " + str(start) + " et " + str(end) + ".")
 
-
 #######################################################################################################
 # ALGORITHMES DE RECHERCHE DE CHEMIN SUR LES MULTIGRAPHES (FONCTIONNE SUR LES GRAPHES DE BASE - QUESTION SUBSIDIAIRE)
 #######################################################################################################
 
 # Algorithme de recherche de chemin d'arrivée au plus tôt entre deux sommets d'un graphe
-def cheminArriveePlusTotV2(graphe, start, end) :
+def cheminArriveePlusTotV2(graphe, start, end, test = True) :
     # On crée le state initial (voir les commentaires au-dessus pour plus de details)
     stateInit = (start, 1, None)
     pile = []
@@ -341,7 +340,7 @@ def cheminArriveePlusTotV2(graphe, start, end) :
     for s in graphe[start] :
         if (s[1] >= stateInit[1]) : # Si le vol associé à l'arc a lieu le jour-même où on se trouve dans le state courant ou plus tard
             pile.append((s[0], s[1] + s[2], stateInit)) # s[1] + s[2] représente l'addition du jour où le vol a lieu plus le temps du trajet
-    
+
     # On boucle sur la pile
     while (len(pile) != 0) :
         # On récupère le noeud en tête de liste et on le supprime de la liste
@@ -373,11 +372,17 @@ def cheminArriveePlusTotV2(graphe, start, end) :
         while (bestChemin != None) :
             chemin.append((bestChemin[0], bestChemin[1]))
             bestChemin = bestChemin[2]
-        return chemin[::-1]
+        if test:
+            return True
+        else:
+            return chemin[::-1]
 
     # Sinon, on renvoie un message pour signaler qu'aucun chemin n'a pu être trouvé
     else :
-        print("Aucun chemin n'a pu être trouvé dans le graphe entre " + str(start) + " et " + str(end) + ".")
+        if test:
+            return False
+        else:
+            print("Aucun chemin n'a pu être trouvé dans le graphe entre " + str(start) + " et " + str(end) + ".")
 
 #------------------------------------------------------------------------------------------------------
 
@@ -452,7 +457,7 @@ def cheminPlusRapideV2(graphe, start, end) :
     for s in graphe[start] :
         startingPoint = (start, s[1], None)
         pile.append((s[0], s[1] + s[2], startingPoint))
-    
+
     # On boucle sur la pile
     while (len(pile) != 0) :
         # On récupère le noeud en tête de liste et on le supprime de la liste
@@ -509,7 +514,7 @@ def plusCourtCheminV2(graphe, start, end) :
     for s in graphe[start] :
         if (s[1] >= stateInit[1]) : # Si le vol associé à l'arc a lieu le jour-même où on se trouve dans le state courant ou plus tard
             pile.append((s[0], s[1] + s[2], stateInit)) # s[1] + s[2] représente l'addition du jour où le vol a lieu plus le temps du trajet
-    
+
     # On boucle sur la pile
     while (len(pile) != 0) :
         # On récupère le noeud en tête de liste et on le supprime de la liste
@@ -518,7 +523,7 @@ def plusCourtCheminV2(graphe, start, end) :
 
         # On vérifie si l'état actuel correspond à l'état final
         if (stateStudy[0] == end) :
-        
+
             # On vérifie si le temps actuel est plus intéressant que le meilleur temps trouvé (ou si aucun n'a encore été trouvé)
             if (shortestDistance == None) :
                 shortestDistance = ut.pathLength(stateStudy) # Le meilleur temps

@@ -26,6 +26,7 @@
     "sec:plus-rapide"
     "alg:plus-rapide"
     "sec:plus-court"
+    "alg:plus-court"
     "sec:plus-court-pl"
     "sec:algos-sans-transfo"
     "sec:tests"))

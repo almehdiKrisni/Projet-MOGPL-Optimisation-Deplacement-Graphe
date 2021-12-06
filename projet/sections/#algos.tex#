@@ -374,10 +374,10 @@ $\text{inverse}(res)$\;
 \subsection{Problème du plus court chemin en Programmation Linéaire}
 \label{sec:plus-court-pl}
 
-On pose le programme linéaire suivant, équivalent à trouver le problème de plus
-court chemin:
+Pour modéliser le problème du plus court chemin par un programme linéaire, on
+doit représenter le graphe autrement que par des listes d'adjacence.
 
-
+On commence par représenter le graphe $G$ par une matrice 
 
 \subsection{Algorithmes sans transformation de graphe}
 \label{sec:algos-sans-transfo}
