@@ -192,7 +192,7 @@ def transformeGrapheOptimisation(graphe, start) :
 #-----------------------------------------------------------------------------------------------------
 
 # Méthode permettant de transformer un graphe classique en graphe orienté pondéré par le temps
-def transformeGraphe(graphe, sortantUniquement = False) :
+def transformeGraphe(graphe, sortantUniquement = True) :
     # On crée le nouveau graphe
     G = dict()
 
@@ -338,10 +338,6 @@ def testExistanceChemin(graphe, start, end) :
     # On crée le state initial (voir les commentaires au-dessus pour plus de details)
     stateInit = (start, 1, None)
     pile = []
-
-    # Variables de sauvegarde de meilleur chemin
-    bestChemin = None
-    bestTime = None
 
     # On crée la pile contenant tous les noeuds accessibles depuis stateInit
     for s in graphe[start] :

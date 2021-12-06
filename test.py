@@ -23,11 +23,11 @@ import time
 
 # Valeurs permettant d'effectuer ou non certaines séries de tests
 testUT = True
-testACH = True
-testOPT = True
+testACH = False
+testOPT = False
 
 # Parametre permettant de choisir si la sélection des sommets sera aléatoire ou non
-randomSelection = True
+randomSelection = False
 
 # Tests des méthodes de util.py
 if (testUT) :
@@ -96,19 +96,74 @@ if (testOPT) :
     # print()
 
     # Résolution par optimisation
-    opt.optPlusCourtChemin(G, start, end)
-
-#######################################################################################################
-# CALCULS DE TEMPS D'EXECUTION
-#######################################################################################################
-
-# On récupère le graphe venant d'un fichier du répertoire Répertoires_Graphes
-g5 = ut.acquisitionGraphe("Repertoire_Graphes/exempleGraphe.txt")
-
-
+    opt.PlusCourtChemin(G, start, end)
 
 #######################################################################################################
 # COMPARAISONS D'ALGORITHMES
 #######################################################################################################
 
-# On récupère le graphe venant d'un fichier du répertoire Répertoires_Graphes
+# On récupère le graphe venant d'un fichier du répertoire Répertoires_Graphes ou on le crée de manière aléatoire
+# g6 = ut.generationMultigraphe(20, 30, 15)
+g6 = ut.acquisitionGraphe("Repertoire_Graphes/exempleGraphe.txt")
+
+# On prépare le graphe allant être utilisé par l'algorithme
+algG = ut.transformeGraphe(g6, sortantUniquement=True)
+
+# On réalise une série de calculs de n chemins et on sauvegarde le temps de calcul pour l'algorithme Type4 et l'optimisation
+nTest = 3
+optTime = []
+optPath = []
+algTime = []
+algPath = []
+
+# Variable de sauvegarde des chemins et du temps
+execTime = 0
+pathStudied = []
+
+# On effectue la série de tests
+for i in range(nTest) :
+    # On choisit 2 sommets du graphe au hasard avec la condition qu'il existe un chemin entre eux
+    start = list(g6.keys())[rand.randint(0, len(list(g6.keys())) - 1)]
+    end = list(g6.keys())[rand.randint(0, len(list(g6.keys())) - 1)]
+
+    while (ut.testExistanceChemin(g6, start, end) == False) :
+        start = list(g6.keys())[rand.randint(0, len(list(g6.keys())) - 1)]
+        end = list(g6.keys())[rand.randint(0, len(list(g6.keys())) - 1)]
+
+    # On ajoute le chemin à la liste
+    pathStudied.append("Chemin de " + str(start) + " à " + str(end))
+
+    # On calcule le temps d'exécution pour l'algorithme
+    execTime = time.time()
+    res = ach.cheminPlusCourt(algG, start, end)
+    execTime = time.time() - execTime
+
+    # On sauvegarde les résultats
+    algPath.append(res)
+    algTime.append(execTime)
+
+    # On prépare le graphe allant être utilisé par la résolution par optimisation
+    optG = ut.transformeGrapheOptimisation(g6, start)
+
+    # On calcule le temps d'exécution
+    execTime = time.time()
+    res = opt.PlusCourtChemin(optG, start, end, printInfos=False)
+    execTime = time.time() - execTime
+
+    # On sauvegarde les résultats
+    optPath.append(res)
+    optTime.append(execTime)
+
+# On affiche les résultats
+# On affiche tous les résultats de l'algorithme
+print("Résultats de l'algorithme :")
+print("Chemin recherché\t\tTemps d'exécution\t\tSolution")
+for i in range(nTest) :
+    print(pathStudied[i], "\t\t", "{:.6f}".format(algTime[i]), "\t\t", algPath[i])
+print("\n")
+
+# On affiche les résultats pour l'optimisation
+print("Résultats de l'optimisation :")
+print("Chemin recherché\t\tTemps d'exécution\t\tSolution")
+for i in range(nTest) :
+    print(pathStudied[i], "\t\t", "{:.6f}".format(optTime[i]), "\t\t", optPath[i])

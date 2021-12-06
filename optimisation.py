@@ -21,7 +21,7 @@ import util as ut
 #######################################################################################################
 
 # Méthode permettant de réaliser l'optimisation du problème de plus court chemin
-def optPlusCourtChemin(graphe ,start, end) :
+def PlusCourtChemin(graphe ,start, end, printInfos=True) :
     # On récupère la liste des différents sommets du graphe
     sommets = list(graphe.keys())
     nbSommets = len(sommets)
@@ -82,6 +82,10 @@ def optPlusCourtChemin(graphe ,start, end) :
     # On crée le modèle
     m = Model("optCheminPlusCourt")
 
+    # On décide si on affiche ou non les informations
+    if (printInfos == False) :
+        m.Params.LogToConsole = 0
+
     # On crée les coefficients allant servir pour la fonction objectif
     c = [link[i][j] for i in range(nbSommets) for j in range(nbSommets)]
 
@@ -128,7 +132,7 @@ def optPlusCourtChemin(graphe ,start, end) :
     # On affiche la solution optimale si le modèle est réalisable
     if (m.status == GRB.INFEASIBLE) :
         print("Aucun chemin n'a pu être trouvé dans le graphe entre " + str(start) + " et " + str(end) + ".")
-        return 0
+        return None
     else :
         print("Chemin le plus court trouvé entre", start, "et", end, "est :", [(v.varName, v.X) for v in m.getVars() if abs(v.X) > 1e-6])
-        return 1
+        return [(v.varName, v.X) for v in m.getVars() if abs(v.X) > 1e-6]

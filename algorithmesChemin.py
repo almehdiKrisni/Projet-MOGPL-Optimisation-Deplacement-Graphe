@@ -267,7 +267,7 @@ def cheminPlusCourt(graphe, start, end) :
     # Sinon, on crée une nouvelle entrée dans le graphe
     # On lie le noeud (start, 1) aux autres noeuds de la forme (start, X) du graphe
     else :
-        listAcces = [(i, j) if (i == start) else None for (i, j) in list(graphe.keys())]
+        listAcces = [(i, j) for (i, j) in list(graphe.keys()) if (i == start) ]
         print(listAcces)
         graphe[(start, 1)] = listAcces
 
