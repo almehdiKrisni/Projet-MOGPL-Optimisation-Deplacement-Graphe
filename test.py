@@ -171,7 +171,7 @@ if (testComp) :
 
         # On affiche les résultats
         # On affiche les dimensions du graphe
-        print("Dimension du graphe\nNombre de sommets = " + str(10 * (n + 1)) + " - Nombre d'arcs = " + str(15 * (n + 1)) + " - Nombre de jours maximum =" + str(5 * (n + 1)) + "\n")
+        print("Dimension du graphe\nNombre de sommets = " + str(10 * (n + 1)) + " - Nombre d'arcs = " + str(15 * (n + 1)) + " - Nombre de jours maximum = " + str(5 * (n + 1)) + "\n")
 
         # On affiche tous les résultats de l'algorithme
         print("Résultats de l'algorithme :")
