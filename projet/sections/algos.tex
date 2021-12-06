@@ -4,6 +4,8 @@
 Dans cette partie, les réponses aux questions 2 et 3 et du sujet sont données au
 fûr et à mesure de la présentation des algorithmes.
 
+Les algorithmes développés pour la question 4 sont mis en annexe à ce rapport.
+
 \begin{question}
   En utilisant comme base la transformation de $G$ à $\tilde{G}$, montrer
   comment calculer de manière efficace les 4 types de chemins minimaux.
@@ -11,6 +13,11 @@ fûr et à mesure de la présentation des algorithmes.
 
 \begin{question}
   Calculer la complexité de différents algorithmes proposés.
+\end{question}
+
+\begin{question}
+  Ecrire un programme qui prend en entrée un multigraphe $G$ sans circuit et
+  retourne les 4 types de chemins minimaux correspondants.
 \end{question}
 
 \subsection{Structure de données pour la représentation de multigraphes}
@@ -374,6 +381,12 @@ $\text{inverse}(res)$\;
 \subsection{Problème du plus court chemin en Programmation Linéaire}
 \label{sec:plus-court-pl}
 
+\begin{question}
+  Proposer un modélisation du problème de plus court chemin par programmation
+  linéaire et implémanter une méthode de recherche de chemin de Type IV en
+  faisant appel à Gurobi.
+\end{question}
+
 On pose le programme linéaire suivant, équivalent à trouver le problème de plus
 court chemin:
 
@@ -382,12 +395,24 @@ court chemin:
 \subsection{Algorithmes sans transformation de graphe}
 \label{sec:algos-sans-transfo}
 
-
-
-On a également réalisé des chemins
+\begin{question*}[subsidiaire]
+  Proposer des algorithmes alternatifs pour calculer les chemins minimaux sans
+  passer par la transformation de graphe.
+\end{question*}
 
 \subsection{Tests de performance entre les différents algorithmes}
 \label{sec:tests}
+
+\begin{question}
+  Effectuer des tests pour mesurer le temps d'exécution de votre algorithme par
+  rapport à la taille de l'entrée (nombre de sommets, nombre d'arcs, étiquettes
+  sur les sommets).
+\end{question}
+
+\begin{question}
+  Comparer les algorithmes implantés pour le calcul de chemins de type IV dans
+  les question 4 et 5.
+\end{question}
 
 %%% Local Variables:
 %%% mode: latex
