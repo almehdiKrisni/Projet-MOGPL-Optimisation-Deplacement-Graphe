@@ -154,23 +154,100 @@ def generationMultigraphe(nbSommets, nb_arcs, duree):
 
     return G
 
-#------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------
 
-# Méthode permettant d'obtenir un graphe statique condensé à partir d'un graphe classique
-def transformeGrapheCondense(graphe) :
+# Méthode permettant d'obtenir un graphe statique condensé à partir d'un graphe classique (utilisé pour l'optimisation)
+def transformeGrapheOptimisation(graphe, start) :
     # On crée un nouveau dictionnaire et on crée une entrée pour chaque sommet du graphe
     G = dict()
     for s in list(graphe.keys()) :
         G[s] = []
 
-    # On parcourt le graphe initial et on ajoute dans la liste de chaque sommet les sommets vers lesquels on peut se déplacer
-    for s in list(graphe.keys()) :
-        for (i, _, _) in graphe[s] :
-            if (i not in G[s]) :
-                G[s].append(i)
+    # On crée une pile allant contenir un state représentant le sommet 'start au jour 1
+    pile = [(start, 1)]
+
+    # On parcourt la pile jusqu'à ce qu'elle soit vide
+    while (pile) :
+        # On récupère la tête de file (soit le state s)
+        s = pile[0]
+        pile = pile[1:]
+
+        # On étudie les sommets que l'on peut atteindre depuis le sommet du state étudié
+        for i in list(graphe[s[0]]) :
+            (s1, s2, s3) = i
+
+            # On étudie si le sommet s1 est atteignable dans la disposition de s
+            if (s2 >= s[1]) : 
+                # Dans le cas où le vol est possible
+                # On ajoute le sommet dans la liste des destinations possibles depuis le sommet s[0] dans le nouveau dictionnaire
+                if (s1 not in G[s[0]]) :
+                    G[s[0]].append(s1)
+
+                # On ajoute en tête de liste un state du sommet atteignable
+                pile = [(s1, s2 + s3)] + pile
 
     # On retourne le graphe
     return G
+
+#-----------------------------------------------------------------------------------------------------
+
+# Méthode permettant de transformer un graphe classique en graphe orienté pondéré par le temps
+def transformeGraphe(graphe, sortantUniquement = False) :
+    # On crée le nouveau graphe
+    G = dict()
+
+    # On crée dans un premier temps l'intégralité des sommets de transition sur le même sommet du graphe original
+    for i in list(graphe.keys()) : # i est un sommet
+        for j in graphe[i] : # j est de la forme (cible, jour du trajet, temps de trajet)
+
+            # On crée des variable représentant les sommet origine et cible afin de faciliter la compréhension
+            origin = (i,j[1])
+            target = (j[0], j[1] + j[2])
+
+            # On vérifie si le sommet d'origine existe dans le dictionnaire en tant que clé
+            if ((i,j[1]) not in G.keys()) :
+                G[(i,j[1])] = ([], []) # On crée les listes des arcs rentrants et des arcs sortants du sommet i
+
+            # On vérifie également que le sommet cible existe dans le dictionnaire en tant que clé
+            if ((j[0], j[1] + j[2]) not in G.keys()) :
+                G[(j[0], j[1] + j[2])] = ([], [])
+
+            # On ajoute les valeurs dans les listes approriées
+            G[origin][1].append(target) # L'arc sortant de l'origine vers la cible
+            G[target][0].append(origin) # L'arc rentrant dans la cible depuis l'origine
+
+    # On ajoute les arcs de transition entre les sommets dont le temps actuel est différent (on les lie dans l'ordre chronologique)
+    for i in list(graphe.keys()) :
+        # On regroupe toutes les clés représentant ce sommet
+        sommets = []
+        for j in list(G.keys()) :
+            (s1, s2) = j
+            if (s1 == i) :
+                sommets.append(j)
+
+        # On les trie de manière croissante sur les jours
+        sommets.sort(key=lambda tup: tup[1])
+
+        # On les lie de manière croissante (tant qu'il existe au moins 2 éléments à lier dans la liste)
+        i = 1
+        while (i < len(sommets)) :
+            origin = sommets[i - 1]
+            target = sommets[i]
+
+            # On ajoute les valeurs dans les listes approriées
+            G[origin][1].append(target) # L'arc sortant de l'origine vers la cible
+            G[target][0].append(origin) # L'arc rentrant dans la cible depuis l'origine
+            i += 1
+
+
+    # On retourne le nouveau graphe (en fonction du parametres)
+    if not(sortantUniquement) :
+        return G
+    else :
+        nG = dict()
+        for i in G.keys() :
+            nG[i] = G[i][1]
+        return nG
 
 #------------------------------------------------------------------------------------------------------
 
@@ -236,66 +313,6 @@ def showGrapheLabels(graphe, titre = "G"):
     nx.draw_networkx_edge_labels(G, pos)
 
     plt.show()
-
-#-----------------------------------------------------------------------------------------------------
-
-# Méthode permettant de transformer un graphe classique en graphe orienté pondéré par le temps
-def transformeGraphe(graphe, sortantUniquement = False) :
-    # On crée le nouveau graphe
-    G = dict()
-
-    # On crée dans un premier temps l'intégralité des sommets de transition sur le même sommet du graphe original
-    for i in list(graphe.keys()) : # i est un sommet
-        for j in graphe[i] : # j est de la forme (cible, jour du trajet, temps de trajet)
-
-            # On crée des variable représentant les sommet origine et cible afin de faciliter la compréhension
-            origin = (i,j[1])
-            target = (j[0], j[1] + j[2])
-
-            # On vérifie si le sommet d'origine existe dans le dictionnaire en tant que clé
-            if ((i,j[1]) not in G.keys()) :
-                G[(i,j[1])] = ([], []) # On crée les listes des arcs rentrants et des arcs sortants du sommet i
-
-            # On vérifie également que le sommet cible existe dans le dictionnaire en tant que clé
-            if ((j[0], j[1] + j[2]) not in G.keys()) :
-                G[(j[0], j[1] + j[2])] = ([], [])
-
-            # On ajoute les valeurs dans les listes approriées
-            G[origin][1].append(target) # L'arc sortant de l'origine vers la cible
-            G[target][0].append(origin) # L'arc rentrant dans la cible depuis l'origine
-
-    # On ajoute les arcs de transition entre les sommets dont le temps actuel est différent (on les lie dans l'ordre chronologique)
-    for i in list(graphe.keys()) :
-        # On regroupe toutes les clés représentant ce sommet
-        sommets = []
-        for j in list(G.keys()) :
-            (s1, s2) = j
-            if (s1 == i) :
-                sommets.append(j)
-
-        # On les trie de manière croissante sur les jours
-        sommets.sort(key=lambda tup: tup[1])
-
-        # On les lie de manière croissante (tant qu'il existe au moins 2 éléments à lier dans la liste)
-        i = 1
-        while (i < len(sommets)) :
-            origin = sommets[i - 1]
-            target = sommets[i]
-
-            # On ajoute les valeurs dans les listes approriées
-            G[origin][1].append(target) # L'arc sortant de l'origine vers la cible
-            G[target][0].append(origin) # L'arc rentrant dans la cible depuis l'origine
-            i += 1
-
-
-    # On retourne le nouveau graphe (en fonction du parametres)
-    if not(sortantUniquement) :
-        return G
-    else :
-        nG = dict()
-        for i in G.keys() :
-            nG[i] = G[i][1]
-        return nG
 
 #------------------------------------------------------------------------------------------------------
 

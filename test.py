@@ -27,21 +27,18 @@ testACH = False
 testOPT = True
 
 # Parametre permettant de choisir si la sélection des sommets sera aléatoire ou non
-randomSelection = True
+randomSelection = False
 
 # Tests des méthodes de util.py
 if (testUT) :
     # Génération de graphe aléatoire
-    g1 = ut.generationMultigraphe(25,50,25)
+    g1 = ut.generationMultigraphe(40,60,25)
 
     # Génération de graphe depuis un fichier texte
     g2 = ut.acquisitionGraphe("Repertoire_Graphes/exempleGraphe.txt")
 
     # Transformation d'un graphe en graphe transformé (utilisé pour les méthodes du fichier algorithmeChemin utilisant les graphes transformés)
     g3 = ut.transformeGraphe(g1, sortantUniquement=True)
-
-    # Transformation d'un graphe en graphe condensé dans le temps
-    g4 = ut.transformeGrapheCondense(g1)
     
 
 # Tests des méthodes de algorithmesChemin.py
@@ -79,23 +76,24 @@ if (testACH) :
 
 # Tests des méthodes de optimisation.py
 if (testOPT) :
-    # On choisit le graphe allant être utilisé
-    G = g4
+    oG = g2 # Graphe d'origine que nous allant transformer pour obtenir un graphe utilisable dans l'optimisation
 
     # On choisit les sommets allant être utilisés dans les tests ci-dessous
     if (randomSelection) :
-        start = list(G.keys())[rand.randint(0, len(list(G.keys())) - 1)]
-        end = list(G.keys())[rand.randint(0, len(list(G.keys())) - 1)]
-        print(start, end)
+        start = list(oG.keys())[rand.randint(0, len(list(oG.keys())) - 1)]
+        end = list(oG.keys())[rand.randint(0, len(list(oG.keys())) - 1)]
     else :
         start = 'a'
-        end = 'k'
+        end = 'j'
+
+    # On crée le graphe allant être utilisé
+    G = ut.transformeGrapheOptimisation(oG, start)
 
     # On affiche l'état du graphe utilisé
-    print("Le graphe utilisé est de la forme :")
-    for i in list(G.keys()) :
-        print(i, G[i])
-    print()
+    # print("Le graphe utilisé est de la forme :")
+    # for i in list(G.keys()) :
+    #     print(i, G[i])
+    # print()
 
     # Résolution par optimisation
     opt.optPlusCourtChemin(G, start, end)
