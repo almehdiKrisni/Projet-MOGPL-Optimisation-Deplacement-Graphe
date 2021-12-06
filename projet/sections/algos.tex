@@ -20,6 +20,12 @@ Les algorithmes développés pour la question 4 sont mis en annexe à ce rapport
   retourne les 4 types de chemins minimaux correspondants.
 \end{question}
 
+Pour obtenir les 4 types de chemins minimaux d'un multigraphe $G$ dans un
+fichier txt, on peut faire tourner le programme main. La commande suivante
+calcule ces 4 chemins, entre a et c, pour le graphe dans exempleGraphe.txt:
+\begin{center}
+\verb|$ python3 main.py "Repertoire_Graphes/exempleGraphe.txt" a c|
+\end{center}
 \subsection{Structure de données pour la représentation de multigraphes}
 
 Pour représenter des multigraphes (et des graphes classiques, également), on
@@ -450,6 +456,36 @@ abordera pas en détail.
   Comparer les algorithmes implantés pour le calcul de chemins de type IV dans
   les question 4 et 5.
 \end{question}
+
+\begin{reponse}
+  Pour le graphe \verb|/Repertoire_Graphes/exempleGraphe.txt|, un graphe de 10
+  sommets et 15 arcs, les temps d'exécution pour trouver trois le chemin le plus
+  court entre 3 paires de sommets choisis aléatoirement (pour lesquels il existe
+  un chemin réalisable) sont donnés
+
+\begin{verbatim}
+Résultats de l'algorithme :
+Chemin recherché                Temps d'exécution               Solution
+Chemin de b à h                  0.000185                [('b', 1), ('b', 3), ('h', 4)]
+Chemin de i à l                  0.000262                [('i', 1), ('i', 8), ('l', 9)]
+Chemin de f à l                  0.000220                [('f', 1), ('f', 5), ('i', 6),
+                                                          ('i', 8), ('l', 9)]
+
+
+Résultats de l'optimisation :
+Chemin recherché                Temps d'exécution               Solution
+Chemin de b à h                  0.024072                [('Arc_b,h', 1.0)]
+Chemin de i à l                  0.002960                [('Arc_i,l', 1.0)]
+Chemin de f à l                  0.002942                [('Arc_f,i', 1.0),
+                                                          ('Arc_i,l', 1.0)]
+\end{verbatim}
+
+  On remarque que l'algorithme de programmation linéaire est plus d'une ordre de
+  magnitude plus lent. Cela n'est pas surprenant, vu que les programmes
+  linéaires ne sont pas une bonne méthode pour résoudre des algorithmes dans les
+  graphes (le nombre de contraintes croit exponentiellement).
+\end{reponse}
+
 
 %%% Local Variables:
 %%% mode: latex

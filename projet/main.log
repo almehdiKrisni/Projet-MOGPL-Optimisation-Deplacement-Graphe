@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2021.12.2)  6 DEC 2021 22:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2021.12.2)  6 DEC 2021 23:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1457,18 +1457,18 @@ I'm changing \accent to \mathaccent here; wish me luck.
 ) (./sections/algos.tex [2]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 38.
+(hyperref)                removing `math shift' on input line 44.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\rightarrow' on input line 38.
+(hyperref)                removing `\rightarrow' on input line 44.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 38.
+(hyperref)                removing `math shift' on input line 44.
 
 
-./sections/algos.tex:76: Package amsmath Error: Erroneous nesting of equation s
+./sections/algos.tex:82: Package amsmath Error: Erroneous nesting of equation s
 tructures;
 (amsmath)                trying to recover with `aligned'.
 
@@ -1476,14 +1476,14 @@ See the amsmath package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.76 \end{align}
+l.82 \end{align}
                 
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 [3] [4]
 
-./sections/algos.tex:211: Package amsmath Error: Erroneous nesting of equation 
+./sections/algos.tex:217: Package amsmath Error: Erroneous nesting of equation 
 structures;
 (amsmath)                trying to recover with `aligned'.
 
@@ -1491,49 +1491,82 @@ See the amsmath package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.211   \end{align}
+l.217   \end{align}
                    
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[5] [6] [7]
+[5]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) (./sections/conclusion.tex) [8] [9] (./main.aux)
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[6] [7] [8] [9]
+Overfull \hbox (15.89856pt too wide) in paragraph at lines 481--481
+[]\OT1/cmtt/m/n/10 Chemin de b ^^Ra h                  0.000185                
+[('b', 1), ('b', 3), ('h', 4)][] 
+ []
+
+
+Overfull \hbox (15.89856pt too wide) in paragraph at lines 481--481
+[]\OT1/cmtt/m/n/10 Chemin de i ^^Ra l                  0.000262                
+[('i', 1), ('i', 8), ('l', 9)][] 
+ []
+
+
+Overfull \hbox (15.89856pt too wide) in paragraph at lines 481--481
+[]\OT1/cmtt/m/n/10 Chemin de f ^^Ra l                  0.000220                
+[('f', 1), ('f', 5), ('i', 6),[] 
+ []
+
+) [10] (./main.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 6DCDDB294DDC0D90D2FD74364B0563BF;3445.
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: 6DCDDB294DDC0D90D2FD74364B0563BF;3445
+(rerunfilecheck)             After:  6C0AAC0280998F7BE742A170B9ED1422;3351.
  ) 
 Here is how much of TeX's memory you used:
- 33641 strings out of 478353
- 663002 string characters out of 5850635
- 1086278 words of memory out of 5000000
- 51043 multiletter control sequences out of 15000+600000
+ 33636 strings out of 478353
+ 662862 string characters out of 5850635
+ 1096280 words of memory out of 5000000
+ 51040 multiletter control sequences out of 15000+600000
  418626 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,20n,92p,552b,949s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10
-.pfb>
-Output written on main.pdf (11 pages, 286606 bytes).
+pdfTeX warning (dest): name{section.4} has been referenced but does not exist
+, replaced by a fixed one
+
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+ti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.p
+fb>
+Output written on main.pdf (12 pages, 291953 bytes).
 PDF statistics:
- 266 PDF objects out of 1000 (max. 8388607)
- 224 compressed objects within 3 object streams
- 76 named destinations out of 1000 (max. 500000)
+ 270 PDF objects out of 1000 (max. 8388607)
+ 227 compressed objects within 3 object streams
+ 77 named destinations out of 1000 (max. 500000)
  122 words of extra memory for PDF output out of 10000 (max. 10000000)
 
