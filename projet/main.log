@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2021.12.2)  6 DEC 2021 18:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2021.12.2)  6 DEC 2021 18:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1239,7 +1239,7 @@ Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count379
 
 (./misc/title_page.tex
-<img/logo_sorbonne.png, id=75, 1792.7778pt x 730.8906pt>
+<img/logo_sorbonne.png, id=59, 1792.7778pt x 730.8906pt>
 File: img/logo_sorbonne.png Graphic file (type png)
 <use img/logo_sorbonne.png>
 Package pdftex.def Info: img/logo_sorbonne.png  used on input line 8.
@@ -1252,21 +1252,27 @@ LaTeX Font Warning: Font shape `OT1/cmr/bx/sc' undefined
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./img/logo_sorbonne.png>])
- (./sections/introduction.tex) (./sections/preliminaires.tex
-Package hyperref Info: bookmark level for unknown question defaults to 0 on inp
-ut line 6.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 11.
-
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+ (./main.toc
+LaTeX Font Info:    Trying to load font information for U+msa on input line 5.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 11.
-
+LaTeX Font Info:    Trying to load font information for U+msb on input line 5.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
+))
+\tf@toc=\write7
+\openout7 = `main.toc'.
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.44 \newpage
+              [1] (./sections/introduction.tex) (./sections/preliminaires.tex
+Package hyperref Info: bookmark level for unknown question defaults to 0 on inp
+ut line 6.
 Package hyperref Info: bookmark level for unknown assertion defaults to 0 on in
 put line 44.
 
@@ -1505,13 +1511,13 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 02424239AA5BEBF9E90967525EA041C2;4519.
+(rerunfilecheck)             Checksum: 6DCDDB294DDC0D90D2FD74364B0563BF;3445.
  ) 
 Here is how much of TeX's memory you used:
- 33623 strings out of 478353
- 662863 string characters out of 5850635
- 1087469 words of memory out of 5000000
- 51044 multiletter control sequences out of 15000+600000
+ 33618 strings out of 478353
+ 662695 string characters out of 5850635
+ 1087170 words of memory out of 5000000
+ 51039 multiletter control sequences out of 15000+600000
  418626 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,20n,92p,552b,949s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1526,10 +1532,10 @@ public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmtt10.pfb>
-Output written on main.pdf (8 pages, 264079 bytes).
+Output written on main.pdf (9 pages, 264718 bytes).
 PDF statistics:
- 227 PDF objects out of 1000 (max. 8388607)
- 191 compressed objects within 2 object streams
- 60 named destinations out of 1000 (max. 500000)
- 154 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 229 PDF objects out of 1000 (max. 8388607)
+ 192 compressed objects within 2 object streams
+ 57 named destinations out of 1000 (max. 500000)
+ 122 words of extra memory for PDF output out of 10000 (max. 10000000)
 
