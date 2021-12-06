@@ -27,10 +27,6 @@
     "sec:plus-court"
     "sec:plus-court-pl"
     "sec:algos-sans-transfo"
-    "subsec:plus-tot"
-    "subsec:plus-tard"
-    "subsec:plus-rapide"
-    "subsec:plus-court"
     "sec:tests"))
  :latex)
 
